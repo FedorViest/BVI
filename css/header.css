@@ -36,15 +36,14 @@ header {
     width: 100%;
     float: left;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     background-color: var(--nyanza);
 }
 
 .site_name_logo {
-    margin-right: auto;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -56,6 +55,10 @@ header {
 .website-name {
     cursor: pointer;
     padding-left: 10px;
+}
+
+.show_all_nav{
+    flex-grow: 0;
 }
 
 .nav_links {
@@ -96,27 +99,75 @@ header {
 }
 
 
-.dropdown_menu .dropdown-content li{
+.dropdown_content li{
     list-style: none;
     float: none;
     color: black;
-    padding: 100px;
+    padding: 10px;
     text-decoration: none;
     display: block;
     text-align: left;
-    font-size: 50px !important;
+    font-size: 20px;
+    transition: all 0.3s ease 0s;
+}
+
+.dropdown_content li a:hover{
+    color: var(--pakistan-green);
+}
+
+.search-form {
+    display: flex;
+    flex-grow: 1;
+    margin-left: 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.search-form input[type="text"] {
+    width: 100%;
+    height: 30px;
+    padding: 5px;
+    font-size: 16px;
+    min-width: 50px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+}
+
+.search-form button {
+    width: 40px;
+    height: 40px;
+    margin-left: 5px;
+    padding: 5px;
+    cursor: pointer;
+    border: none;
+    background-color: white;
+    border-radius: 20px;
+    color: var(--avocado);
+}
+
+.search-form button:hover {
+    color: var(--pakistan-green);
 }
 
 
 
-@media only screen and (min-width: 1100px) {
+@media only screen and (min-width: 1265px) {
     header {
-        width: 85%;
-        padding: 0 15%;
+        width: 70%;
+        padding-right: 15%;
+        padding-left: 15%;
     }
 }
 
-@media only screen and (max-width: 690px) {
+@media only screen and (max-width: 885px){
+    .nav_links .home_button {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 800px) {
     .nav_links {
         display: none;
     }
@@ -129,10 +180,4 @@ header {
         display: block;
         text-align: left;
     }
-
-
-
-
-
-
 }
