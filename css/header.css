@@ -10,17 +10,17 @@
 
 * {
     margin: 0;
+    padding: 0;
 }
 
 
 .material-symbols-outlined {
     font-variation-settings:
             'FILL' 0,
-            'wght' 550,
-            'GRAD' 0,
+            'wght' 700,
+            'GRAD' 200,
             'opsz' 48
     ;
-    font-weight: 550;
 }
 
 li, a, h3 {
@@ -33,10 +33,11 @@ li, a, h3 {
 }
 
 header {
+    width: 100%;
+    float: left;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding: 0 15%;
     background-color: var(--nyanza);
 }
 
@@ -72,4 +73,66 @@ header {
 
 .nav_links li a:hover , .site_name_logo h3:hover {
     color: var(--pakistan-green);
+}
+
+.dropdown_menu {
+    display: none;
+    padding: 20px;
+    width: 100px;
+    text-align: right;
+}
+
+.dropdown_content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    list-style: none;
+    padding: 10px;
+
+
+}
+
+
+.dropdown_menu .dropdown-content li{
+    list-style: none;
+    float: none;
+    color: black;
+    padding: 100px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    font-size: 50px !important;
+}
+
+
+
+@media only screen and (min-width: 1100px) {
+    header {
+        width: 85%;
+        padding: 0 15%;
+    }
+}
+
+@media only screen and (max-width: 690px) {
+    .nav_links {
+        display: none;
+    }
+
+    .dropdown_menu {
+        display: block;
+    }
+
+    .dropdown_menu:hover .dropdown_content {
+        display: block;
+        text-align: left;
+    }
+
+
+
+
+
+
 }

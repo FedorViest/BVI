@@ -14,7 +14,7 @@
                 <img class="logo" src="assets/logo/wtech_logo_v2-removebg-preview.png" alt="logo">
                 <h3 class="website-name">Website name</h3>
             </div>
-            <nav>
+            <nav class="show_all_nav">
                 <ul class="nav_links">
                     <li><a href="#"><span class="material-symbols-outlined">search</span> </a></li>
                     <li><a href="#">Home</a> </li>
@@ -23,6 +23,17 @@
                     <li><a href="#"><span class="material-symbols-outlined">shopping_cart</span> </a></li>
                     <li><a href="#">Login</a> </li>
                 </ul>
+                <div class="dropdown_menu">
+                    <span class="material-symbols-outlined">menu</span>
+                    <ul class="dropdown_content">
+                        <li><a href="#">Search</a></li>
+                        <li><a href="#">Home</a> </li>
+                        <li><a href="#">Shop</a> </li>
+                        <li><a href="#">Contact</a> </li>
+                        <li><a href="#">Home</a> </li>
+                        <li><a href="#">Login</a> </li>
+                    </ul>
+                </div>
             </nav>
         </header>
     </body>
