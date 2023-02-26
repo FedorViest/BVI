@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+:root {
+    --nyanza: #e4efd1ff;
+    --avocado: #668136ff;
+    --slate-gray: #587792ff;
+    --pakistan-green: #103900ff;
+    --denim: #2e5eaaff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 550;
+    color: var(--avocado);
+    text-decoration: none;
+}
+
+
+.material-symbols-outlined {
+    font-variation-settings:
+            'FILL' 0,
+            'wght' 700,
+            'GRAD' 200,
+            'opsz' 48
+;
+}
