@@ -32,6 +32,13 @@ li, a, h3 {
     vertical-align: middle;
 }
 
+.website_name_a{
+    display: flex;
+    flex-direction: row;
+    vertical-align: middle;
+    align-items: center;
+}
+
 header {
     width: 100%;
     float: left;

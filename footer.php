@@ -9,27 +9,27 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body>
-<footer class="footer">
-    <div class="site_logo">
-        <img class="footer_logo" src="assets/logo/wtech_logo_v2-removebg-preview.png" alt="logo">
-    </div>
-    <div class="blocks_holder">
-        <!-- canvas for the 3 blocks-->
-        <div class="block">
-            <span class="material-symbols-outlined">distance</span>
-            <p class="text">Main Address 24</p>
+    <footer class="footer">
+        <div class="site_logo">
+            <img class="footer_logo" src="assets/logo/wtech_logo_v2-removebg-preview.png" alt="logo">
         </div>
+        <div class="blocks_holder">
+            <!-- canvas for the 3 blocks-->
+            <div class="block">
+                <span class="material-symbols-outlined">distance</span>
+                <p class="text">Main Address 24</p>
+            </div>
 
-        <div class="block">
-            <span class="material-symbols-outlined">alternate_email</span>
-                <p class="text">email@email.com</p>
-        </div>
+            <div class="block">
+                <span class="material-symbols-outlined">alternate_email</span>
+                    <p class="text">email@email.com</p>
+            </div>
 
-        <div class="block">
-            <span class="material-symbols-outlined">call</span>
-                <p class="text">0901234567</p>
+            <div class="block">
+                <span class="material-symbols-outlined">call</span>
+                    <p class="text">0901234567</p>
+            </div>
         </div>
-    </div>
-</footer>
+    </footer>
 </body>
 </html>

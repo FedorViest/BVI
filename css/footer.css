@@ -32,23 +32,26 @@
     background-color: var(--nyanza);
 }
 
+.site_logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .footer_logo {
-    cursor: pointer;
-    width: 100px;
+     width: 100px;
 }
 
 .blocks_holder {
     display: flex;
-    padding: 20px;
-    flex-direction: row;
     gap: 20px;
+    padding: 20px;
 }
 
 .block {
     background-color: var(--avocado);
     color: var(--nyanza);
-    padding: 5px;
-    width: 100%;
+    padding: 15px;
     display: flex;
     flex-direction: row;
     gap: 5px;
@@ -72,12 +75,21 @@
         display: flex;
         flex-direction: column;
     }
+    .footer_logo{
+        width: 200px;
+    }
 }
 
 @media only screen and (min-width: 1265px) {
     footer {
         width: 70%;
-        padding-right: 15%;
+    }
+
+    .blocks_holder{
+        padding: 20px 15% 20px 20px;
+    }
+
+    .site_logo{
         padding-left: 15%;
     }
 }
