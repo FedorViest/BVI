@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <stylesheet class="index.css"></stylesheet>
+    <link rel="stylesheet" href="css/index.css" type="text/css">
 </head>
 <body>
 <?php include("header.php"); ?>
