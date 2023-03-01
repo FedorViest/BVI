@@ -41,7 +41,6 @@ li, a, h3 {
 
 header {
     width: 100%;
-    float: left;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -129,6 +128,7 @@ header {
     border: none;
     border-radius: 20px;
     background-color: white;
+    align-items: center;
 }
 
 .search-form input[type="text"] {

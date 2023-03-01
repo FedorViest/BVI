@@ -10,26 +10,26 @@
 </head>
 <body>
     <footer class="footer">
-        <div class="site_logo">
+        <section class="site_logo">
             <img class="footer_logo" src="assets/logo/wtech_logo_v2-removebg-preview.png" alt="logo">
-        </div>
-        <div class="blocks_holder">
+        </section>
+        <section class="blocks_holder">
             <!-- canvas for the 3 blocks-->
-            <div class="block">
+            <address class="block">
                 <span class="material-symbols-outlined">distance</span>
                 <p class="text">Main Address 24</p>
-            </div>
+            </address>
 
-            <div class="block">
+            <address class="block">
                 <span class="material-symbols-outlined">alternate_email</span>
                     <p class="text">email@email.com</p>
-            </div>
+            </address>
 
-            <div class="block">
+            <address class="block">
                 <span class="material-symbols-outlined">call</span>
                     <p class="text">0901234567</p>
-            </div>
-        </div>
+            </address>
+        </section>
     </footer>
 </body>
 </html>
