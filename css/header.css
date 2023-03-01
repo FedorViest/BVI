@@ -1,12 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('colors.css');
 
-:root {
-    --nyanza: #e4efd1ff;
-    --avocado: #668136ff;
-    --slate-gray: #587792ff;
-    --pakistan-green: #103900ff;
-    --denim: #2e5eaaff;
-}
 
 * {
     margin: 0;

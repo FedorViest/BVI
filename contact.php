@@ -17,7 +17,7 @@
             <section class="inner_contact">
                 <!-- section for contact map-->
                 <section class="content">
-                    <iframe width="100%" height="100%" src="https://www.openstreetmap.org/export/embed.html?bbox=17.06408500671387%2C48.150841192448034%2C17.078247070312504%2C48.15715413998257&amp;layer=mapnik" style="border: 1px solid black"></iframe><br/><small></small>
+                    <iframe class="picture_map" width="100%" height="100%" src="https://www.openstreetmap.org/export/embed.html?bbox=17.06408500671387%2C48.150841192448034%2C17.078247070312504%2C48.15715413998257&amp;layer=mapnik" style="border: 1px solid black"></iframe><br/><small></small>
                 </section>
                 <!-- section for contact information including address, phone, email-->
                 <section class="content">
