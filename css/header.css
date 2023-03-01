@@ -23,7 +23,7 @@
     ;
 }
 
-li, a, h3 {
+.header li, .header a, .header h3 {
     font-family: "Montserrat", sans-serif;
     font-weight: 550;
     font-size: 16px;
