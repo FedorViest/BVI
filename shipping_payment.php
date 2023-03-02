@@ -115,25 +115,11 @@
         </section>
         <section class="outline_cart_block">
             <!-- shopping cart content -->
-            <section class="cart_block">
-                <img class="product_photo" src="assets/logo/wtech_logo_v2-removebg-preview.png" alt="logo">
-                <h4>Product 1</h4>
-                <h4>5.99€</h4>
-            </section>
-            <hr>
-            <!-- duplicate shopping cart content -->
-            <section class="cart_block">
-                <img class="product_photo" src="assets/logo/wtech_logo_v2-removebg-preview.png" alt="logo">
-                <h4>Product 1</h4>
-                <h4>5.99€</h4>
-            </section>
-            <hr>
-            <section class="cart_block">
-                <img class="product_photo" src="assets/logo/wtech_logo_v2-removebg-preview.png" alt="logo">
-                <h4>Product 1</h4>
-                <h4>5.99€</h4>
-            </section>
-            <hr>
+                <table class="shipping_cart_table">
+                    <?php include("Components/shipping_cart.php"); ?>
+                    <?php include("Components/shipping_cart.php"); ?>
+                    <?php include("Components/shipping_cart.php"); ?>
+                </table>
             <table class="price_table">
                 <tr>
                     <th>

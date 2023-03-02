@@ -115,7 +115,7 @@ body{
     min-height: 500px;
 }
 
-@media only screen and (min-width: 1265px){
+@media only screen and (min-width: 1265px), (min-device-width: 1265px){
     .inner_contact{
         width: 70%;
         padding-left: 15%;

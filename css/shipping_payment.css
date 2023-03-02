@@ -24,7 +24,7 @@ body{
 }
 
 .content{
-    padding: 20px;
+    padding-top: 20px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -36,20 +36,22 @@ body{
     display: flex;
     flex-direction: row;
     gap: 30px;
+    width: fit-content;
+    min-width:  70%;
+    align-items: center;
 }
 
 .outline_block{
-    border: 1px black;
     display: flex;
     flex-direction: column;
     gap: 20px;
-
+    width: 100%;
 }
 
 .outline_cart_block{
-    border: 1px black;
     display: flex;
     flex-direction: column;
+    width: 80%;
 }
 
 .details_table{
@@ -57,16 +59,39 @@ body{
     padding: 5px;
 }
 
-.details_block{
+.details_table td:last-child{
+    text-align: right;
 }
 
-.cart_block{
+.details_block{
+    justify-content: center;
     display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: fit-content;
-    padding: 5px;
-    gap: 5px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.shipping_cart_table{
+    border-collapse: collapse;
+}
+
+.shipping_cart_table tr {
+    border: solid;
+    border-width: 1px 0;
+    border-color: grey;
+}
+
+.shipping_cart_table td:nth-child(n+2){
+    text-align: left;
+    vertical-align: top;
+    padding-top: 10px;
+}
+
+.shipping_cart_table td:last-child{
+    text-align: right;
+}
+
+.shipping_cart_table td:nth-child(1){
+    width: 1%;
 }
 
 .product_photo{
@@ -79,9 +104,19 @@ body{
 
 }
 
-@media only screen and (max-width: 600px), (max-device-width: 600px){
+@media only screen and (max-width: 800px), (max-device-width: 800px){
     .inside_content{
         flex-direction: column-reverse;
+    }
+
+    .details_table{
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 1265px), (max-device-width: 1265px) {
+    .inside_content{
+        min-width: 90%;
     }
 }
 

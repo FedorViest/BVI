@@ -68,7 +68,7 @@ footer{
 }
 
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 700px), (max-device-width: 700px) {
     .blocks_holder {
         display: flex;
         flex-direction: column;
@@ -78,7 +78,7 @@ footer{
     }
 }
 
-@media only screen and (min-width: 1265px) {
+@media only screen and (min-width: 1265px), (min-device-width: 1265px) {
     footer {
         width: 70%;
     }

@@ -38,6 +38,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    float: left;
     background-color: var(--nyanza);
 }
 
@@ -154,21 +155,27 @@ header {
 
 
 
-@media only screen and (min-width: 1265px) {
+@media only screen and (min-width: 1265px), (min-device-width: 1265px) {
     header {
-        width: 70%;
-        padding-right: 15%;
+        width: 100%;
+    }
+
+    .site_name_logo{
         padding-left: 15%;
+    }
+
+    .show_all_nav{
+        padding-right: 15%;
     }
 }
 
-@media only screen and (max-width: 885px){
+@media only screen and (max-width: 890px), (max-device-width: 890px){
     .nav_links .home_button {
         display: none;
     }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 800px), (max-device-width: 800px) {
     .nav_links {
         display: none;
     }
