@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="css/shipping_payment.css" type="text/css">
     <link rel="stylesheet" href="css/header.css" type="text/css">
     <link rel="stylesheet" href="css/footer.css" type="text/css">
+    <link rel="stylesheet" href="css/button_1.css" type="text/css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
@@ -19,7 +20,7 @@
         <section class="outline_block">
             <form class="details_block">
                 <h3>Shipping Details</h3>
-                <table>
+                <table class="details_table">
                     <tr>
                         <td>
                             <input type="radio" id="store" name="shipping" value="Store">
@@ -66,7 +67,7 @@
             </form>
             <form class="details_block">
                 <h3>Payment Details</h3>
-                <table>
+                <table class="details_table">
                     <tr>
                         <td>
                             <input type="radio" id="card" name="payment" value="Card">
@@ -112,7 +113,7 @@
                 </table>
             </form>
         </section>
-        <section class="outline_block">
+        <section class="outline_cart_block">
             <!-- shopping cart content -->
             <section class="cart_block">
                 <img class="product_photo" src="assets/logo/wtech_logo_v2-removebg-preview.png" alt="logo">
@@ -132,7 +133,23 @@
                 <h4>Product 1</h4>
                 <h4>5.99€</h4>
             </section>
+            <hr>
+            <table class="price_table">
+                <tr>
+                    <th>
+                        Total price:
+                    </th>
+                    <td>
+                        17.97€
+                    </td>
+                </tr>
+            </table>
         </section>
+    </section>
+    <section class="price_content">
+        <button type="button" class="btn">
+            Checkout
+        </button>
     </section>
 </section>
 <?php include("footer.php"); ?>
