@@ -62,7 +62,7 @@
         </section>
     </section>
     <section class="price_content">
-        <button type="button" class="btn">
+        <button type="button" class="btn" onclick="window.location.href='/order_confirm.php.php'">
             Purchase
         </button>
     </section>
