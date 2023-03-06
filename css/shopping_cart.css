@@ -24,7 +24,7 @@ body{
 }
 
 .content{
-    padding: 20px;
+    padding-top: 20px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -57,6 +57,16 @@ body{
 
 .cart input {
     width: 50px;
+}
+
+.cart_navigation .nav_cart{
+    text-decoration-line: underline;
+}
+
+.cart_navigation .nav_billing, .cart_navigation .nav_billing:hover,
+.cart_navigation .nav_shipping, .cart_navigation .nav_shipping:hover{
+    color: grey;
+    cursor: default;
 }
 
 .cart td:nth-child(2){

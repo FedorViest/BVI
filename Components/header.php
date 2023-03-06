@@ -6,26 +6,26 @@
         </a>
     </section>
     <form class="search-form">
-        <input type="text" placeholder="Search...">
+            <input type="text" placeholder="Search...">
         <button type="submit"><span class="material-symbols-outlined">search</span></button>
     </form>
     <nav class="show_all_nav">
         <ul class="nav_links">
             <li class="home_button"><a href="#">Home</a> </li>
             <li><a href="#">Shop</a> </li>
-            <li><a href="#">Contact</a> </li>
-            <li><a href="#"><span class="material-symbols-outlined">shopping_cart</span> </a></li>
+            <li><a href="/contact.php">Contact</a> </li>
+            <li><a href="/shopping_cart.php"><span class="material-symbols-outlined">shopping_cart</span> </a></li>
             <li><a href="#">Login</a> </li>
         </ul>
-        <sectin class="dropdown_menu">
+        <section class="dropdown_menu">
             <span class="material-symbols-outlined">menu</span>
             <ul class="dropdown_content">
                 <li><a href="#">Home</a> </li>
                 <li><a href="#">Shop</a> </li>
-                <li><a href="#">Contact</a> </li>
-                <li><a href="#">Cart</a> </li>
+                <li><a href="/contact.php">Contact</a> </li>
+                <li><a href="/shopping_cart.php">Cart</a> </li>
                 <li><a href="#">Login</a> </li>
             </ul>
-        </sectin>
+        </section>
     </nav>
 </header>

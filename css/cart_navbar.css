@@ -1,0 +1,17 @@
+@import url('colors.css');
+
+.cart_navigation{
+    margin-left: 15%;
+    align-self: start;
+    color: var(--pakistan-green);
+}
+
+.cart_navigation a{
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--avocado)
+}
+
+.cart_navigation a:hover{
+    color: var(--pakistan-green)
+}

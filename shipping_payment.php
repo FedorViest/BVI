@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/footer.css" type="text/css">
     <link rel="stylesheet" href="css/button_1.css" type="text/css">
     <link rel="stylesheet" href="css/shipping_cart_table.css" type="text/css">
+    <link rel="stylesheet" href="css/cart_navbar.css" type="text/css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
@@ -16,7 +17,7 @@
 <body>
 <?php include("Components/header.php"); ?>
 <section class="content">
-    <h2>Shipping and Payment</h2>
+    <?php include ("Components/cart_navbar.php"); ?>
     <section class="inside_content">
         <section class="outline_block">
             <form class="details_block">
@@ -134,7 +135,7 @@
         </section>
     </section>
     <section class="price_content">
-        <button type="button" class="btn">
+        <button type="button" class="btn" onclick="window.location.href='/billing_address.php'">
             Checkout
         </button>
     </section>

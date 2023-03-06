@@ -82,6 +82,15 @@ html{
     align-items: center;
 }
 
+.cart_navigation .nav_shipping{
+    text-decoration-line: underline;
+}
+
+.cart_navigation .nav_billing, .cart_navigation .nav_billing:hover{
+    color: grey;
+    cursor: default;
+}
+
 @media only screen and (max-width: 800px), (max-device-width: 800px){
     .inside_content{
         flex-direction: column-reverse;
