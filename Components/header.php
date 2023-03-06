@@ -1,7 +1,7 @@
 <header class="header">
     <section class="site_name_logo">
         <a href="#" class="website_name_a">
-            <img class="logo" src="assets/logo/wtech_logo_v2-removebg-preview.png" alt="logo">
+            <img class="logo" src="../assets/logo/wtech_logo_v2-removebg-preview.png" alt="logo">
             <h3 class="website-name">Website name</h3>
         </a>
     </section>

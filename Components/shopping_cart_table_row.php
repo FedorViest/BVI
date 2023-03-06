@@ -5,7 +5,7 @@
     </td>
     <td>
         <!-- product name and desc.-->
-        <table>
+        <table class="cart_sub_table">
             <tr>
                 <th>
                     <!-- product name-->
@@ -26,10 +26,12 @@
     </td>
     <td>
         <!--quantity -->
-
+        <label>
+            <input type="number" required maxlength="2">
+        </label>
     </td>
     <td>
         <!-- remove icon -->
-        <span class="material-symbols-outlined">trash</span>
+        <span class="material-symbols-outlined">delete</span>
     </td>
 </tr>

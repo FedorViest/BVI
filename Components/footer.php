@@ -1,6 +1,6 @@
 <footer class="footer">
     <section class="site_logo">
-        <img class="footer_logo" src="assets/logo/wtech_logo_v2-removebg-preview.png" alt="logo">
+        <img class="footer_logo" src="../assets/logo/wtech_logo_v2-removebg-preview.png" alt="logo">
     </section>
     <section class="blocks_holder">
         <!-- canvas for the 3 blocks-->

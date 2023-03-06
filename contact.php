@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     </head>
     <body>
-        <?php include("header.php"); ?>
+        <?php include("Components/header.php"); ?>
         <section class="outer_contact">
             <section class="inner_contact">
                 <!-- section for contact map-->
@@ -75,6 +75,6 @@
                 </section>
             </section>
         </section>
-        <?php include("footer.php"); ?>
+        <?php include("Components/footer.php"); ?>
     </body>
 </html>

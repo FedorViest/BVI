@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="css/footer.css" type="text/css">
 </head>
 <body>
-<?php include("header.php"); ?>
+<?php include("Components/header.php"); ?>
 <div style="height: 800px; width: 100%">
     <h1 style="text-align: center; ">----CONTENT----</h1>
 </div>
-<?php include("footer.php"); ?>
+<?php include("Components/footer.php"); ?>
 </body>
 </html>
