@@ -21,3 +21,69 @@ body{
             'opsz' 48
 ;
 }
+
+.welcome_banner{
+    max-height: 250px;
+    display: flex;
+    flex-direction: row;
+    gap: 10%;
+    border: solid 1px;
+}
+
+.welcome_image{
+    width: 60%;
+    object-fit: cover;
+}
+
+.welcome_text{
+    display: flex;
+    vertical-align: middle;
+    align-items: center;
+    font-size: 50px;
+}
+
+.best_sellers_box{
+}
+
+.best_sellers_text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    vertical-align: middle;
+    font-size: 32px;
+    padding: 20px 0 20px 0;
+}
+
+.best_sellers_products{
+    justify-content: space-between;
+    gap: normal;
+    display: flex;
+    flex-direction: row;
+}
+
+.best_sellers_products .row{
+    justify-content: space-between;
+}
+
+.products_table{
+    border: none;
+}
+
+
+
+@media only screen and (min-width: 1300px){
+    .welcome_banner{
+        padding-left: 15%;
+        padding-right: 15%;
+    }
+    .best_sellers_box{
+        padding-left: 15%;
+        padding-right: 15%;
+    }
+}
+
+@media only screen and (max-width: 815px){
+    .best_sellers_products .row{
+        justify-content: center;
+    }
+}

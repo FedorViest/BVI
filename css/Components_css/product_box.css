@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('../constants.css');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+            'FILL' 0,
+            'wght' 700,
+            'GRAD' 200,
+            'opsz' 48
+;
+}
+
+.inner_content{
+    display: flex;
+    flex-direction: column;
+    max-width: 130px;
+    max-height: 210px;
+    border: solid 2px var(--seal-brown);
+    gap: 15px;
+    padding: 10px;
+}
+
+.inner_content:hover{
+    cursor: pointer;
+}
+
+.product_photo{
+    border: solid 1px;
+    object-fit: cover;
+}
+
+.product_text{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    vertical-align: middle;
+}
+
+.product_name{
+    font-size: 18px;
+}
+
+.product_price{
+    font-size: 14px;
+}
