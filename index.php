@@ -13,7 +13,7 @@
 </head>
 <body>
 <?php include("Components/header.php"); ?>
-<div style="height: 800px; width: 100%">
+<div style="height: 815px; width: 100%">
     <h1 style="text-align: center; ">----CONTENT----</h1>
 </div>
 <?php include("Components/footer.php"); ?>

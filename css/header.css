@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
-@import url('colors.css');
+@import url('constants.css');
 
 
 * {
@@ -38,7 +38,6 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    float: left;
     background-color: var(--nyanza);
 }
 
@@ -90,12 +89,10 @@ header {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
-    min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
     list-style: none;
     padding: 10px;
-
 
 }
 
@@ -155,10 +152,7 @@ header {
 
 
 
-@media only screen and (min-width: 1265px), (min-device-width: 1265px) {
-    header {
-        width: 100%;
-    }
+@media only screen and (min-width: 1300px){
 
     .site_name_logo{
         padding-left: 15%;
@@ -169,13 +163,13 @@ header {
     }
 }
 
-@media only screen and (max-width: 890px), (max-device-width: 890px){
+@media only screen and (max-width: 910px), only screen and (max-device-width: 910px){
     .nav_links .home_button {
         display: none;
     }
 }
 
-@media only screen and (max-width: 800px), (max-device-width: 800px) {
+@media only screen and (max-width: 815px), only screen and (max-device-width: 815px) {
     .nav_links {
         display: none;
     }
