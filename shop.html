@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/index.css" type="text/css">
     <link rel="stylesheet" href="css/header.css" type="text/css">
     <link rel="stylesheet" href="css/footer.css" type="text/css">
+    <link rel="stylesheet" href="css/side_nav.css" type="text/css">
     <link rel="stylesheet" href="css/Components_css/product_box.css" type="text/css">
     </head>
 <body>
@@ -49,14 +50,18 @@
 
     <!-- SIDE NAV  -->
     <nav class="side_nav">
-        <ul>
-          <li><a href="#">Categories</a></li>
-          <li><a href="#">Flowers</a></li>
-          <li><a href="#">Trees</a></li>
-          <li><a href="#">Fruit</a></li>
-          <li><a href="#">Vegetables</a></li>
+        <ul class="side_nav_links">
+            <li><a href="#">Categories<span class="material-symbols-outlined">chevron_right</span></a>
+                <ul class="side_nav_sub_links">
+                    <li><a href="#">Flowers</a></li>
+                    <li><a href="#">Trees</a></li>
+                    <li><a href="#">Fruit</a></li>
+                    <li><a href="#">Vegetables</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Filters<span class="material-symbols-outlined">chevron_right</span></a></li>
         </ul>
-      </nav>
+    </nav>
     <!-- /SIDE NAV  -->
 </body>
 </html>
