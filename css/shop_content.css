@@ -1,0 +1,8 @@
+@import url('constants.css');
+
+.shop_content {
+    height: 100vh;
+    /* width: 100%; */
+    display: flex;
+
+}

@@ -3,12 +3,10 @@
 
 
 .side_nav {
-    margin-top: 68px;
     background: var(--nyanza);
-    position: fixed;
     width: 18%;
     height: 100%;
-    overflow: auto;
+    position: relative;
 }
   
 .side_nav ul {
