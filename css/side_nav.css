@@ -1,7 +1,7 @@
 @import url('constants.css');
 
 
-
+/* big_side_nav */
 .side_nav {
     background: var(--nyanza);
     width: 18%;
@@ -25,18 +25,20 @@
     color: black;
     text-decoration: none;
     font-size: 16px;
-    padding-left: 40px;
+    padding-left: 14%;
     font-weight: 700;
     display: block;
     width: 100%;
+    justify-content: space-between;
+    flex-direction: row;
+    display: flex;
 }
 
-/* .side_nav ul li a HOVER */
+
 
 .side_nav_links li a span {
     margin-right: 60px;
-    transform: translateY(70%);
-    float: right;
+    transform: translateY(30%);
 }
 
 .side_nav_sub_links {
@@ -48,11 +50,80 @@
     border-bottom: none;
 }
 
+.side_nav_sub_links li:hover {
+    background-color: var(--honeydew);
+}
+
 .side_nav_sub_links li a {
     font-weight: 400;
     font-size: 14px;
-    padding-left: 60px;
+    padding-left: 26%;
 }
+
+
+
+/* small nav */
+.side_nav_small_screen {
+    display: none;
+    background-color: var(--nyanza);
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
+    line-height: 40px;
+    width: 100%;
+}
+
+.side_nav_small_screen ul {
+    display: flex;
+    justify-content: space-around;
+}
+
+.side_nav_small_screen ul li {
+    display: inline-block;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+.side_nav_links_SS li a {
+    color: black;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.side_nav_links_SS li:hover  {
+    background-color: var(--honeydew);
+}
+
+.side_nav_small_screen ul li ul {
+    display: none;
+}
+
+.side_nav_sub_links_SS {
+    display: none;
+    position: absolute;
+    background-color: var(--honeydew);
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    list-style: none;
+    padding: 0 5%;
+
+}
+
+.side_nav_sub_links_SS li {
+    text-decoration: none;
+    text-align: left;
+    transition: all 0.3s ease 0s;
+}
+
+.side_nav_sub_links_SS li a {
+    font-weight: 400;
+}
+
+.side_nav_sub_links_SS li a:hover {
+    color: var(--avocado);
+}
+
+
+
 
 
 @media only screen and (min-width: 1300px){
@@ -62,14 +133,14 @@
     }
 }
 
-@media only screen and (max-width: 910px), only screen and (max-device-width: 910px){
-    .side_nav {
-        margin-left: 0;
-    }
-}
 
-@media only screen and (max-width: 600px), only screen and (max-device-width: 600px) {
+
+/* @media only screen and (max-width: 815px), only screen and (max-device-width: 815px) {
     .side_nav {
         display: none;
     }
-}
+
+    .side_nav_small_screen {
+        display: inline;
+    }
+} */

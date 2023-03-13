@@ -4,5 +4,27 @@
     height: 100vh;
     /* width: 100%; */
     display: flex;
+    flex-direction: row;
 
+}
+
+
+@media only screen and (max-width: 815px), only screen and (max-device-width: 815px) {
+    .side_nav {
+        display: none;
+    }
+
+    .side_nav_small_screen {
+        display: inline;
+    }
+
+    .shop_content {
+        flex-direction: column;
+    }
+
+    .side_nav_links_SS li:hover .side_nav_sub_links_SS {
+        display: flex;
+        flex-direction: column;
+        /* background-color: red; */
+    }
 }
