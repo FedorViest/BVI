@@ -1,13 +1,59 @@
 @import url('constants.css');
 
 .shop_content {
-    height: 100vh;
+    /* height: 100vh; */
+    height: auto;
     /* width: 100%; */
     display: flex;
     flex-direction: row;
+    overflow-y: auto;
 
 }
 
+.items {
+    background-color: var(--honeydew);
+    width: 100%;
+    /* display: inline-block !important; */
+    /* flex-direction: row; */
+    /* height: 45%; */
+}
+
+.individual_item {
+    background-color: var(--nyanza);
+    width: 25%;
+    /* height: 45%; */
+    margin: 2%;
+    overflow: hidden;
+    display: inline-block;
+    
+}
+
+.individual_item a {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-decoration: none;
+    color: black;
+    margin: 5%;
+    height: 250px;
+    /* background-color: red; */
+}
+
+
+
+
+
+@media only screen and (min-width: 1300px){
+
+    .items{
+        margin-right: 15%;
+    }
+
+    .individual_item a {
+        height: 300px;
+        /* background-color: red; */
+    }
+}
 
 @media only screen and (max-width: 815px), only screen and (max-device-width: 815px) {
     .side_nav {
@@ -26,5 +72,13 @@
         display: flex;
         flex-direction: column;
         /* background-color: red; */
+    }
+
+    .items {
+        height: 100vh;
+    }
+
+    .individual_item a {
+        height: 180px;
     }
 }
