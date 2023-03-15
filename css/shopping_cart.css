@@ -34,49 +34,9 @@ body{
 
 .inside_content{
     width: 80%;
-    max-width: 900px;
-
 }
 
-.cart{
-    width: 100%;
-    padding: 5px;
-    border-collapse: collapse;
-
+div img {
+    max-height: 100px;
 }
 
-.cart td{
-    width: 1%;
-    white-space: nowrap;
-    padding: 5px;
-}
-
-.cart td table td{
-    padding: unset;
-}
-
-.cart input {
-    width: 50px;
-}
-
-.cart_navigation .nav_cart{
-    text-decoration-line: underline;
-}
-
-.cart_navigation .nav_billing, .cart_navigation .nav_billing:hover,
-.cart_navigation .nav_shipping, .cart_navigation .nav_shipping:hover{
-    color: grey;
-    cursor: default;
-}
-
-.cart td:nth-child(2){
-    text-align: left;
-    width: unset;
-    white-space: unset;
-}
-
-.cart tr {
-    border: solid;
-    border-width: 1px 0;
-    border-color: grey;
-}
