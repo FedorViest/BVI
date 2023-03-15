@@ -1,3 +1,4 @@
+<!-- Shopping cart table row-->
 <tr>
     <td>
         <!-- photo-->
@@ -35,3 +36,4 @@
         <span class="material-symbols-outlined">delete</span>
     </td>
 </tr>
+<!-- end Shopping cart table row-->

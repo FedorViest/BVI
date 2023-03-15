@@ -1,7 +1,8 @@
+<!-- Header-->
 <header class="header">
     <section class="site_name_logo">
         <a href="#" class="website_name_a">
-            <img class="logo" src="../assets/logo/wtech_logo_v2-removebg-preview.png" alt="logo">
+            <img class="logo" src="/assets/logo/wtech_logo_v2-removebg-preview.png" alt="logo">
             <h3 class="website-name">Website name</h3>
         </a>
     </section>
@@ -14,7 +15,7 @@
             <li class="home_button"><a href="#">Home</a> </li>
             <li><a href="#">Shop</a> </li>
             <li><a href="/contact.php">Contact</a> </li>
-            <li><a href="/shopping_cart.php"><span class="material-symbols-outlined">shopping_cart</span> </a></li>
+            <li><a href="/shopping_cart.html"><span class="material-symbols-outlined">shopping_cart</span> </a></li>
             <li><a href="#">Login</a> </li>
         </ul>
         <section class="dropdown_menu">
@@ -23,9 +24,10 @@
                 <li><a href="#">Home</a> </li>
                 <li><a href="#">Shop</a> </li>
                 <li><a href="/contact.php">Contact</a> </li>
-                <li><a href="/shopping_cart.php">Cart</a> </li>
+                <li><a href="/shopping_cart.html">Cart</a> </li>
                 <li><a href="#">Login</a> </li>
             </ul>
         </section>
     </nav>
 </header>
+<!-- end Header -->

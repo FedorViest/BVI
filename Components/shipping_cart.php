@@ -1,3 +1,4 @@
+<!-- Shipping cart -->
 <tr>
     <td>
         <img class="product_photo" src="/assets/logo/wtech_logo_v2-removebg-preview.png" alt="logo">
@@ -9,3 +10,4 @@
         <h4>5.99€</h4>
     </td>
 </tr>
+<!-- end Shipping cart -->

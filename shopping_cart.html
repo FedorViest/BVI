@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/shopping_cart.css" type="text/css">
+    <link rel="stylesheet" href="css/header.css" type="text/css">
+    <link rel="stylesheet" href="css/footer.css" type="text/css">
+    <link rel="stylesheet" href="css/button_1.css" type="text/css">
+    <link rel="stylesheet" href="css/cart_navbar.css" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+<!-- Header -->
+<header class="header">
+    <section class="site_name_logo">
+        <a href="#" class="website_name_a">
+            <img class="logo" src="/assets/logo/wtech_logo_v2-removebg-preview.png" alt="logo">
+            <h3 class="website-name">Website name</h3>
+        </a>
+    </section>
+    <form class="search-form">
+        <input type="text" placeholder="Search...">
+        <button type="submit"><span class="material-symbols-outlined">search</span></button>
+    </form>
+    <nav class="show_all_nav">
+        <ul class="nav_links">
+            <li class="home_button"><a href="#">Home</a> </li>
+            <li><a href="#">Shop</a> </li>
+            <li><a href="/contact.php">Contact</a> </li>
+            <li><a href="/shopping_cart.html"><span class="material-symbols-outlined">shopping_cart</span> </a></li>
+            <li><a href="#">Login</a> </li>
+        </ul>
+        <section class="dropdown_menu">
+            <span class="material-symbols-outlined">menu</span>
+            <ul class="dropdown_content">
+                <li><a href="#">Home</a> </li>
+                <li><a href="#">Shop</a> </li>
+                <li><a href="/contact.php">Contact</a> </li>
+                <li><a href="/shopping_cart.html">Cart</a> </li>
+                <li><a href="#">Login</a> </li>
+            </ul>
+        </section>
+    </nav>
+</header>
+<!-- end Header -->
+<section class="content">
+    <!-- Cart Navbar-->
+    <nav class="cart_navigation">
+        <a class="nav_cart" href="/shopping_cart.html">Shopping Cart</a>
+        >>
+        <a class="nav_shipping" href="/shipping_payment.html">Shipping & Payment</a>
+        >>
+        <a class="nav_billing" href="/billing_address.html">Billing Address</a>
+    </nav>
+    <!-- Cart Navbar-->
+    <section class="inside_content">
+        <table class="cart">
+            <!-- Shopping cart table row-->
+            <tr>
+                <td>
+                    <!-- photo-->
+                    <img class="logo" src="/assets/logo/wtech_logo_v2-removebg-preview.png" alt="logo">
+                </td>
+                <td>
+                    <!-- product name and desc.-->
+                    <table class="cart_sub_table">
+                        <tr>
+                            <th>
+                                <!-- product name-->
+                                Product 1
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                This is a tree
+                                <!-- product desc. -->
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <!-- price -->
+                    5.99€
+                </td>
+                <td>
+                    <!--quantity -->
+                    <label>
+                        <input type="number" required maxlength="2">
+                    </label>
+                </td>
+                <td>
+                    <!-- remove icon -->
+                    <span class="material-symbols-outlined">delete</span>
+                </td>
+            </tr>
+            <!-- next-->
+            <tr>
+                <td>
+                    <!-- photo-->
+                    <img class="logo" src="/assets/logo/wtech_logo_v2-removebg-preview.png" alt="logo">
+                </td>
+                <td>
+                    <!-- product name and desc.-->
+                    <table class="cart_sub_table">
+                        <tr>
+                            <th>
+                                <!-- product name-->
+                                Product 2
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                This is a flower
+                                <!-- product desc. -->
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <!-- price -->
+                    5.99€
+                </td>
+                <td>
+                    <!--quantity -->
+                    <label>
+                        <input type="number" required maxlength="2">
+                    </label>
+                </td>
+                <td>
+                    <!-- remove icon -->
+                    <span class="material-symbols-outlined">delete</span>
+                </td>
+            </tr>
+            <!-- next-->
+            <tr>
+                <td>
+                    <!-- photo-->
+                    <img class="logo" src="/assets/logo/wtech_logo_v2-removebg-preview.png" alt="logo">
+                </td>
+                <td>
+                    <!-- product name and desc.-->
+                    <table class="cart_sub_table">
+                        <tr>
+                            <th>
+                                <!-- product name-->
+                                Product 3
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                New flower
+                                <!-- product desc. -->
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <!-- price -->
+                    7.99€
+                </td>
+                <td>
+                    <!--quantity -->
+                    <label>
+                        <input type="number" required maxlength="2">
+                    </label>
+                </td>
+                <td>
+                    <!-- remove icon -->
+                    <span class="material-symbols-outlined">delete</span>
+                </td>
+            </tr>
+            <!-- end Shopping cart table row-->
+        </table>
+    </section>
+    <section class="price_content">
+        <button type="button" class="btn" onclick="window.location.href='/shipping_payment.php'">
+            Checkout
+        </button>
+    </section>
+</section>
+<!-- Footer-->
+<footer class="footer">
+    <section class="site_logo">
+        <img class="footer_logo" src="/assets/logo/wtech_logo_v2-removebg-preview.png" alt="logo">
+    </section>
+    <section class="blocks_holder">
+        <!-- canvas for the 3 blocks-->
+        <address class="block">
+            <span class="material-symbols-outlined">distance</span>
+            <p class="text">Main Address 24</p>
+        </address>
+
+        <address class="block">
+            <span class="material-symbols-outlined">alternate_email</span>
+            <p class="text">email@email.com</p>
+        </address>
+
+        <address class="block">
+            <span class="material-symbols-outlined">call</span>
+            <p class="text">0901234567</p>
+        </address>
+    </section>
+</footer>
+
+<!-- end Footer-->
+</body>
+</html>
