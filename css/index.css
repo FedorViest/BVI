@@ -42,9 +42,6 @@ body{
     font-size: 50px;
 }
 
-.best_sellers_box{
-}
-
 .best_sellers_text{
     display: flex;
     flex-direction: column;
@@ -54,19 +51,18 @@ body{
     padding: 20px 0 20px 0;
 }
 
-.best_sellers_products{
-    justify-content: space-between;
-    gap: normal;
-    display: flex;
-    flex-direction: row;
-}
-
-.best_sellers_products .row{
-    justify-content: space-between;
-}
-
 .products_table{
-    border: none;
+    width:100%;
+    border:0;
+}
+
+
+.products_table td {
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    margin: auto;
+    align-items: center;
 }
 
 

@@ -11,7 +11,8 @@
     <link rel="stylesheet" href="css/header.css" type="text/css">
     <link rel="stylesheet" href="css/footer.css" type="text/css">
     <link rel="stylesheet" href="css/Components_css/product_box.css" type="text/css">
-    </head>
+</head>
+</head>
 <body>
     <?php include("Components/header.php"); ?>
     <section class="content">
@@ -26,14 +27,14 @@
             <section class="best_sellers_products">
                 <table class="products_table">
                     <tr>
+                        <td><button>Button</button></td>
                         <td><?php include("Components/product_box.php"); ?></td>
                         <td><?php include("Components/product_box.php"); ?></td>
                         <td><?php include("Components/product_box.php"); ?></td>
                         <td><?php include("Components/product_box.php"); ?></td>
                         <td><?php include("Components/product_box.php"); ?></td>
                         <td><?php include("Components/product_box.php"); ?></td>
-                        <td><?php include("Components/product_box.php"); ?></td>
-                        <td><?php include("Components/product_box.php"); ?></td>
+                        <td><button>Button</button></td>
                     </tr>
                 </table>
             </section>
