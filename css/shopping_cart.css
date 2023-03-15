@@ -38,5 +38,26 @@ body{
 
 div img {
     max-height: 100px;
+    margin: 0;
+}
+
+.total_price{
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 815px), (max-device-width: 815px){
+    .inside_content{
+        width: 100%;
+    }
+
+    .container{
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 1300px), (max-device-width: 1300px) {
+    .inside_content {
+        min-width: 90%;
+    }
 }
 
