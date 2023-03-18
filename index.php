@@ -155,6 +155,73 @@
         </button>
     </div>
 
+    <hr>
+    <section class="recommended_items">
+        <h2 class="recommended_items_text"> Recommended items</h2>
+    </section>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="products_wrapper row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-3">
+                    <div class="col">
+                        <div class="card">
+                            <img class="card-img-top" src="/assets/logo/wtech_logo_v2.png" alt="product_image">
+                            <div class="card-body">
+                                <h3 class="card-title">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</h3>
+                                <p class="card-text">19.99€</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <img class="card-img-top" src="/assets/logo/wtech_logo_v2.png" alt="product_image">
+                            <div class="card-body">
+                                <h3 class="card-title">Product 1</h3>
+                                <p class="card-text">19.99€</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <img class="card-img-top" src="/assets/logo/wtech_logo_v2.png" alt="product_image">
+                            <div class="card-body">
+                                <h3 class="card-title">Product 1</h3>
+                                <p class="card-text">19.99€</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <img class="card-img-top" src="/assets/logo/wtech_logo_v2.png" alt="product_image">
+                            <div class="card-body">
+                                <h3 class="card-title">Product 1</h3>
+                                <p class="card-text">19.99€</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <img class="card-img-top" src="/assets/logo/wtech_logo_v2.png" alt="product_image">
+                            <div class="card-body">
+                                <h3 class="card-title">Product 1</h3>
+                                <p class="card-text">19.99€</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <img class="card-img-top" src="/assets/logo/wtech_logo_v2.png" alt="product_image">
+                            <div class="card-body">
+                                <h3 class="card-title">Product 1</h3>
+                                <p class="card-text">19.99€</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <?php include("Components/footer.php"); ?>
 
 </body>
