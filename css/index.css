@@ -51,19 +51,59 @@ body{
     padding: 20px 0 20px 0;
 }
 
-.products_table{
-    width:100%;
-    border:0;
-}
+/**
+PRODCUT BOX CSS START
+ */
 
-
-.products_table td {
-    text-align: center;
-    justify-content: center;
+.card-wrapper{
     display: flex;
-    margin: auto;
-    align-items: center;
 }
+
+.card{
+    display: flex;
+    flex-direction: column;
+    border: solid 2px var(--seal-brown);
+    padding: 0;
+    margin: 0 auto;
+}
+
+.card:hover{
+    cursor: pointer;
+}
+
+.card-img{
+    max-width: 200px;
+    object-fit: cover;
+    margin: 0 auto;
+}
+
+.card-body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    vertical-align: middle;
+}
+
+.card-title{
+    font-size: 18px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 190px;
+}
+
+.card-price{
+    font-size: 14px;
+}
+
+
+/**
+PRODCUT BOX CSS END
+ */
+
 
 
 
@@ -76,10 +116,25 @@ body{
         padding-left: 15%;
         padding-right: 15%;
     }
+
+    .card-wrapper{
+        padding-left: 15%;
+        padding-right: 15%;
+    }
+}
+
+@media only screen and (max-width: 1299px) {
+    .card:is(:last-child){
+        display: none;
+    }
 }
 
 @media only screen and (max-width: 815px){
     .best_sellers_products .row{
         justify-content: center;
+    }
+
+    .card:is(:nth-last-child(2)){
+        display: none;
     }
 }

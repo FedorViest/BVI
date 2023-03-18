@@ -11,7 +11,8 @@
     <link rel="stylesheet" href="css/header.css" type="text/css">
     <link rel="stylesheet" href="css/footer.css" type="text/css">
     <link rel="stylesheet" href="css/Components_css/product_box.css" type="text/css">
-</head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
     <?php include("Components/header.php"); ?>
@@ -20,26 +21,141 @@
             <img class="welcome_image" src="assets/Screenshot_4.png" alt="welcome_image">
             <h1 class="welcome_text">Welcome to<br>our store</h1>
         </section>
-        <section class="best_sellers_box">
-            <section class="best_sellers_text">
-                <h2>Best sellers</h2>
-            </section>
-            <section class="best_sellers_products">
-                <table class="products_table">
-                    <tr>
-                        <td><button>Button</button></td>
-                        <td><?php include("Components/product_box.php"); ?></td>
-                        <td><?php include("Components/product_box.php"); ?></td>
-                        <td><?php include("Components/product_box.php"); ?></td>
-                        <td><?php include("Components/product_box.php"); ?></td>
-                        <td><?php include("Components/product_box.php"); ?></td>
-                        <td><?php include("Components/product_box.php"); ?></td>
-                        <td><button>Button</button></td>
-                    </tr>
-                </table>
-            </section>
-        </section>
     </section>
+    <section class="best-sellers">
+        <h2 class="best_sellers_text">Best-sellers</h2>
+    </section>
+    <div id="carouselControls" class="carousel carousel-dark slide" data-bs-ride="carousel" data-bs-interval="5000">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="card-wrapper">
+
+                    <!-- PRODUCT CARD START -->
+
+                    <section class="card">
+                        <img class="card-img" src="/assets/logo/wtech_logo_v2.png" alt="product_image">
+                        <section class="card-body">
+                            <h3 class="card-title">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</h3>
+                            <p class="card-price">19.99€</p>
+                        </section>
+                    </section>
+
+                    <section class="card">
+                        <img class="card-img" src="/assets/logo/wtech_logo_v2.png" alt="product_image">
+                        <section class="card-body">
+                            <h3 class="card-title">Product 2</h3>
+                            <p class="card-price">19.99€</p>
+                        </section>
+                    </section>
+
+                    <section class="card">
+                        <img class="card-img" src="/assets/logo/wtech_logo_v2.png" alt="product_image">
+                        <section class="card-body">
+                            <h3 class="card-title">Product 3</h3>
+                            <p class="card-price">19.99€</p>
+                        </section>
+                    </section>
+
+                    <section class="card">
+                        <img class="card-img" src="/assets/logo/wtech_logo_v2.png" alt="product_image">
+                        <section class="card-body">
+                            <h3 class="card-title">Product 4</h3>
+                            <p class="card-price">19.99€</p>
+                        </section>
+                    </section>
+
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="card-wrapper">
+
+                    <!-- PRODUCT CARD START -->
+
+                    <section class="card">
+                        <img class="card-img" src="/assets/logo/wtech_logo_v2.png" alt="product_image">
+                        <section class="card-body">
+                            <h3 class="card-title">Product 5</h3>
+                            <p class="card-price">19.99€</p>
+                        </section>
+                    </section>
+
+                    <section class="card">
+                        <img class="card-img" src="/assets/logo/wtech_logo_v2.png" alt="product_image">
+                        <section class="card-body">
+                            <h3 class="card-title">Product 6</h3>
+                            <p class="card-price">19.99€</p>
+                        </section>
+                    </section>
+
+                    <section class="card">
+                        <img class="card-img" src="/assets/logo/wtech_logo_v2.png" alt="product_image">
+                        <section class="card-body">
+                            <h3 class="card-title">Product 7</h3>
+                            <p class="card-price">19.99€</p>
+                        </section>
+                    </section>
+
+                    <section class="card">
+                        <img class="card-img" src="/assets/logo/wtech_logo_v2.png" alt="product_image">
+                        <section class="card-body">
+                            <h3 class="card-title">Product 8</h3>
+                            <p class="card-price">19.99€</p>
+                        </section>
+                    </section>
+
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="card-wrapper">
+
+                    <!-- PRODUCT CARD START -->
+
+                    <section class="card">
+                        <img class="card-img" src="/assets/logo/wtech_logo_v2.png" alt="product_image">
+                        <section class="card-body">
+                            <h3 class="card-title">Product 9</h3>
+                            <p class="card-price">19.99€</p>
+                        </section>
+                    </section>
+
+                    <section class="card">
+                        <img class="card-img" src="/assets/logo/wtech_logo_v2.png" alt="product_image">
+                        <section class="card-body">
+                            <h3 class="card-title">Product 10</h3>
+                            <p class="card-price">19.99€</p>
+                        </section>
+                    </section>
+
+                    <section class="card">
+                        <img class="card-img" src="/assets/logo/wtech_logo_v2.png" alt="product_image">
+                        <section class="card-body">
+                            <h3 class="card-title">Product 11</h3>
+                            <p class="card-price">19.99€</p>
+                        </section>
+                    </section>
+
+                    <section class="card">
+                        <img class="card-img" src="/assets/logo/wtech_logo_v2.png" alt="product_image">
+                        <section class="card-body">
+                            <h3 class="card-title">Product 12</h3>
+                            <p class="card-price">19.99€</p>
+                        </section>
+                    </section>
+
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
     <?php include("Components/footer.php"); ?>
+
 </body>
 </html>
