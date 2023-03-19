@@ -1,0 +1,22 @@
+@import url('constants.css');
+
+.main_info {
+    margin-top: 15px;
+}
+
+.product_images {
+    justify-content: center;
+}
+
+.carousel-inner {
+    max-width: 400px;
+}
+
+.product_img {
+    max-width: 400px;
+}
+
+.carousel-inner button {
+    background: none;
+    border: none;
+}
