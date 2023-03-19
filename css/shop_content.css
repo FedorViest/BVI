@@ -14,12 +14,27 @@ main.row {
 .items {
     background-color: var(--honeydew);
     margin: 0;
+    /* overflow-x: auto; */
     /* padding: 0; */
 }
 
 .item {
     padding: 15px;
 }
+
+.card {
+    height: 100%;
+}
+
+/* .card-title {
+    font-size: medium;
+    width: 8rem;
+} */
+
+/* .card-img {
+    max-width: fit-content;
+    height: 80%;
+} */
 
 /* .items div {
     padding-right: 0;
