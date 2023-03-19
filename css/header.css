@@ -90,7 +90,6 @@ header {
 
 .dropdown_content {
     display: none;
-    position: absolute;
     background-color: #f9f9f9;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
@@ -152,6 +151,10 @@ header {
     color: var(--pakistan-green);
 }
 
+.dropdown{
+    display: none;
+}
+
 
 
 @media only screen and (min-width: 1300px){
@@ -176,12 +179,7 @@ header {
         display: none;
     }
 
-    .dropdown_menu {
+    .dropdown{
         display: block;
-    }
-
-    .dropdown_menu:hover .dropdown_content {
-        display: block;
-        text-align: left;
     }
 }
