@@ -102,6 +102,10 @@ main.row {
         margin-left: 15%;
     }
 
+    .product_detail {
+        padding-right: 0;
+    }
+
     /* .individual_item a {
         height: 300px;
         background-color: red;
@@ -117,6 +121,9 @@ main.row {
         padding-bottom: 0;
     } */
 
+    .product_detail {
+        padding-left: 15px;
+    }
 
     .side_nav ul {
         line-height: 60px;

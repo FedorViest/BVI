@@ -1,5 +1,11 @@
 @import url('constants.css');
 
+
+.product_detail {
+    padding-right: 15px;
+}
+
+
 .main_info {
     margin-top: 15px;
 }
@@ -40,6 +46,7 @@
 .counter {
     padding: 0;
     max-width: 125px;
+    max-height: 50px;
     background-color: var(--nyanza);
     /* justify-content: center; */
     align-items: center;
@@ -69,4 +76,20 @@
     font-size: 1.5rem;
     background-color: white;
     width: 35px;
+}
+
+
+.long_description h2 {
+    margin-top: 2rem;
+    margin-bottom: 0;
+    width: 200px;
+    background-color: var(--nyanza);
+    padding: 5px;
+    text-align: center;
+}
+
+.long_description p {
+    background-color: var(--honeydew);
+    border-top: 3px solid var(--avocado);
+    padding: 15px;
 }
