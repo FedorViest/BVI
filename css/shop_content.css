@@ -8,14 +8,11 @@ main.row {
 .shop {
     padding-top: 15px;
     padding-bottom: 15px;
-    /* background-color: var(--honeydew); */
 }
 
 .items {
     background-color: var(--honeydew);
     margin: 0;
-    /* overflow-x: auto; */
-    /* padding: 0; */
 }
 
 .item {
@@ -26,76 +23,10 @@ main.row {
     height: 100%;
 }
 
-/* .card-title {
-    font-size: medium;
-    width: 8rem;
-} */
-
-/* .card-img {
-    max-width: fit-content;
-    height: 80%;
-} */
-
-/* .items div {
-    padding-right: 0;
-} */
-
-/* .container {
-    margin-left: 15%;
-    margin-right: 15%;
-} */
-
-/* .row {
-    margin-right: 15%;
-    margin-left: 15%;
-} */
-
-/* .row {height: 100%;} */
-
-
-/* .shop_content {
-    height: auto;
-    display: flex;
-    flex-direction: row;
-    overflow-y: auto;
-
-} */
-
-/* .items {
-    background-color: var(--honeydew);
-    width: 100%;
-} */
-
-/* .individual_item {
-    background-color: var(--nyanza);
-    width: 25%;
-    height: 45%;
-    margin: 2%;
-    overflow: hidden;
-    display: inline-block;
-    
-} */
-
-/* .individual_item a {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    text-decoration: none;
-    color: black;
-    margin: 5%;
-    height: 250px;
-    background-color: red;
-} */
-
-
 
 
 
 @media only screen and (min-width: 1300px){
-
-    /* .items{
-        margin-right: 15%;
-    } */
 
     main.row {
         margin-right: 15%;
@@ -106,20 +37,9 @@ main.row {
         padding-right: 0;
     }
 
-    /* .individual_item a {
-        height: 300px;
-        background-color: red;
-    } */
 }
 
 @media only screen and (max-width: 767.89px), only screen and (max-device-width: 767.89px) {
-    /* .side_nav {
-        height: auto;
-    } */
-
-    /* .side_nav {
-        padding-bottom: 0;
-    } */
 
     .product_detail {
         padding-left: 15px;
@@ -136,30 +56,10 @@ main.row {
     .side_nav_links_SS {
         display: flex;
     }
-    
-    /* .side_nav {
-        display: none;
-    } */
-
-    /* .side_nav_small_screen {
-        display: inline;
-    } */
-
-    /* .shop_content {
-        flex-direction: column;
-    } */
 
     .side_nav_links_SS li:hover .side_nav_sub_links_SS {
         display: flex;
         flex-direction: column;
-        /* background-color: red; */
     }
 
-    /* .items {
-        height: 100vh;
-    } */
-
-    /* .individual_item a {
-        height: 180px;
-    } */
 }

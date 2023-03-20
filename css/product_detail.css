@@ -32,12 +32,7 @@
     margin-top: 0;
 }
 
-/* .short_description {
-    font-size: 1.5rem;
-} */
-
 .product_detail_price {
-    /* background-color: red; */
     font-size: 1.5rem;
     font-weight: 700;
     
@@ -48,7 +43,6 @@
     max-width: 125px;
     max-height: 50px;
     background-color: var(--nyanza);
-    /* justify-content: center; */
     align-items: center;
     display: flex;
     text-align: center;
@@ -61,7 +55,6 @@
     height: 35px;
     border: none;
     background-color: var(--nyanza);
-    /* font-weight: 700; */
     font-size: 1.5rem;
 }
 
