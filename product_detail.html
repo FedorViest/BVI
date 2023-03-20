@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="css/side_nav.css" type="text/css">
     <link rel="stylesheet" href="css/shop_content.css" type="text/css">
     <link rel="stylesheet" href="css/product_detail.css" type="text/css">
+    <link rel="stylesheet" href="css/index.css" type="text/css">
+    <link rel="stylesheet" href="css/button_1.css" type="text/css">
     <link rel="stylesheet" href="css/Components_css/product_box.css" type="text/css">
 </head>
 <body>
@@ -105,14 +107,27 @@
                     </div>
                 </div>
                 <div class="product_info col">
-                    <section>
+                    <section class="main_product_info">
                         <h1>Cherry tree</h1>
                         <p class="short_description">The fruit of the prunus avium must be harvested at the time of ripeness.
                             The tasty juicy fruit contains a lot of sugar, minerals and vitamins.</p>
-                        <p class="product_price">19.99 €</p>
-                        <input><!-- COUNTER -->
-                        <!-- BUY BUTTON -->
+                        <p class="product_detail_price">19.99 €</p>
+                        <hr>
                     </section>
+                    <div class="row">
+                        <div class="counter col">
+                            <button class="button_counter">+</button>
+                            <p class="num_counter">1</p>
+                            <button class="button_counter">-</button>
+                        </div>
+                        <div class="buy_button col">
+                            <button type="button" class="btn">
+                                <img class="shopping_cart_img" src="assets/shoppping_cart.png" alt="shopping_cart">
+                                Add to cart
+                            </button>
+                        </div>
+                        <!-- BUY BUTTON -->
+                    </div>
                 </div>
             </div>
             <div class="description">
@@ -132,67 +147,66 @@
                         many cultivars are grown</p>
                 </section>
             </div>
-            <div class="recommended">
-                <section class="recommended_items">
-                    <h2 class="recommended_items_text"> Recommended items</h2>
-                </section>
             
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-12">
-                            <div class="products_wrapper row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-3">
-                                <div class="col">
-                                    <div class="card">
-                                        <img class="card-img-top" src="/assets/logo/wtech_logo_v2.png" alt="product_image">
-                                        <div class="card-body">
-                                            <h3 class="card-title">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</h3>
-                                            <p class="card-text">19.99€</p>
-                                        </div>
+            <!-- Recommended items -->
+            <section class="recommended_items">
+                <h2 class="recommended_items_text"> Recommended items</h2>
+            </section>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <div class="products_wrapper row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-3">
+                            <div class="col">
+                                <div class="card">
+                                    <img class="card-img-top" src="/assets/logo/wtech_logo_v2.png" alt="product_image">
+                                    <div class="card-body">
+                                        <h3 class="card-title">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</h3>
+                                        <p class="card-text">19.99€</p>
                                     </div>
                                 </div>
-                                <div class="col">
-                                    <div class="card">
-                                        <img class="card-img-top" src="/assets/logo/wtech_logo_v2.png" alt="product_image">
-                                        <div class="card-body">
-                                            <h3 class="card-title">Product 1</h3>
-                                            <p class="card-text">19.99€</p>
-                                        </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <img class="card-img-top" src="/assets/logo/wtech_logo_v2.png" alt="product_image">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Product 1</h3>
+                                        <p class="card-text">19.99€</p>
                                     </div>
                                 </div>
-                                <div class="col">
-                                    <div class="card">
-                                        <img class="card-img-top" src="/assets/logo/wtech_logo_v2.png" alt="product_image">
-                                        <div class="card-body">
-                                            <h3 class="card-title">Product 1</h3>
-                                            <p class="card-text">19.99€</p>
-                                        </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <img class="card-img-top" src="/assets/logo/wtech_logo_v2.png" alt="product_image">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Product 1</h3>
+                                        <p class="card-text">19.99€</p>
                                     </div>
                                 </div>
-                                <div class="col">
-                                    <div class="card">
-                                        <img class="card-img-top" src="/assets/logo/wtech_logo_v2.png" alt="product_image">
-                                        <div class="card-body">
-                                            <h3 class="card-title">Product 1</h3>
-                                            <p class="card-text">19.99€</p>
-                                        </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <img class="card-img-top" src="/assets/logo/wtech_logo_v2.png" alt="product_image">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Product 1</h3>
+                                        <p class="card-text">19.99€</p>
                                     </div>
                                 </div>
-                                <div class="col">
-                                    <div class="card">
-                                        <img class="card-img-top" src="/assets/logo/wtech_logo_v2.png" alt="product_image">
-                                        <div class="card-body">
-                                            <h3 class="card-title">Product 1</h3>
-                                            <p class="card-text">19.99€</p>
-                                        </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <img class="card-img-top" src="/assets/logo/wtech_logo_v2.png" alt="product_image">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Product 1</h3>
+                                        <p class="card-text">19.99€</p>
                                     </div>
                                 </div>
-                                <div class="col">
-                                    <div class="card">
-                                        <img class="card-img-top" src="/assets/logo/wtech_logo_v2.png" alt="product_image">
-                                        <div class="card-body">
-                                            <h3 class="card-title">Product 1</h3>
-                                            <p class="card-text">19.99€</p>
-                                        </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <img class="card-img-top" src="/assets/logo/wtech_logo_v2.png" alt="product_image">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Product 1</h3>
+                                        <p class="card-text">19.99€</p>
                                     </div>
                                 </div>
                             </div>
@@ -200,6 +214,7 @@
                     </div>
                 </div>
             </div>
+            <!-- Recommended items -->
 
 
             <!-- DESCRIPTION -->

@@ -20,3 +20,53 @@
     background: none;
     border: none;
 }
+
+
+.main_product_info {
+    margin-top: 0;
+}
+
+/* .short_description {
+    font-size: 1.5rem;
+} */
+
+.product_detail_price {
+    /* background-color: red; */
+    font-size: 1.5rem;
+    font-weight: 700;
+    
+}
+
+.counter {
+    padding: 0;
+    max-width: 125px;
+    background-color: var(--nyanza);
+    /* justify-content: center; */
+    align-items: center;
+    display: flex;
+    text-align: center;
+}
+
+
+.button_counter {
+    margin: 5px;
+    width: 35px;
+    height: 35px;
+    border: none;
+    background-color: var(--nyanza);
+    /* font-weight: 700; */
+    font-size: 1.5rem;
+}
+
+.button_counter:hover {
+    background-color: var(--honeydew);
+}
+
+
+.num_counter {
+    margin-bottom: 0;
+    font-weight: 700;
+    font-size: 1.5rem;
+    background-color: white;
+    width: 35px;
+}
