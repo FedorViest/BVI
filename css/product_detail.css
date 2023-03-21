@@ -1,9 +1,9 @@
 @import url('constants.css');
 
 
-/* .product_detail {
-    margin-right: 15px;
-} */
+.product_detail {
+    margin-right: 0;
+}
 
 
 .main_info {
@@ -43,12 +43,14 @@
 
 .buyer_interaction {
     margin-left: 0;
+    display: flex;
+    justify-content: space-around;
 }
 
 .counter {
     padding: 0;
-    max-width: 125px;
-    max-height: 50px;
+    max-width: 100px;
+    max-height: 40px;
     background-color: var(--nyanza);
     align-items: center;
     display: flex;
@@ -60,10 +62,13 @@
 .button_counter {
     margin: 5px;
     width: 35px;
-    height: 35px;
+    height: 30px;
     border: none;
     background-color: var(--nyanza);
     font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .button_counter:hover {
