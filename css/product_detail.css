@@ -1,9 +1,9 @@
 @import url('constants.css');
 
 
-/* .product_detail {
-    margin-right: 15px;
-} */
+.product_detail {
+    margin-right: 0;
+}
 
 
 .main_info {
