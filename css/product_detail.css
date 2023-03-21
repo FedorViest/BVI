@@ -1,9 +1,9 @@
 @import url('constants.css');
 
 
-.product_detail {
-    padding-right: 15px;
-}
+/* .product_detail {
+    margin-right: 15px;
+} */
 
 
 .main_info {
@@ -11,15 +11,19 @@
 }
 
 .product_images {
+    /* display: flex; */
     justify-content: center;
+    /* align-items: center; */
 }
 
 .carousel-inner {
-    max-width: 400px;
+    width: 100%;
+    /* max-width: 360px; */
 }
 
 .product_img {
-    max-width: 400px;
+    width: 100%;
+    /* max-width: 360px; */
 }
 
 .carousel-inner button {
@@ -34,8 +38,11 @@
 
 .product_detail_price {
     font-size: 1.5rem;
-    font-weight: 700;
-    
+    font-weight: 700; 
+}
+
+.buyer_interaction {
+    margin-left: 0;
 }
 
 .counter {
@@ -46,6 +53,7 @@
     align-items: center;
     display: flex;
     text-align: center;
+    /* justify-content: space-evenly; */
 }
 
 
@@ -69,6 +77,10 @@
     font-size: 1.5rem;
     background-color: white;
     width: 35px;
+}
+
+.btn {
+    min-width: 135px;
 }
 
 
