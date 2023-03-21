@@ -51,16 +51,17 @@ html{
     flex-direction: column;
     gap: 20px;
     width: 100%;
-    border: solid grey 1px;
-    border-radius: 20px;
+    /*border: solid grey 1px;
+    border-radius: 20px;*/
+    border-right: solid grey 1px;
 }
 
 .outline_cart_block{
     display: flex;
     flex-direction: column;
     width: 80%;
-    border: solid grey 1px;
-    border-radius: 20px;
+    /*border: solid grey 1px;
+    border-radius: 20px;*/
     height: 100%;
     padding-top: 15px;
 }
@@ -113,10 +114,21 @@ html{
 @media only screen and (max-width: 815px), (max-device-width: 815px){
     .inside_content{
         flex-direction: column-reverse;
+        gap: 30px;
     }
 
     .details_table, .outline_block{
         width: 80%;
+    }
+
+    .outline_block{
+        border: solid grey 1px;
+        border-radius: 20px;
+    }
+
+    .outline_cart_block{
+        border: solid grey 1px;
+        border-radius: 20px;
     }
 
 }
