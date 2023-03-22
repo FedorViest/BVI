@@ -51,6 +51,11 @@ main{
     margin-left: 20%;
     padding: 0.5em 1em;
     background-color: rgba(255, 255, 255, 0.8);
+    /*font-family: "Brush Script MT", cursive;*/
+    /*font-family: Copperplate, Papyrus, fantasy;*/
+    /*font-family: "Courier New", monospace;*/
+    /*font-family: Copperplate Gothic Light, serif;*/
+    /*font-family: Segoe Print;*/
 }
 
 .best_sellers_text{

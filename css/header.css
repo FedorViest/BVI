@@ -25,6 +25,10 @@
     vertical-align: middle;
 }
 
+.header h3{
+    font-size: 20px;
+}
+
 .website_name_a{
     display: flex;
     flex-direction: row;
@@ -145,6 +149,8 @@ header {
     background-color: white;
     border-radius: 20px;
     color: var(--avocado);
+    align-items: center;
+    display: flex;
 }
 
 .search-form button:hover {
