@@ -19,6 +19,35 @@
     <link rel="stylesheet" href="css/index.css" type="text/css">
     <link rel="stylesheet" href="css/button_1.css" type="text/css">
     <link rel="stylesheet" href="css/Components_css/product_box.css" type="text/css">
+
+
+
+    <script>
+        var num = 1;
+
+        function display_categories() {
+            x = document.getElementById("sub_side_nav_links");
+            console.log(x)
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+
+        function increase() {
+            num = num + 1;
+            document.getElementById("num_counter").value = num;
+        }
+
+        function decrease() {
+            if(num > 1) {
+                num = num - 1;
+            }
+            document.getElementById("num_counter").value = num;
+        }
+    </script>
+
 </head>
 <body>
     <!-- Header-->
@@ -75,8 +104,8 @@
         <div class="side_nav col-md-3">
             <ul class="side_nav_links">
                 <li>
-                    <button class="side_nav_button">Categories<span class="material-symbols-outlined">expand_more</span></button>
-                    <ul class="sub_side_nav_links">
+                    <button class="side_nav_button" onclick="display_categories()">Categories<span class="material-symbols-outlined">expand_more</span></button>
+                    <ul class="sub_side_nav_links"  id="sub_side_nav_links">
                         <li><button class="side_nav_button">Flowers</button></li>
                         <li><button class="side_nav_button">Trees</button></li>
                         <li><button class="side_nav_button">Fruit</button></li>
@@ -126,15 +155,15 @@
                         <!-- Zdroj: https://www.zones.sk/studentske-prace/biologia/14520-ceresna-vtacia/ -->
                         <p class="short_description">The fruit of the prunus avium must be harvested at the time of ripeness.
                             The tasty juicy fruit contains a lot of sugar, minerals and vitamins.</p>
-                        <div class="product_detail_price">19.99 €</div>
+                        <div class="product_detail_price">19.99€</div>
                         <hr>
                     </section>
                     <div class="buyer_interaction">
-                        <div class="counter">
-                            <button class="button_counter"><span class="material-symbols-outlined">add</span></button>
-                            <input class="num_counter" type="number" value="1"></input>
-                            <button class="button_counter align-items-center"><span class="material-symbols-outlined">remove</span></button>
-                        </div>
+                        <label class="counter">
+                            <button class="button_counter" onclick="increase()"><span class="material-symbols-outlined">add</span></button>
+                            <input id="num_counter" class="num_counter" type="number" value="1">
+                            <button class="button_counter" onclick="decrease()"><span class="material-symbols-outlined">remove</span></button>
+                        </label>
                         <div class="buy_button">
                             <button type="button" class="btn">
                                 <img class="shopping_cart_img" src="assets/shoppping_cart.png" alt="shopping_cart">
@@ -232,9 +261,6 @@
                 </div>
             </div>
             <!-- Recommended items -->
-
-
-            <!-- DESCRIPTION -->
         </div>
         <!-- end Product part -->
     </main>
