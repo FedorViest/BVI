@@ -37,8 +37,17 @@ body{
 }
 
 div img {
-    max-height: 100px;
-    margin: 0;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin: 0 auto;
+}
+
+div p, div h3{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 20rem;
 }
 
 .total_price{
@@ -52,6 +61,10 @@ div img {
 
     .container{
         width: 100%;
+    }
+
+    div p {
+        width: 10rem;
     }
 }
 
