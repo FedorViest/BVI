@@ -61,7 +61,7 @@
 
 .button_counter {
     margin: 5px;
-    width: 35px;
+    width: 30px;
     height: 30px;
     border: none;
     background-color: var(--nyanza);
@@ -75,13 +75,15 @@
     background-color: var(--honeydew);
 }
 
-
 .num_counter {
+    width: 30px;
+    height: 30px;
     margin-bottom: 0;
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 1rem;
     background-color: white;
-    width: 35px;
+    text-align: center;
+    border: none;
 }
 
 .btn {
@@ -98,7 +100,8 @@
     text-align: center;
 }
 
-.long_description p {
+.long_description ul {
+    list-style: none;
     background-color: var(--honeydew);
     border-top: 3px solid var(--avocado);
     padding: 15px;
