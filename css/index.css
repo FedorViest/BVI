@@ -109,7 +109,7 @@ PRODCUT BOX CSS START
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    width: 8rem;
+    width: 10rem;
 }
 
 .card-price{

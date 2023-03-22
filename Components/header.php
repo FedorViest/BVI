@@ -1,20 +1,20 @@
 <!-- Header-->
 <header class="header">
     <section class="site_name_logo">
-        <a href="#" class="website_name_a">
+        <a href="index.html" class="website_name_a">
             <img class="logo" src="/assets/logo/wtech_logo_v2-removebg-preview.png" alt="logo">
             <h3 class="website-name">Plant Hub</h3>
         </a>
     </section>
-    <form class="search-form">
+    <label class="search-form">
             <input type="text" placeholder="Search...">
         <button type="submit"><span class="material-symbols-outlined">search</span></button>
-    </form>
+    </label>
     <nav class="show_all_nav">
         <ul class="nav_links">
             <li class="home_button"><a href="index.html">Home</a> </li>
             <li><a href="shop.html">Shop</a> </li>
-            <li><a href="/contact.php">Contact</a> </li>
+            <li><a href="contact.html">Contact</a> </li>
             <li><a href="shopping_cart.html"><span class="material-symbols-outlined">shopping_cart</span> </a></li>
             <li><a href="login.html">Login</a> </li>
         </ul>
