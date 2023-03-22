@@ -6,7 +6,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
@@ -123,15 +123,16 @@
                 <div class="product_info col-md-6">
                     <section class="main_product_info">
                         <h1>Cherry tree</h1>
+                        <!-- Zdroj: https://www.zones.sk/studentske-prace/biologia/14520-ceresna-vtacia/ -->
                         <p class="short_description">The fruit of the prunus avium must be harvested at the time of ripeness.
                             The tasty juicy fruit contains a lot of sugar, minerals and vitamins.</p>
-                        <p class="product_detail_price">19.99 €</p>
+                        <div class="product_detail_price">19.99 €</div>
                         <hr>
                     </section>
                     <div class="buyer_interaction">
                         <div class="counter">
                             <button class="button_counter"><span class="material-symbols-outlined">add</span></button>
-                            <p class="num_counter">1</p>
+                            <input class="num_counter" type="number" value="1"></input>
                             <button class="button_counter align-items-center"><span class="material-symbols-outlined">remove</span></button>
                         </div>
                         <div class="buy_button">
@@ -146,20 +147,21 @@
             <div class="description">
                 <section class="long_description">
                     <h2>Description</h2>
-                    <!-- Zdroj: https://www.zones.sk/studentske-prace/biologia/14520-ceresna-vtacia/ -->
-                    <p>there are glands at the base of the blade <br>
-                        treetop is broadly ovate to spherical <br>
-                        bork with typical circles <br>
-                        branches obliquely ascending <br>
-                        flowers white, diameter 3 cm <br>
-                        stems up to 5 cm long <br>
-                        round drupe, diameter 2.5 cm <br>
-                        leaf ovate to elliptical, 5-15 cm long <br>
-                        margin coarsely indented <br>
-                        blooms before foliage <br>
-                        in wild forms, straight trunk to the top of the crown <br>
-                        many cultivars are grown
-                    </p>
+                    <ul>
+                        <!-- Zdroj: https://www.zones.sk/studentske-prace/biologia/14520-ceresna-vtacia/ -->
+                        <li>there are glands at the base of the blade</li>
+                        <li>treetop is broadly ovate to spherical</li>
+                        <li>bork with typical circles</li>
+                        <li>branches obliquely ascending</li>
+                        <li>flowers white, diameter 3 cm</li>
+                        <li>stems up to 5 cm long</li>
+                        <li>round drupe, diameter 2.5 cm</li>
+                        <li>leaf ovate to elliptical, 5-15 cm long</li>
+                        <li>margin coarsely indented</li>
+                        <li>blooms before foliage</li>
+                        <li>in wild forms, straight trunk to the top of the crown</li>
+                        <li>many cultivars are grown</li>
+                    </ul>
                 </section>
             </div>
             
