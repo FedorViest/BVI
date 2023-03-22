@@ -1,7 +1,9 @@
-<section class="inner_content">
-    <img class="product_photo" src="../assets/logo/wtech_logo_v2.png" alt="product_image">
-    <section class="product_text">
-        <h3 class="product_name">Product 1</h3>
-        <p class="product_price">19.99€</p>
-    </section>
+<section class="card">
+    <a href="product_detail.html">
+        <img class="card-img" src="/assets/products/apple_tree.png" alt="product_image">
+        <section class="card-body">
+            <h3 class="card-title">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</h3>
+            <p class="card-price">19.99€</p>
+        </section>
+    </a>
 </section>
