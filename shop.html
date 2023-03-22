@@ -16,6 +16,20 @@
     <link rel="stylesheet" href="css/side_nav.css" type="text/css">
     <link rel="stylesheet" href="css/shop_content.css" type="text/css">
     <link rel="stylesheet" href="css/Components_css/product_box.css" type="text/css">
+
+
+    <script>
+        function display_categories() {
+            x = document.getElementById("sub_side_nav_links");
+            console.log(x)
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+    </script>
+
 </head>
 <body>
     <!-- Header-->
@@ -59,8 +73,8 @@
         <div class="side_nav col-md-3">
             <ul class="side_nav_links">
                 <li>
-                    <button class="side_nav_button">Categories<span class="material-symbols-outlined">expand_more</span></button>
-                    <ul class="sub_side_nav_links">
+                    <button class="side_nav_button" onclick="display_categories()">Categories<span class="material-symbols-outlined">expand_more</span></button>
+                    <ul class="sub_side_nav_links" id="sub_side_nav_links">
                         <li><button class="side_nav_button">Flowers</button></li>
                         <li><button class="side_nav_button">Trees</button></li>
                         <li><button class="side_nav_button">Fruit</button></li>
@@ -83,6 +97,8 @@
                 <li><button class="side_nav_button_SS">Order by<span class="material-symbols-outlined">expand_more</span></button></li>
             </ul>
         </div>
+
+
         <div class="shop col-md-9">
             <div class="row items">
             <!-- <h2>Produkty</h2> -->

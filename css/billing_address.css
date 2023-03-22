@@ -40,7 +40,7 @@ html{
 .inside_content{
     display: flex;
     flex-direction: row;
-    gap: 30px;
+    /*gap: 30px;*/
     width: fit-content;
     min-width:  70%;
     align-items: center;
@@ -104,7 +104,17 @@ html{
 }
 
 .img-thumbnail {
-    max-height: 70px;
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    margin: 0 auto;
+}
+
+div h4{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 20rem;
 }
 
 .total_price {
