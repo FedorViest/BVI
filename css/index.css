@@ -22,23 +22,35 @@ body{
 ;
 }
 
+main{
+}
+
 .welcome_banner{
-    max-height: 250px;
+    height: 200px;
     display: flex;
     flex-direction: row;
     gap: 10%;
+    background-image: url("/assets/banner_image.jpg"); /*https://wallpaperaccess.com/white-plant*/
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    align-items: center;
 }
 
 .welcome_image{
     width: 60%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .welcome_text{
     display: flex;
-    vertical-align: middle;
+    height: fit-content;
     align-items: center;
-    font-size: 50px;
+    justify-content: center;
+    font-size: 3vw;
+    margin-left: 20%;
+    padding: 0.5em 1em;
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 .best_sellers_text{
@@ -69,11 +81,12 @@ PRODCUT BOX CSS START
     cursor: pointer;
 }
 
-.card-img{
+.card-img, .card-wrapper .card-img{
     width: 200px;
     height: 200px;
     object-fit: cover;
     margin: 0 auto;
+    border-bottom: 1px solid var(--platinum);
 }
 
 .card-body{
@@ -126,27 +139,23 @@ PRODCUT BOX CSS END
     margin-bottom: 50px;
 }
 
-.card-wrapper a{
+.card-wrapper a, .products_wrapper a{
     font: inherit;
     color: inherit;
     text-decoration: none;
 }
 
-.card-wrapper a:hover{
+.card-wrapper a:hover, .products_wrapper a:hover{
     color: var(--avocado);
 }
 
-.card-wrapper .card:hover{
+.card:hover{
     border: 2px solid var(--avocado);
     color: var(--avocado);
 
 }
 
 @media only screen and (min-width: 1300px){
-    .welcome_banner{
-        padding-left: 15%;
-        padding-right: 15%;
-    }
     .best_sellers_box{
         padding-left: 15%;
         padding-right: 15%;
@@ -162,11 +171,19 @@ PRODCUT BOX CSS END
     .carousel-inner .card:is(:last-child){
         display: none;
     }
+
+    .welcome_text{
+        font-size: 40px;
+    }
 }
 
 @media only screen and (max-width: 815px){
     .best_sellers_products .row{
         justify-content: center;
+    }
+
+    .welcome_text{
+        font-size: 30px;
     }
 
     .card-title{
@@ -179,9 +196,5 @@ PRODCUT BOX CSS END
 
     .welcome_image{
         width: 100%;
-    }
-
-    .welcome_text{
-        display: none;
     }
 }
