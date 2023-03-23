@@ -13,10 +13,44 @@ main.row {
     padding-bottom: 15px;
 }
 
+.orderby_buttons ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding-left: 0;
+}
+
+.orderby_buttons ul li {
+    padding: 0;
+}
+
+.order_by_btn {
+    width: 100%;
+    background-color: var(--honeydew);
+    border: 3px solid var(--nyanza);
+    border-bottom: none;
+    padding: 15px;
+    font-weight: 700;
+    flex-grow: 1;
+}
+
+.order_by_btn:hover {
+    border: 3px solid var(--avocado);
+    border-bottom: none;
+}
+
+.order_by_btn:focus {
+    background-color: var(--nyanza);
+    border: 3px solid var(--nyanza);
+    border-bottom: none;
+}
+
+
 .items {
     background-color: var(--honeydew);
     margin: 0;
     padding-bottom: 15px;
+    border-top: 3px solid var(--avocado);
 }
 
 .item {
@@ -132,6 +166,14 @@ PRODCUT BOX CSS END
     .side_nav_links_SS li:hover .side_nav_sub_links_SS {
         display: flex;
         flex-direction: column;
+    }
+
+    .orderby_buttons {
+        display: none;
+    }
+
+    .items {
+        border-top: none;
     }
 
 }
