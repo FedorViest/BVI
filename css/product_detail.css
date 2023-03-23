@@ -1,13 +1,16 @@
 @import url('constants.css');
 
 
-.product_detail {
-    margin-right: 0;
-}
+/* .product_detail {
+    margin-right: 15px;
+} */
 
 
 .main_info {
     margin-top: 15px;
+    /* margin-left: 0; */
+    /* margin-left: 0;
+    margin-right: 0; */
 }
 
 .product_images {
@@ -89,6 +92,11 @@
 .btn {
     min-width: 135px;
 }
+
+
+/* .long_description {
+    margin-left: 15px;
+} */
 
 
 .long_description h2 {
