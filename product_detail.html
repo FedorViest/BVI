@@ -99,11 +99,11 @@
 
     <!-- Product detail -->
     <main class="row">
-        <div class="side_nav col-sm-12 col-md-3">
+        <div class="side_nav col-md-3">
             <ul class="side_nav_links">
                 <li>
                     <button class="side_nav_button" onclick="display_categories()">Categories<span class="material-symbols-outlined">expand_more</span></button>
-                    <ul class="sub_side_nav_links"  id="sub_side_nav_links">
+                    <ul class="sub_side_nav_links" id="sub_side_nav_links">
                         <li><button class="side_nav_button">Flowers</button></li>
                         <li><button class="side_nav_button">Trees</button></li>
                         <li><button class="side_nav_button">Fruit</button></li>
@@ -113,17 +113,24 @@
                 <li><button class="side_nav_button">Filters<span class="material-symbols-outlined">expand_more</span></button></li>
             </ul>
 
-            <ul class="side_nav_links_SS">  <!-- small screen = SS -->
-                <li><button class="side_nav_button_SS">Categories<span class="material-symbols-outlined">expand_more</span></button>
-                    <ul class="side_nav_sub_links_SS">
-                        <li><button class="side_nav_button_SS">Flowers</button></li>
-                        <li><button class="side_nav_button_SS">Trees</button></li>
-                        <li><button class="side_nav_button_SS">Fruit</button></li>
-                        <li><button class="side_nav_button_SS">Vegetables</button></li>
+            <ul class="side_nav_links_SS row">  <!-- small screen = SS -->
+                <li class="col"><button class="side_nav_button_SS dropdown dropdown-hover" data-bs-toggle="dropdown">Categories<span class="material-symbols-outlined">expand_more</span></button>
+                    <ul class="side_nav_sub_links_SS dropdown-menu">
+                        <li><button class="side_nav_button_SS dropdown-item">Flowers</button></li>
+                        <li><button class="side_nav_button_SS dropdown-item">Trees</button></li>
+                        <li><button class="side_nav_button_SS dropdown-item">Fruit</button></li>
+                        <li><button class="side_nav_button_SS dropdown-item">Vegetables</button></li>
                     </ul>
                 </li>
-                <li><button class="side_nav_button_SS">Filters<span class="material-symbols-outlined">expand_more</span></button></li>
-                <li><button class="side_nav_button_SS">Order by<span class="material-symbols-outlined">expand_more</span></button></li>
+                <li class="col"><button class="side_nav_button_SS">Filters<span class="material-symbols-outlined">expand_more</span></button></li>
+                <li class="col"><button class="side_nav_button_SS dropdown dropdown-hover" data-bs-toggle="dropdown">Order by<span class="material-symbols-outlined">expand_more</span></button>
+                    <ul class="side_nav_sub_links_SS dropdown-menu dropdown-menu-end">
+                        <li><button class="side_nav_button_SS dropdown-item">Best-sellers</button></li>
+                        <li><button class="side_nav_button_SS dropdown-item">New</button></li>
+                        <li><button class="side_nav_button_SS dropdown-item">€ High to low</button></li>
+                        <li><button class="side_nav_button_SS dropdown-item">€ Low to high</button></li>
+                    </ul>
+                </li>
             </ul>
         </div>
 

@@ -19,8 +19,7 @@
 
     <script>
         function display_categories() {
-            x = document.getElementById("sub_side_nav_links");
-            console.log(x)
+            var x = document.getElementById("sub_side_nav_links");
             if (x.style.display === "none") {
                 x.style.display = "block";
             } else {
@@ -96,17 +95,24 @@
                 <li><button class="side_nav_button">Filters<span class="material-symbols-outlined">expand_more</span></button></li>
             </ul>
 
-            <ul class="side_nav_links_SS">  <!-- small screen = SS -->
-                <li><button class="side_nav_button_SS">Categories<span class="material-symbols-outlined">expand_more</span></button>
-                    <ul class="side_nav_sub_links_SS">
-                        <li><button class="side_nav_button_SS">Flowers</button></li>
-                        <li><button class="side_nav_button_SS">Trees</button></li>
-                        <li><button class="side_nav_button_SS">Fruit</button></li>
-                        <li><button class="side_nav_button_SS">Vegetables</button></li>
+            <ul class="side_nav_links_SS row">  <!-- small screen = SS -->
+                <li class="col"><button class="side_nav_button_SS dropdown dropdown-hover" data-bs-toggle="dropdown">Categories<span class="material-symbols-outlined">expand_more</span></button>
+                    <ul class="side_nav_sub_links_SS dropdown-menu">
+                        <li><button class="side_nav_button_SS dropdown-item">Flowers</button></li>
+                        <li><button class="side_nav_button_SS dropdown-item">Trees</button></li>
+                        <li><button class="side_nav_button_SS dropdown-item">Fruit</button></li>
+                        <li><button class="side_nav_button_SS dropdown-item">Vegetables</button></li>
                     </ul>
                 </li>
-                <li><button class="side_nav_button_SS">Filters<span class="material-symbols-outlined">expand_more</span></button></li>
-                <li><button class="side_nav_button_SS">Order by<span class="material-symbols-outlined">expand_more</span></button></li>
+                <li class="col"><button class="side_nav_button_SS">Filters<span class="material-symbols-outlined">expand_more</span></button></li>
+                <li class="col"><button class="side_nav_button_SS dropdown dropdown-hover" data-bs-toggle="dropdown">Order by<span class="material-symbols-outlined">expand_more</span></button>
+                    <ul class="side_nav_sub_links_SS dropdown-menu dropdown-menu-end">
+                        <li><button class="side_nav_button_SS dropdown-item">Best-sellers</button></li>
+                        <li><button class="side_nav_button_SS dropdown-item">New</button></li>
+                        <li><button class="side_nav_button_SS dropdown-item">€ High to low</button></li>
+                        <li><button class="side_nav_button_SS dropdown-item">€ Low to high</button></li>
+                    </ul>
+                </li>
             </ul>
         </div>
 

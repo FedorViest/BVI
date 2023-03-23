@@ -163,11 +163,6 @@ PRODCUT BOX CSS END
         display: flex;
     }
 
-    .side_nav_links_SS li:hover .side_nav_sub_links_SS {
-        display: flex;
-        flex-direction: column;
-    }
-
     .orderby_buttons {
         display: none;
     }
