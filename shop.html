@@ -34,24 +34,24 @@
     <!-- Header-->
     <header class="header">
         <section class="site_name_logo">
-            <a href="#" class="website_name_a">
+            <a href="index.html" class="website_name_a">
                 <img class="logo" src="assets/logo/wtech_logo_v2-removebg-preview.png" alt="logo">
-                <h3 class="website-name">Website name</h3>
+                <h3 class="website-name">Plant Hub</h3>
             </a>
         </section>
-        <form class="search-form">
+        <label class="search-form">
                 <input type="text" placeholder="Search...">
             <button type="submit"><span class="material-symbols-outlined">search</span></button>
-        </form>
+        </label>
         <nav class="show_all_nav">
             <ul class="nav_links">
-                <li class="home_button"><a href="#">Home</a> </li>
-                <li><a href="#">Shop</a> </li>
-                <li><a href="/contact.php">Contact</a> </li>
-                <li><a href="/shopping_cart.html"><span class="material-symbols-outlined">shopping_cart</span> </a></li>
-                <li><a href="#">Login</a> </li>
+                <li class="home_button"><a href="index.html">Home</a> </li>
+                <li><a href="shop.html">Shop</a> </li>
+                <li><a href="contact.html">Contact</a> </li>
+                <li><a href="shopping_cart.html"><span class="material-symbols-outlined">shopping_cart</span> </a></li>
+                <li><a href="login.html">Login</a> </li>
             </ul>
-            <section class="dropdown_menu">
+            <!-- <section class="dropdown_menu">
                 <span class="material-symbols-outlined">menu</span>
                 <ul class="dropdown_content">
                     <li><a href="#">Home</a> </li>
@@ -60,10 +60,23 @@
                     <li><a href="/shopping_cart.html">Cart</a> </li>
                     <li><a href="#">Login</a> </li>
                 </ul>
-            </section>
+            </section> -->
+            <div class="dropdown dropdown-hover">
+                    <button type="button" class="btn shadow-none" data-bs-toggle="dropdown">
+                        <span class="material-symbols-outlined">menu</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end dropdown_content">
+                        <li><a href="index.html">Home</a> </li>
+                        <li><a href="shop.html">Shop</a> </li>
+                        <li><a href="/contact.php">Contact</a> </li>
+                        <li><a href="shopping_cart.html">Cart</a> </li>
+                        <li><a href="login.html">Login</a> </li>
+                    </ul>
+            </div>
         </nav>
     </header>
     <!-- end Header -->
+
 
 
 
@@ -99,69 +112,83 @@
 
 
         <div class="shop col-md-9">
-            <div class="row items">
+            <div class="products_wrapper items row row-cols-2 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 g-3">
             <!-- <h2>Produkty</h2> -->
-                <div class="item col-3">
+                <div class="col">
                     <section class="card">
-                        <img class="card-img" src="assets/products/cherry_tree.jpg" alt="product_image">       <!-- https://pixabay.com/photos/a-tree-nature-heart-cherry-flowers-5255288/ -->
-                        <section class="card-body">
-                            <h3 class="card-title">Cherry tree</h3>
-                            <p class="card-price">19.99€</p>
-                        </section>
+                        <a href="product_detail.html">
+                            <img class="card-img" src="assets/products/cherry_tree.jpg" alt="product_image">       <!-- https://pixabay.com/photos/a-tree-nature-heart-cherry-flowers-5255288/ -->
+                            <section class="card-body">
+                                <h3 class="card-title">Cherry tree</h3>
+                                <p class="card-price">19.99€</p>
+                            </section>
+                        </a>
                     </section>
                 </div>
-                <div class="item col-3">
+                <div class="col">
                     <section class="card">
-                        <img class="card-img" src="assets/products/linden_tree.jpg" alt="product_image">          <!-- https://pixabay.com/photos/linden-tree-building-fruit-stands-210389/ -->
-                        <section class="card-body">
-                            <h3 class="card-title">Linden tree</h3>
-                            <p class="card-price">16.89€</p>
-                        </section>
+                        <a href="product_detail.html">
+                            <img class="card-img" src="assets/products/linden_tree.jpg" alt="product_image">          <!-- https://pixabay.com/photos/linden-tree-building-fruit-stands-210389/ -->
+                            <section class="card-body">
+                                <h3 class="card-title">Linden tree</h3>
+                                <p class="card-price">16.89€</p>
+                            </section>
+                        </a>
                     </section>
                 </div>
-                <div class="item col-3">
+                <div class="col">
                     <section class="card">
-                        <img class="card-img" src="assets/products/apple_tree.png" alt="product_image">      <!-- https://pixabay.com/photos/apple-tree-apples-leaves-fall-3735679/ -->
-                        <section class="card-body">
-                            <h3 class="card-title">Apple tree</h3>
-                            <p class="card-price">18.99€</p>
-                        </section>
+                        <a href="product_detail.html">
+                            <img class="card-img" src="assets/products/apple_tree.png" alt="product_image">      <!-- https://pixabay.com/photos/apple-tree-apples-leaves-fall-3735679/ -->
+                            <section class="card-body">
+                                <h3 class="card-title">Apple tree</h3>
+                                <p class="card-price">18.99€</p>
+                            </section>
+                        </a>
                     </section>
                 </div>
-                <div class="item col-3">
+                <div class="col">
                     <section class="card">
-                        <img class="card-img" src="assets/products/pine_tree.jpg" alt="product_image">      <!-- https://pixabay.com/photos/nature-tree-no-one-outside-needle-3233209/ -->
-                        <section class="card-body">
-                            <h3 class="card-title">Pine tree</h3>
-                            <p class="card-price">15.50€</p>
-                        </section>
+                        <a href="product_detail.html">
+                            <img class="card-img" src="assets/products/pine_tree.jpg" alt="product_image">      <!-- https://pixabay.com/photos/nature-tree-no-one-outside-needle-3233209/ -->
+                            <section class="card-body">
+                                <h3 class="card-title">Pine tree</h3>
+                                <p class="card-price">15.50€</p>
+                            </section>
+                        </a>
                     </section>
                 </div>
-                <div class="item col-3">
+                <div class="col">
                     <section class="card">
-                        <img class="card-img" src="assets/products/oak_tree.jpg" alt="product_image">      <!-- https://www.pexels.com/photo/in-distant-photo-of-tree-on-landscape-field-3283498/ -->
-                        <section class="card-body">
-                            <h3 class="card-title">Oak tree</h3>
-                            <p class="card-price">16.89€</p>
-                        </section>
+                        <a href="product_detail.html">
+                            <img class="card-img" src="assets/products/oak_tree.jpg" alt="product_image">      <!-- https://www.pexels.com/photo/in-distant-photo-of-tree-on-landscape-field-3283498/ -->
+                            <section class="card-body">
+                                <h3 class="card-title">Oak tree</h3>
+                                <p class="card-price">16.89€</p>
+                            </section>
+                        </a>
                     </section>
                 </div>
-                <div class="item col-3">
+                <div class="col">
                     <section class="card">
-                        <img class="card-img" src="assets/products/beech_tree.jpg" alt="product_image">      <!-- https://pixabay.com/photos/tree-beech-fall-deciduous-tree-2812466/ -->
-                        <section class="card-body">
-                            <h3 class="card-title">Beech tree</h3>
-                            <p class="card-price">16.89€</p>
-                        </section>
+                        <a href="product_detail.html">
+                            <img class="card-img" src="assets/products/beech_tree.jpg" alt="product_image">      <!-- https://pixabay.com/photos/tree-beech-fall-deciduous-tree-2812466/ -->
+                            <section class="card-body">
+                                <h3 class="card-title">Beech tree</h3>
+                                <p class="card-price">16.89€</p>
+                            </section>
+                        </a>
                     </section>
                 </div>
-                <div class="item col-3">
+                <div class="col">
                     <section class="card">
-                        <img class="card-img" src="assets/products/plum_tree.jpg" alt="product_image">      <!-- https://pixabay.com/photos/winter-flowers-plum-blossom-tree-1157079/ -->
-                        <section class="card-body">
-                            <h3 class="card-title">Plum tree</h3>
-                            <p class="card-price">19.99€</p>
-                        </section>
+                        <a href="product_detail.html">
+                            <img class="card-img" src="assets/products/plum_tree.jpg" alt="product_image">      <!-- https://pixabay.com/photos/winter-flowers-plum-blossom-tree-1157079/ -->
+                            <section class="card-body">
+                                <h3 class="card-title">Plum tree</h3>
+                                <p class="card-price">19.99€</p>
+                            </section>
+                        </a>
                     </section>
                 </div>
             </div>
