@@ -23,13 +23,26 @@
     <script>
         var num = 1;
 
-        function display_categories() {
-            x = document.getElementById("sub_side_nav_links");
-            console.log(x)
+        function display(element) {
+            var x = document.getElementById(element);
             if (x.style.display === "none") {
                 x.style.display = "block";
             } else {
                 x.style.display = "none";
+            }
+        }
+
+        function clicked_checkbox(checkbox, input_element) {
+            console.log(checkbox.checked)
+            console.log(input_element)
+            if(checkbox.checked == false) {
+                var inp = document.getElementById(input_element);
+                console.log(inp)
+                inp.style.pointerEvents = "none";
+            }
+            else {
+                var inp = document.getElementById(input_element);
+                inp.style.pointerEvents = "auto";
             }
         }
 
@@ -102,19 +115,46 @@
         <div class="side_nav col-md-3">
             <ul class="side_nav_links">
                 <li>
-                    <button class="side_nav_button" onclick="display_categories()">Categories<span class="material-symbols-outlined">expand_more</span></button>
-                    <ul class="sub_side_nav_links" id="sub_side_nav_links">
+                    <button class="side_nav_button" onclick="display('sub_side_nav_links')">
+                        Categories<span class="material-symbols-outlined">expand_more</span>
+                    </button>
+                    <ul id="sub_side_nav_links" class="sub_side_nav_links">
                         <li><button class="side_nav_button">Flowers</button></li>
                         <li><button class="side_nav_button">Trees</button></li>
                         <li><button class="side_nav_button">Fruit</button></li>
                         <li><button class="side_nav_button">Vegetables</button></li>
                     </ul>
                 </li>
-                <li><button class="side_nav_button">Filters<span class="material-symbols-outlined">expand_more</span></button></li>
+                <li>
+                    <button class="side_nav_button" onclick="display('side_nav_filters')">
+                        Filters<span class="material-symbols-outlined">expand_more</span>
+                    </button>
+                    <ul id="side_nav_filters" class="side_nav_filters">
+                        <li>
+                            <label class="filter_label">Price</label>
+                            <div class="price_values">
+                                <div class="price_value_range">
+                                    <input class="checkbox" type="checkbox" onclick="clicked_checkbox(this, 'price_input_min_SS')">
+                                    <label class="price_label">Min</label>
+                                    <input id="price_input_min_SS" class="price_input price_input_min" type="number" value="0">
+                                </div>
+                                <div class="price_value_range">
+                                    <input class="checkbox" type="checkbox" checked onclick="clicked_checkbox(this, 'price_input_max_SS')">
+                                    <label class="price_label">Max</label>
+                                    <input id="price_input_max_SS" class="price_input" type="number" value="19.99">
+                                </div>
+                            </div>
+                            <button class="set_price_button">Set</button>
+                        </li>
+                    </ul>
+                </li>
             </ul>
 
             <ul class="side_nav_links_SS row">  <!-- small screen = SS -->
-                <li class="col"><button class="side_nav_button_SS dropdown dropdown-hover" data-bs-toggle="dropdown">Categories<span class="material-symbols-outlined">expand_more</span></button>
+                <li class="col">
+                    <button class="side_nav_button_SS dropdown dropdown-hover" data-bs-toggle="dropdown">
+                        Categories<span class="material-symbols-outlined">expand_more</span>
+                    </button>
                     <ul class="side_nav_sub_links_SS dropdown-menu">
                         <li><button class="side_nav_button_SS dropdown-item">Flowers</button></li>
                         <li><button class="side_nav_button_SS dropdown-item">Trees</button></li>
@@ -122,8 +162,33 @@
                         <li><button class="side_nav_button_SS dropdown-item">Vegetables</button></li>
                     </ul>
                 </li>
-                <li class="col"><button class="side_nav_button_SS">Filters<span class="material-symbols-outlined">expand_more</span></button></li>
-                <li class="col"><button class="side_nav_button_SS dropdown dropdown-hover" data-bs-toggle="dropdown">Order by<span class="material-symbols-outlined">expand_more</span></button>
+                <li class="col">
+                    <button class="side_nav_button_SS dropdown dropdown-hover" data-bs-toggle="dropdown">
+                        Filters<span class="material-symbols-outlined">expand_more</span>
+                    </button>
+                    <ul class="side_nav_filters_SS side_nav_sub_links_SS dropdown-menu">
+                        <li class="dropdown-item">
+                            <label class="filter_label">Price</label>
+                            <div class="price_values">
+                                <div class="price_value_range">
+                                    <input class="checkbox" type="checkbox" onclick="clicked_checkbox(this, 'price_input_min')">
+                                    <label class="price_label">Min</label>
+                                    <input id="price_input_min" class="price_input price_input_min" type="number" value="0">
+                                </div>
+                                <div class="price_value_range">
+                                    <input class="checkbox" type="checkbox" checked onclick="clicked_checkbox(this, 'price_input_max')">
+                                    <label class="price_label">Max</label>
+                                    <input id="price_input_max" class="price_input" type="number" value="19.99">
+                                </div>
+                            </div>
+                            <button class="set_price_button_SS">Set</button>
+                        </li>
+                    </ul>
+                </li>
+                <li class="col">
+                    <button class="side_nav_button_SS dropdown dropdown-hover" data-bs-toggle="dropdown">
+                        Order by<span class="material-symbols-outlined">expand_more</span>
+                    </button>
                     <ul class="side_nav_sub_links_SS dropdown-menu dropdown-menu-end">
                         <li><button class="side_nav_button_SS dropdown-item">Best-sellers</button></li>
                         <li><button class="side_nav_button_SS dropdown-item">New</button></li>
