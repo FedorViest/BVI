@@ -8,7 +8,9 @@
     </section>
     <label class="search-form">
             <input type="text" placeholder="Search...">
+        <a href="shop.html">
         <button type="submit"><span class="material-symbols-outlined">search</span></button>
+        </a>
     </label>
     <nav class="show_all_nav">
         <ul class="nav_links">

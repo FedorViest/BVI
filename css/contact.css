@@ -34,14 +34,15 @@ body{
 
 .content {
     flex: 1;
-    padding: 10px;
+    padding: 3px;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 500px;
     width: 100%;
-    background-color: var(--seal-brown);
+    background-color: var(--platinum);
+    border-radius: 5px;
 }
 
 .picture_map{
