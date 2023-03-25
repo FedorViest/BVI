@@ -28,21 +28,20 @@ main.row {
     width: 100%;
     background-color: var(--honeydew);
     border: 3px solid var(--nyanza);
-    border-bottom: none;
+    border-bottom: 3px solid var(--avocado);
     padding: 15px;
     font-weight: 700;
     flex-grow: 1;
 }
 
 .order_by_btn:hover {
-    border: 3px solid var(--avocado);
-    border-bottom: none;
+    background-color: var(--nyanza);
 }
 
 .order_by_btn:focus {
     background-color: var(--nyanza);
-    border: 3px solid var(--nyanza);
-    border-bottom: none;
+    border: 3px solid var(--avocado);
+    border-bottom: 3px solid var(--nyanza);
 }
 
 
@@ -50,7 +49,7 @@ main.row {
     background-color: var(--honeydew);
     margin: 0;
     padding-bottom: 15px;
-    border-top: 3px solid var(--avocado);
+    /* border-top: 3px solid var(--avocado); */
 }
 
 .item {

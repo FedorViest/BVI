@@ -43,6 +43,10 @@
     font-weight: 400;
 }
 
+.sub_side_nav_links button:focus {
+    background-color: var(--honeydew);
+}
+
 .sub_side_nav_links li {
     border: none;
 }
