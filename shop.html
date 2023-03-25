@@ -30,7 +30,7 @@
         function clicked_checkbox(checkbox, input_element) {
             console.log(checkbox.checked)
             console.log(input_element)
-            if(checkbox.checked == false) {
+            if(checkbox.checked === false) {
                 var inp = document.getElementById(input_element);
                 console.log(inp)
                 inp.style.pointerEvents = "none";
@@ -283,7 +283,7 @@
     <!-- FOOTER -->
     <footer class="footer">
         <section class="site_logo">
-            <img class="footer_logo" src="../assets/logo/wtech_logo_v2-removebg-preview.png" alt="logo">
+            <img class="footer_logo" src="assets/logo/wtech_logo_v2-removebg-preview.png" alt="logo">
         </section>
         <section class="blocks_holder">
             <!-- canvas for the 3 blocks-->
@@ -305,6 +305,5 @@
     </footer>
     
     <!-- /FOOTER -->
-</body>
 </body>
 </html>
