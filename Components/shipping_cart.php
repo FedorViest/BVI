@@ -1,7 +1,7 @@
 <!-- Shipping cart -->
 <tr>
     <td>
-        <img class="product_photo" src="/assets/logo/wtech_logo_v2-removebg-preview.png" alt="logo">
+        <img class="product_photo" src="assets/logo/wtech_logo_v2-removebg-preview.png" alt="logo">
     </td>
     <td>
         <h4>Product 1</h4>

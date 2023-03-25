@@ -1,7 +1,7 @@
 <div class="row d-flex justify-content-around">
     <div class="col-5 d-inline-block">
         <div class="row-12 d-flex">
-            <img class="img-thumbnail" src="/assets/logo/wtech_logo_v2-removebg-preview.png" alt="logo">
+            <img class="img-thumbnail" src="assets/logo/wtech_logo_v2-removebg-preview.png" alt="logo">
             <div class="col m-2">
                 <h3>Product 1</h3>
                 <p>Description</p>

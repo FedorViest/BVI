@@ -30,7 +30,7 @@ main{
     display: flex;
     flex-direction: row;
     gap: 10%;
-    background-image: url("/assets/banner_image.jpg"); /*https://wallpaperaccess.com/white-plant*/
+    background-image: url("../assets/banner_image.jpg"); /*https://wallpaperaccess.com/white-plant*/
     background-size: cover;
     background-position: center;
     position: relative;

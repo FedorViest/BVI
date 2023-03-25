@@ -33,7 +33,7 @@
                     <!-- PRODUCT CARD START -->
 
                     <section class="card">
-                        <img class="card-img" src="/assets/logo/wtech_logo_v2.png" alt="product_image">
+                        <img class="card-img" src="assets/logo/wtech_logo_v2.png" alt="product_image">
                         <section class="card-body">
                             <h3 class="card-title">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</h3>
                             <p class="card-price">19.99€</p>
@@ -41,7 +41,7 @@
                     </section>
 
                     <section class="card">
-                        <img class="card-img" src="/assets/logo/wtech_logo_v2.png" alt="product_image">
+                        <img class="card-img" src="assets/logo/wtech_logo_v2.png" alt="product_image">
                         <section class="card-body">
                             <h3 class="card-title">Product 2</h3>
                             <p class="card-price">19.99€</p>
@@ -49,7 +49,7 @@
                     </section>
 
                     <section class="card">
-                        <img class="card-img" src="/assets/logo/wtech_logo_v2.png" alt="product_image">
+                        <img class="card-img" src="assets/logo/wtech_logo_v2.png" alt="product_image">
                         <section class="card-body">
                             <h3 class="card-title">Product 3</h3>
                             <p class="card-price">19.99€</p>
@@ -57,7 +57,7 @@
                     </section>
 
                     <section class="card">
-                        <img class="card-img" src="/assets/logo/wtech_logo_v2.png" alt="product_image">
+                        <img class="card-img" src="assets/logo/wtech_logo_v2.png" alt="product_image">
                         <section class="card-body">
                             <h3 class="card-title">Product 4</h3>
                             <p class="card-price">19.99€</p>
@@ -72,7 +72,7 @@
                     <!-- PRODUCT CARD START -->
 
                     <section class="card">
-                        <img class="card-img" src="/assets/logo/wtech_logo_v2.png" alt="product_image">
+                        <img class="card-img" src="assets/logo/wtech_logo_v2.png" alt="product_image">
                         <section class="card-body">
                             <h3 class="card-title">Product 5</h3>
                             <p class="card-price">19.99€</p>
@@ -80,7 +80,7 @@
                     </section>
 
                     <section class="card">
-                        <img class="card-img" src="/assets/logo/wtech_logo_v2.png" alt="product_image">
+                        <img class="card-img" src="assets/logo/wtech_logo_v2.png" alt="product_image">
                         <section class="card-body">
                             <h3 class="card-title">Product 6</h3>
                             <p class="card-price">19.99€</p>
@@ -88,7 +88,7 @@
                     </section>
 
                     <section class="card">
-                        <img class="card-img" src="/assets/logo/wtech_logo_v2.png" alt="product_image">
+                        <img class="card-img" src="assets/logo/wtech_logo_v2.png" alt="product_image">
                         <section class="card-body">
                             <h3 class="card-title">Product 7</h3>
                             <p class="card-price">19.99€</p>
@@ -96,7 +96,7 @@
                     </section>
 
                     <section class="card">
-                        <img class="card-img" src="/assets/logo/wtech_logo_v2.png" alt="product_image">
+                        <img class="card-img" src="assets/logo/wtech_logo_v2.png" alt="product_image">
                         <section class="card-body">
                             <h3 class="card-title">Product 8</h3>
                             <p class="card-price">19.99€</p>
@@ -111,7 +111,7 @@
                     <!-- PRODUCT CARD START -->
 
                     <section class="card">
-                        <img class="card-img" src="/assets/logo/wtech_logo_v2.png" alt="product_image">
+                        <img class="card-img" src="assets/logo/wtech_logo_v2.png" alt="product_image">
                         <section class="card-body">
                             <h3 class="card-title">Product 9</h3>
                             <p class="card-price">19.99€</p>
@@ -119,7 +119,7 @@
                     </section>
 
                     <section class="card">
-                        <img class="card-img" src="/assets/logo/wtech_logo_v2.png" alt="product_image">
+                        <img class="card-img" src="assets/logo/wtech_logo_v2.png" alt="product_image">
                         <section class="card-body">
                             <h3 class="card-title">Product 10</h3>
                             <p class="card-price">19.99€</p>
@@ -127,7 +127,7 @@
                     </section>
 
                     <section class="card">
-                        <img class="card-img" src="/assets/logo/wtech_logo_v2.png" alt="product_image">
+                        <img class="card-img" src="assets/logo/wtech_logo_v2.png" alt="product_image">
                         <section class="card-body">
                             <h3 class="card-title">Product 11</h3>
                             <p class="card-price">19.99€</p>
@@ -135,7 +135,7 @@
                     </section>
 
                     <section class="card">
-                        <img class="card-img" src="/assets/logo/wtech_logo_v2.png" alt="product_image">
+                        <img class="card-img" src="assets/logo/wtech_logo_v2.png" alt="product_image">
                         <section class="card-body">
                             <h3 class="card-title">Product 12</h3>
                             <p class="card-price">19.99€</p>
@@ -166,7 +166,7 @@
                 <div class="products_wrapper row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-3">
                     <div class="col">
                         <div class="card">
-                            <img class="card-img" src="/assets/products/apple_tree.png" alt="product_image">
+                            <img class="card-img" src="assets/products/apple_tree.png" alt="product_image">
                             <div class="card-body">
                                 <h3 class="card-title">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</h3>
                                 <p class="card-text">19.99€</p>
@@ -175,7 +175,7 @@
                     </div>
                     <div class="col">
                         <div class="card">
-                            <img class="card-img" src="/assets/logo/wtech_logo_v2.png" alt="product_image">
+                            <img class="card-img" src="assets/logo/wtech_logo_v2.png" alt="product_image">
                             <div class="card-body">
                                 <h3 class="card-title">Product 1</h3>
                                 <p class="card-text">19.99€</p>
@@ -184,7 +184,7 @@
                     </div>
                     <div class="col">
                         <div class="card">
-                            <img class="card-img" src="/assets/logo/wtech_logo_v2.png" alt="product_image">
+                            <img class="card-img" src="assets/logo/wtech_logo_v2.png" alt="product_image">
                             <div class="card-body">
                                 <h3 class="card-title">Product 1</h3>
                                 <p class="card-text">19.99€</p>
@@ -193,7 +193,7 @@
                     </div>
                     <div class="col">
                         <div class="card">
-                            <img class="card-img" src="/assets/logo/wtech_logo_v2.png" alt="product_image">
+                            <img class="card-img" src="assets/logo/wtech_logo_v2.png" alt="product_image">
                             <div class="card-body">
                                 <h3 class="card-title">Product 1</h3>
                                 <p class="card-text">19.99€</p>
@@ -202,7 +202,7 @@
                     </div>
                     <div class="col">
                         <div class="card">
-                            <img class="card-img" src="/assets/logo/wtech_logo_v2.png" alt="product_image">
+                            <img class="card-img" src="assets/logo/wtech_logo_v2.png" alt="product_image">
                             <div class="card-body">
                                 <h3 class="card-title">Product 1</h3>
                                 <p class="card-text">19.99€</p>
@@ -211,7 +211,7 @@
                     </div>
                     <div class="col">
                         <div class="card">
-                            <img class="card-img" src="/assets/logo/wtech_logo_v2.png" alt="product_image">
+                            <img class="card-img" src="assets/logo/wtech_logo_v2.png" alt="product_image">
                             <div class="card-body">
                                 <h3 class="card-title">Product 1</h3>
                                 <p class="card-text">19.99€</p>

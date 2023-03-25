@@ -22,7 +22,8 @@
 }
 
 .btn:hover, .btn:focus {
-    background-color: var(--avocado);
+    background-color: var(--avocado) !important;
+    box-shadow: none !important;
 }
 
 .btn > * {
