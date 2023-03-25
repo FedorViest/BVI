@@ -28,15 +28,11 @@
         }
 
         function clicked_checkbox(checkbox, input_element) {
-            console.log(checkbox.checked)
-            console.log(input_element)
+            var inp = document.getElementById(input_element);
             if(checkbox.checked === false) {
-                var inp = document.getElementById(input_element);
-                console.log(inp)
                 inp.style.pointerEvents = "none";
             }
             else {
-                var inp = document.getElementById(input_element);
                 inp.style.pointerEvents = "auto";
             }
         }
@@ -120,14 +116,18 @@
                             <label class="filter_label">Price</label>
                             <div class="price_values">
                                 <div class="price_value_range">
-                                    <input class="checkbox" type="checkbox" onclick="clicked_checkbox(this, 'price_input_min_SS')">
+                                    <label>
+                                        <input class="checkbox" type="checkbox" onclick="clicked_checkbox(this, 'price_input_min_SS')">
+                                    </label>
                                     <label class="price_label">Min</label>
-                                    <input id="price_input_min_SS" class="price_input price_input_min" type="number" value="0">
+                                    <label for="price_input_min_SS"></label><input id="price_input_min_SS" class="price_input price_input_min" type="number" value="0">
                                 </div>
                                 <div class="price_value_range">
-                                    <input class="checkbox" type="checkbox" checked onclick="clicked_checkbox(this, 'price_input_max_SS')">
+                                    <label>
+                                        <input class="checkbox" type="checkbox" checked onclick="clicked_checkbox(this, 'price_input_max_SS')">
+                                    </label>
                                     <label class="price_label">Max</label>
-                                    <input id="price_input_max_SS" class="price_input" type="number" value="19.99">
+                                    <label for="price_input_max_SS"></label><input id="price_input_max_SS" class="price_input" type="number" value="19.99">
                                 </div>
                             </div>
                             <button class="set_price_button">Set</button>
@@ -157,14 +157,18 @@
                             <label class="filter_label">Price</label>
                             <div class="price_values">
                                 <div class="price_value_range">
-                                    <input class="checkbox" type="checkbox" onclick="clicked_checkbox(this, 'price_input_min')">
+                                    <label>
+                                        <input class="checkbox" type="checkbox" onclick="clicked_checkbox(this, 'price_input_min')">
+                                    </label>
                                     <label class="price_label">Min</label>
-                                    <input id="price_input_min" class="price_input price_input_min" type="number" value="0">
+                                    <label for="price_input_min"></label><input id="price_input_min" class="price_input price_input_min" type="number" value="0">
                                 </div>
                                 <div class="price_value_range">
-                                    <input class="checkbox" type="checkbox" checked onclick="clicked_checkbox(this, 'price_input_max')">
+                                    <label>
+                                        <input class="checkbox" type="checkbox" checked onclick="clicked_checkbox(this, 'price_input_max')">
+                                    </label>
                                     <label class="price_label">Max</label>
-                                    <input id="price_input_max" class="price_input" type="number" value="19.99">
+                                    <label for="price_input_max"></label><input id="price_input_max" class="price_input" type="number" value="19.99">
                                 </div>
                             </div>
                             <button class="set_price_button_SS">Set</button>
