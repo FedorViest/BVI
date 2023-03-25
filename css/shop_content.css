@@ -29,7 +29,8 @@ main.row {
     background-color: var(--honeydew);
     border: 3px solid var(--nyanza);
     border-bottom: 3px solid var(--avocado);
-    padding: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     font-weight: 700;
     flex-grow: 1;
 }
