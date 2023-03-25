@@ -85,6 +85,16 @@ div h4{
     font-weight: bold;
 }
 
+.nav_shipping{
+    border-bottom: 2px solid var(--avocado) ;
+    border-radius: 3px;
+}
+
+.nav_shipping:hover{
+    border-bottom: 2px solid var(--pakistan-green) ;
+    border-radius: 3px;
+}
+
 @media only screen and (max-width: 815px), (max-device-width: 815px){
     .inside_content{
         flex-direction: column-reverse;

@@ -96,6 +96,25 @@ div p, div h3{
     border: none;
 }
 
+.nav_cart{
+    border-bottom: 2px solid var(--avocado) ;
+    border-radius: 3px;
+}
+
+.nav_cart:hover{
+    border-bottom: 2px solid var(--pakistan-green) ;
+    border-radius: 3px;
+}
+
+.delete-div span {
+    cursor: pointer;
+
+}
+
+.delete-div span:hover{
+    color: var(--avocado);
+}
+
 @media only screen and (max-width: 815px), (max-device-width: 815px){
     .inside_content{
         width: 100%;

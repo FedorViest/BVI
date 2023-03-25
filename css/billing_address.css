@@ -99,10 +99,6 @@ html{
     margin: 0;
 }
 
-.cart_navigation .nav_billing{
-    text-decoration-line: underline;
-}
-
 .img-thumbnail {
     width: 70px;
     height: 70px;
@@ -119,6 +115,16 @@ div h4{
 
 .total_price {
     font-weight: bold;
+}
+
+.nav_billing{
+    border-bottom: 2px solid var(--avocado) ;
+    border-radius: 3px;
+}
+
+.nav_billing:hover{
+    border-bottom: 2px solid var(--pakistan-green) ;
+    border-radius: 3px;
 }
 
 @media only screen and (max-width: 815px), (max-device-width: 815px){
