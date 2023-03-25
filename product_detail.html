@@ -21,8 +21,6 @@
 
 
     <script>
-        var num = 1;
-
         function display(element) {
             var x = document.getElementById(element);
             if (x.style.display === "none") {
@@ -46,16 +44,17 @@
             }
         }
 
-        function increase() {
-            num = num + 1;
-            document.getElementById("num_counter").value = num;
+        function increase(element) {
+            var num = parseInt(document.getElementById(element).value);
+            document.getElementById(element).value = num+1;
         }
 
-        function decrease() {
+        function decrease(element) {
+            var num = parseInt(document.getElementById(element).value);
             if(num > 1) {
                 num = num - 1;
             }
-            document.getElementById("num_counter").value = num;
+            document.getElementById(element).value = num;
         }
     </script>
 
