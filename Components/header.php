@@ -37,7 +37,7 @@
                 <ul class="dropdown-menu dropdown-menu-end dropdown_content">
                     <li><a href="index.html">Home</a> </li>
                     <li><a href="shop.html">Shop</a> </li>
-                    <li><a href="/contact.php">Contact</a> </li>
+                    <li><a href="contact.html">Contact</a> </li>
                     <li><a href="shopping_cart.html">Cart</a> </li>
                     <li><a href="login.html">Login</a> </li>
                 </ul>
