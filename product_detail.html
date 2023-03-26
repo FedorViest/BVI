@@ -257,13 +257,15 @@
                     <hr>
                 </section>
                 <div class="buyer_interaction">
-                    <label class="counter">
-                        <button class="button_counter" onclick="increase('num_counter')"><span
+                    <div class="counter m-0 p-0">
+                        <button class="button_counter" onclick="increase('num_counter1')"><span
                                 class="material-symbols-outlined">add</span></button>
-                        <input id="num_counter" class="num_counter" type="number" value="1">
-                        <button class="button_counter" onclick="decrease('num_counter')"><span
+                        <label>
+                            <input class="num_counter" id="num_counter1" type="number" value="1">
+                        </label>
+                        <button class="button_counter align-items-center" onclick="decrease('num_counter1')"><span
                                 class="material-symbols-outlined">remove</span></button>
-                    </label>
+                    </div>
                     <div class="buy_button">
                         <button type="button" class="btn_custom">
                             <img class="shopping_cart_img" src="assets/shoppping_cart.png" alt="shopping_cart">
