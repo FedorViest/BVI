@@ -2,7 +2,7 @@
 @import url('constants.css');
 
 
-.btn {
+.btn_custom {
     position: relative;
 
     display: block;
@@ -21,21 +21,21 @@
     transition: background-color .3s;
 }
 
-.btn:hover, .btn:focus {
+.btn_custom:hover, .btn_custom:focus {
     background-color: var(--avocado) !important;
     box-shadow: none !important;
 }
 
-.btn > * {
+.btn_custom > * {
     position: relative;
 }
 
-.btn span {
+.btn_custom span {
     display: block;
     padding: 12px 24px;
 }
 
-.btn:before {
+.btn_custom:before {
     content: "";
 
     position: absolute;
@@ -57,7 +57,7 @@
     transform: translate(-50%, -50%);
 }
 
-.btn:active:before {
+.btn_custom:active:before {
     width: 120%;
     padding-top: 120%;
 
