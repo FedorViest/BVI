@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('constants.css');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+html{
+    height:100%;
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+            'FILL' 0,
+            'wght' 700,
+            'GRAD' 200,
+            'opsz' 48
+;
+}
+
+.content{
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    width: 100%;
+}
+
+.inside_content{
+    display: flex;
+    flex-direction: row;
+    /*gap: 30px;*/
+    width: fit-content;
+    min-width:  70%;
+    align-items: center;
+}
+
+.outline_block{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    /*border: solid grey 1px;
+    border-radius: 20px;*/
+    border-right: solid grey 1px;
+    height: 100%;
+}
+
+.outline_cart_block{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    /*border: solid grey 1px;
+    border-radius: 20px;*/
+    height: 100%;
+    padding-top: 15px;
+}
+
+.img-thumbnail {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    margin: 0 auto;
+}
+
+div h4{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 20rem;
+}
+
+.total_price {
+    font-weight: bold;
+}
+
+.nav_shipping{
+    border-bottom: 2px solid var(--avocado) ;
+    border-radius: 3px;
+}
+
+.nav_shipping:hover{
+    border-bottom: 2px solid var(--pakistan-green) ;
+    border-radius: 3px;
+}
+
+@media only screen and (max-width: 815px), (max-device-width: 815px){
+    .inside_content{
+        flex-direction: column-reverse;
+        gap: 30px;
+    }
+
+    .details_table, .outline_block{
+        width: 80%;
+    }
+
+    .outline_block{
+        border: solid grey 1px;
+        border-radius: 20px;
+    }
+
+    .outline_cart_block{
+        border: solid grey 1px;
+        border-radius: 20px;
+    }
+}
+
+@media only screen and (max-width: 1300px), (max-device-width: 1300px) {
+    .inside_content{
+        min-width: 90%;
+    }
+}
+
+
+
+
+
+
+

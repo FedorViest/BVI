@@ -1,0 +1,135 @@
+@import url('constants.css');
+
+
+/* .product_detail {
+    margin-right: 15px;
+} */
+
+
+.main_info {
+    margin-top: 15px;
+    /* margin-left: 0; */
+    /* margin-left: 0;
+    margin-right: 0; */
+}
+
+.product_images {
+    /* display: flex; */
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.carousel-inner {
+    width: 100%;
+    /* max-width: 360px; */
+}
+
+.product_img {
+    width: 100%;
+    /* max-width: 360px; */
+}
+
+.carousel-inner button {
+    background: none;
+    border: none;
+}
+
+
+.main_product_info {
+    margin-top: 0;
+}
+
+.product_detail_price {
+    font-size: 1.5rem;
+    font-weight: 700; 
+}
+
+.buyer_interaction {
+    margin-left: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.counter {
+    padding: 0;
+    max-width: 100px;
+    max-height: 40px;
+    background-color: var(--nyanza);
+    align-items: center;
+    display: flex;
+    text-align: center;
+    /* justify-content: space-evenly; */
+}
+
+
+.button_counter {
+    margin: 5px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color: var(--nyanza);
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button_counter:hover {
+    background-color: var(--honeydew);
+}
+
+.num_counter {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 0;
+    font-weight: 700;
+    font-size: 1rem;
+    background-color: white;
+    text-align: center;
+    border: none;
+}
+
+.num_counter::-webkit-outer-spin-button,
+.num_counter::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.btn_custom {
+    min-width: 135px;
+}
+
+
+/* .long_description {
+    margin-left: 15px;
+} */
+
+
+.long_description h2 {
+    margin-top: 2rem;
+    margin-bottom: 0;
+    width: 200px;
+    background-color: var(--nyanza);
+    padding: 5px;
+    text-align: center;
+}
+
+.long_description ul {
+    list-style: none;
+    background-color: var(--honeydew);
+    border-top: 3px solid var(--avocado);
+    padding: 15px;
+}
+
+
+.recommended_items_text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    vertical-align: middle;
+    font-size: 32px;
+    padding: 20px 0 20px 0;
+}
+
+.container{
+    margin-bottom: 50px;
+}

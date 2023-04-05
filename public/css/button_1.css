@@ -1,0 +1,70 @@
+/*style from: https://codepen.io/sebj54/pen/ogvzdr*/
+@import url('constants.css');
+
+
+.btn_custom {
+    position: relative;
+
+    display: block;
+    padding: 10px;
+
+    overflow: hidden;
+
+    border-width: 0;
+    outline: none;
+    border-radius: 5px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+    font-weight: bold;
+    background-color: var(--nyanza) !important;
+    color: black;
+
+    transition: background-color .3s;
+}
+
+.btn_custom:hover, .btn_custom:focus {
+    background-color: var(--avocado) !important;
+    box-shadow: none !important;
+}
+
+.btn_custom > * {
+    position: relative;
+}
+
+.btn_custom span {
+    display: block;
+    padding: 12px 24px;
+}
+
+.btn_custom:before {
+    content: "";
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    display: block;
+    width: 0;
+    padding-top: 0;
+
+    border-radius: 100%;
+
+    background-color: rgba(236, 240, 241, .3);
+
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.btn_custom:active:before {
+    width: 120%;
+    padding-top: 120%;
+
+    transition: width .2s ease-out, padding-top .2s ease-out;
+}
+
+/* Styles, not important */
+*, *:before, *:after {
+    box-sizing: border-box;
+}

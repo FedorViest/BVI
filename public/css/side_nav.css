@@ -1,0 +1,170 @@
+@import url('constants.css');
+
+
+/* big_side_nav */
+.side_nav {
+    padding: 0;
+    background-color: var(--nyanza);
+    border-top: 3px solid black;
+}
+
+.side_nav ul {
+    padding-left: 0;
+    list-style: none;
+    line-height: 50px;
+    margin: inherit;
+}
+
+.side_nav_button {
+    border: none;
+    width: 100%;
+    background-color: var(--nyanza);
+    text-align: left;
+    font-weight: 700;
+    padding-left: 14%;
+}
+
+.side_nav_button:hover {
+    background-color: var(--honeydew);
+}
+
+.side_nav_links li {
+    border-bottom: 3px solid black;
+}
+
+.side_nav_links span {
+    transform: translateY(50%);
+    float: right;
+    padding-right: 8%;
+}
+
+.sub_side_nav_links button {
+    padding-left: 26%;
+    font-weight: 400;
+}
+
+.sub_side_nav_links button:focus {
+    background-color: var(--honeydew);
+}
+
+.sub_side_nav_links li {
+    border: none;
+}
+
+/* filters */
+.side_nav_filters {
+    display: none;
+}
+
+.side_nav_filters li {
+    padding-left: 26%;
+    margin-bottom: 15px;
+    border-bottom: none;
+}
+
+.price_values {
+    margin: 0;
+}
+
+.price_value_range {
+    line-height: normal;
+    margin-bottom: 3px;
+}
+
+.price_label {
+    font-size: 0.9rem;
+    width: 25px;
+}
+
+.price_input {
+    width: 50%;
+    border-radius: 5px;
+    border: 2px solid var(--platinum);
+    background-color: var(--honeydew);
+}
+
+.price_input_min {
+    pointer-events: none;
+}
+
+.set_price_button {
+    width: 75%;
+    height: 50px;
+    border-radius: 5px;
+    border: 2px solid var(--platinum);
+    background-color: var(--honeydew);
+    text-align: center;
+}
+
+.set_price_button:hover {
+    border: 2px solid var(--avocado);
+}
+
+
+
+
+/* small nav */
+.side_nav_links_SS {
+    display: none;
+    justify-content: space-around;
+    border-bottom: 3px solid black;
+}
+
+.side_nav_button_SS {
+    border: none;
+    background-color: var(--nyanza);
+    text-align: center;
+    font-weight: 700;
+    flex-grow: 1;
+    width: 100%;
+}
+
+.side_nav_button_SS:hover {
+    color: var(--avocado);
+}
+
+.side_nav_links_SS span {
+    transform: translateY(25%);
+}
+
+.side_nav_sub_links_SS {
+    padding: 0;
+    border: 2px solid black;
+}
+
+.side_nav_sub_links_SS button {
+    background-color: var(--honeydew);
+    font-weight: 400;
+}
+
+.side_nav_sub_links_SS button:hover {
+    background-color: var(--honeydew);
+    color: var(--avocado);
+    font-weight: 700;
+}
+
+.side_nav_filters_SS li {
+    background-color: var(--honeydew);
+}
+
+.side_nav_filters_SS li:hover {
+    background-color: var(--honeydew);
+}
+
+.side_nav_filters_SS li:hover .filter_label {
+    background-color: var(--honeydew);
+    color: var(--avocado);
+    font-weight: 700;
+}
+
+.set_price_button_SS {
+    width: 75%;
+    border-radius: 5px;
+    border: 2px solid var(--platinum);
+    background-color: var(--honeydew);
+    text-align: center;
+}
+
+.set_price_button_SS:hover {
+    border: 2px solid var(--avocado);
+}
