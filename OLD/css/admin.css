@@ -41,12 +41,17 @@ div p, div h3{
     width: 20rem;
 }
 
-.scroll_to_bottom{
+.scroll_to_bottom, .edit-div a{
     text-decoration: none;
     color: var(--avocado);
 }
 
-.scroll_to_bottom:hover{
+.delete-div a{
+    text-decoration: none;
+    color: red;
+}
+
+.scroll_to_bottom:hover, .edit-div a:hover{
     color: var(--pakistan-green);
 }
 
