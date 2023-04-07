@@ -98,8 +98,10 @@
     </div>
 
     <div class="col-3 d-flex justify-content-center text-center m-0 mb-2">
-        <button type="button" id="add_item" class="btn_custom" onclick="window.location.href='edit_product.html'">
+        <button type="button" id="add_item" class="btn_custom">
+            <a href="{{ url('admin/add_product') }}">
             Add product
+            </a>
         </button>
     </div>
 </main>

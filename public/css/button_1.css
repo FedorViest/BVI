@@ -26,6 +26,15 @@
     box-shadow: none !important;
 }
 
+.btn_custom a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.btn_custom a:hover{
+    color: inherit;
+}
+
 .btn_custom > * {
     position: relative;
 }

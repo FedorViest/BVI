@@ -52,12 +52,17 @@ class AdminController extends Controller
         return view('admin.index', ['products' => $products]);
     }
 
+    public function add_product(){
+        return view('admin/edit_product');
+    }
+
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
         //
+        return view('admin.edit_product');
     }
 
     /**

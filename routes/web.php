@@ -15,6 +15,7 @@ use App\Http\Controllers\AdminController;
 |
 */
 
+Route::get('/admin/add_product', [AdminController::class, 'add_product']);
 Route::resource('admin', AdminController::class);
 
 Route::get('/', function () {
