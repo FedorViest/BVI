@@ -18,42 +18,7 @@
 <body>
 
 <!-- Header-->
-<header class="header">
-    <section class="site_name_logo">
-        <a href="index.html" class="website_name_a">
-            <img class="logo" src="{{asset('assets/logo/wtech_logo_v2-removebg-preview.png')}}" alt="logo">
-            <h3 class="website-name">Plant Hub</h3>
-        </a>
-    </section>
-    <section class="search-form">
-        <label class="search-form">
-            <input type="text" placeholder="Search...">
-        </label>
-        <button type="submit" onclick="window.location.href='shop.html'"><span
-            class="material-symbols-outlined">search</span></button>
-    </section>
-    <nav class="show_all_nav">
-        <ul class="nav_links">
-            <li class="home_button"><a href="index.html">Home</a></li>
-            <li><a href="shop.html">Shop</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="shopping_cart.html"><span class="material-symbols-outlined">shopping_cart</span> </a></li>
-            <li><a href="login.html">Login</a></li>
-        </ul>
-        <div class="dropdown dropdown-hover">
-            <button type="button" class="btn shadow-none" data-bs-toggle="dropdown">
-                <span class="material-symbols-outlined">menu</span>
-            </button>
-            <ul class="dropdown-menu dropdown-menu-end dropdown_content">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="shopping_cart.html">Cart</a></li>
-                <li><a href="login.html">Login</a></li>
-            </ul>
-        </div>
-    </nav>
-</header>
+@include('includes.header')
 <!-- end Header -->
 
 <main class="main row m-0 d-flex align-items-center my-4">
@@ -157,28 +122,7 @@
 
 
 <!-- Footer -->
-<footer class="footer">
-    <section class="site_logo">
-        <img class="footer_logo" src="assets/logo/wtech_logo_v2-removebg-preview.png" alt="logo">
-    </section>
-    <section class="blocks_holder">
-        <!-- canvas for the 3 blocks-->
-        <address class="block">
-            <span class="material-symbols-outlined">distance</span>
-            <p class="text">Main Address 24</p>
-        </address>
-
-        <address class="block">
-            <span class="material-symbols-outlined">alternate_email</span>
-            <p class="text">email@email.com</p>
-        </address>
-
-        <address class="block">
-            <span class="material-symbols-outlined">call</span>
-            <p class="text">0901234567</p>
-        </address>
-    </section>
-</footer>
+@include('includes.footer')
 <!-- end Footer -->
 
 <script>
