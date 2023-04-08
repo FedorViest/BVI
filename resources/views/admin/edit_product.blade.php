@@ -58,31 +58,64 @@
 
 <main class="main row m-0 d-flex align-items-center my-4">
     <div class="images_div mt-4 col-10 col-lg-3 col-md-10 col-sm-10 d-flex flex-column gap-3 justify-content-start">
-        <div class="image_wrapper d-flex flex-row col-12">
-            <img class="img-thumbnail p-0" src="assets/products/cherry_tree.jpg" alt="Cherry tree">
-            <div class="delete-div align-items-center d-flex">
-                <a class="delete_image" href=""> <span class="material-symbols-outlined">delete</span></a>
-            </div>
-        </div>
-        <div class="image_wrapper d-flex flex-row col-12">
-            <img class="img-thumbnail p-0" src="assets/products/cherry_tree.jpg" alt="Cherry tree">
-            <div class="delete-div align-items-center d-flex">
-                <a class="delete_image" href=""> <span class="material-symbols-outlined">delete</span></a>
-            </div>
-        </div>
-        <div class="image_wrapper d-flex flex-row col-12">
-            <img class="img-thumbnail p-0" src="assets/products/cherry_tree.jpg" alt="Cherry tree">
-            <div class="delete-div align-items-center d-flex">
-                <a class="delete_image" href=""> <span class="material-symbols-outlined">delete</span></a>
-            </div>
-        </div>
         <div class="col-12 d-flex justify-content-center text-center m-0">
-            <label for="imageUpload" class="btn_custom">
-Upload image
-<input type="file" id="imageUpload" style="display:none;">
-            </label>
+            <form method="POST" action="/upload" enctype="multipart/form-data">
+                <label for="imageUpload" class="btn_custom">
+                    <input type="file" id="imageUpload" name="images[]" multiple accept=".jpg, .jpeg, .png">
+                    Upload files
+                </label>
+                <!-- your form fields here -->
+            </form>
         </div>
     </div>
+    <script>
+        // get the file input element
+        const fileInput = document.getElementById('imageUpload');
+
+        // get the container element for the image previews
+        const previewContainer = document.querySelector('.images_div');
+
+        // add an event listener to the file input element
+        fileInput.addEventListener('change', function() {
+            // remove any existing image previews
+            previewContainer.querySelectorAll('.preview-image').forEach(function(img) {
+                img.remove();
+            });
+
+            // get the selected files
+            const files = this.files;
+
+            // loop through the selected files
+            Array.from(files).forEach(function(file) {
+                // create a new img element for each file
+                const imgWrapper = document.createElement('div');
+                imgWrapper.classList.add('image_wrapper', 'd-flex', 'flex-row', 'col-12');
+                const img = document.createElement('img');
+                img.classList.add('img-thumbnail', 'p-0', 'preview-image');
+                img.src = URL.createObjectURL(file);
+                img.alt = file.name;
+                imgWrapper.appendChild(img);
+
+                // create a new delete button for each image
+                const deleteBtn = document.createElement('a');
+                deleteBtn.href = "#";
+                deleteBtn.classList.add('delete_image');
+                deleteBtn.innerHTML = '<span class="material-symbols-outlined">delete</span>';
+                deleteBtn.addEventListener('click', function() {
+                    imgWrapper.remove();
+                });
+
+                // create a new div to contain the delete button
+                const deleteDiv = document.createElement('div');
+                deleteDiv.classList.add('delete-div', 'align-items-center', 'd-flex');
+                deleteDiv.appendChild(deleteBtn);
+                imgWrapper.appendChild(deleteDiv);
+
+                // append the img element to the preview container
+                previewContainer.insertBefore(imgWrapper, previewContainer.firstChild);
+            });
+        });
+    </script>
     <div class="forms_div col-10 col-lg-7 col-md-10 col-sm-10 my-4 d-flex flex-column gap-2">
         <section class="input_section col-lg-8 d-flex flex-column">
             <label for="product_name">Product name<br></label>
