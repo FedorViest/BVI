@@ -46,9 +46,10 @@ div p, div h3{
     color: var(--avocado);
 }
 
-.delete-div a{
+.delete-div span{
     text-decoration: none;
     color: red;
+    cursor: pointer;
 }
 
 .scroll_to_bottom:hover, .edit-div a:hover{

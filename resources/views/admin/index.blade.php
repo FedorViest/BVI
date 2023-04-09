@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Admin screen</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,6 +15,7 @@
     <link rel="stylesheet" href="{{asset('css/button_1.css')}}" type="text/css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 </head>
 <body>
 <!-- Header-->
@@ -52,10 +54,11 @@
                             <span class="material-symbols-outlined">edit_square</span>
                         </a>
                     </div>
-                    <div class="delete-div align-items-center d-flex  m-0 p-0"><a href="">
-                            <span class="material-symbols-outlined">delete</span>
-                        </a>
-                    </div>
+                    <form name="deleteForm-{{$product->id}}" class="delete-div align-items-center d-flex  m-0 p-0" action="{{route('admin.destroy', $product->id)}}" method="post">
+                        <span class="material-symbols-outlined" onclick="document.forms['deleteForm-{{$product->id}}'].submit()">delete</span>
+                        @method('delete')
+                        @csrf
+                    </form>
                 </div>
             </div>
         </div>

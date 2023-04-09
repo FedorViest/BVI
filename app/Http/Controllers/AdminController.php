@@ -7,6 +7,7 @@ use App\Models\Product_statistics;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Photo;
+use Illuminate\Support\Facades\Redirect;
 
 class Product_with_photo {
     public $id;
@@ -104,15 +105,17 @@ class AdminController extends Controller
 
         // Upload the photos to the Photos table
         //TODO crop image
-        foreach ($request->file('photos') as $photo) {
-            $fileName = uniqid() . '.' . $photo->getClientOriginalExtension();
-            $filePath = public_path('photos/' . $fileName);
-            $photo->move(public_path('photos'), $fileName);
-            $photo = new Photo([
-                'product_id' => $product->id,
-                'photo_path' => $fileName,
-            ]);
-            $photo->save();
+        if (!empty($request->file('photos'))){
+            foreach ($request->file('photos') as $photo) {
+                $fileName = uniqid() . '.' . $photo->getClientOriginalExtension();
+                $filePath = public_path('photos/' . $fileName);
+                $photo->move(public_path('photos'), $fileName);
+                $photo = new Photo([
+                    'product_id' => $product->id,
+                    'photo_path' => $fileName,
+                ]);
+                $photo->save();
+            }
         }
 
         return response()->json(['success' => 'Product added successfully.']);
@@ -148,6 +151,11 @@ class AdminController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $product = Product::query()->where('id', '=', $id);
+        if ($product){
+            $product->delete();
+            return Redirect::back()->with('success','Product successfully deleted !');
+        }
+        return Redirect::back()->with('success','Product not found !');
     }
 }
