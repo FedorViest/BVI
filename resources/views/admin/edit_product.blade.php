@@ -2,6 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Edit product</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,6 +15,7 @@
     <link rel="stylesheet" href="{{asset('css/button_1.css')}}" type="text/css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 </head>
 <body>
 
@@ -26,7 +28,7 @@
         <div class="col-12 d-flex justify-content-center text-center m-0">
             <form method="POST" action="/upload" enctype="multipart/form-data">
                 <label for="imageUpload" class="btn_custom">
-                    <input type="file" id="imageUpload" name="images[]" multiple accept=".jpg, .jpeg, .png">
+                    <input type="file" id="imageUpload" name="images[]" multiple accept=".png">
                     Upload files
                 </label>
                 <!-- your form fields here -->
@@ -40,23 +42,27 @@
         // get the container element for the image previews
         const previewContainer = document.querySelector('.images_div');
 
+        var counter = 0;
+
         // add an event listener to the file input element
         fileInput.addEventListener('change', function() {
             // remove any existing image previews
-            previewContainer.querySelectorAll('.preview-image').forEach(function(img) {
+            /*previewContainer.querySelectorAll('.preview-image').forEach(function(img) {
                 img.remove();
-            });
+            });*/
 
             // get the selected files
-            const files = this.files;
+            var files = this.files;
 
             // loop through the selected files
             Array.from(files).forEach(function(file) {
+                counter++;
                 // create a new img element for each file
                 const imgWrapper = document.createElement('div');
                 imgWrapper.classList.add('image_wrapper', 'd-flex', 'flex-row', 'col-12');
                 const img = document.createElement('img');
                 img.classList.add('img-thumbnail', 'p-0', 'preview-image');
+                img.id = 'upload-image-' + counter.toString();
                 img.src = URL.createObjectURL(file);
                 img.alt = file.name;
                 imgWrapper.appendChild(img);
@@ -78,7 +84,9 @@
 
                 // append the img element to the preview container
                 previewContainer.insertBefore(imgWrapper, previewContainer.firstChild);
-            });
+            }
+
+            );
         });
     </script>
     <div class="forms_div col-10 col-lg-7 col-md-10 col-sm-10 my-4 d-flex flex-column gap-2">
@@ -114,10 +122,73 @@
         </section>
     </div>
     <div class="col-12 d-flex justify-content-center text-center m-0">
-        <button type="button" class="btn_custom" onclick="window.location.href='admin.html'">
-    Save changes
-</button>
+        <button type="button" class="btn_custom" id="save_changes">
+            Save changes
+        </button>
     </div>
+    <script>
+        var button = document.getElementById('save_changes');
+        button.addEventListener("click", save_changes_func);
+
+        async function save_changes_func(){
+            var product_name = document.getElementById('product_name').value;
+            var price = document.getElementById('Price').value;
+            var short_desc = document.getElementById('short_description').value;
+            var desc = document.getElementById('long_description').value;
+
+
+            var formData = new FormData();
+            formData.append('product_name', product_name);
+            formData.append('price', price);
+            formData.append('short_description', short_desc);
+            formData.append('description', desc);
+
+
+
+            /*for (var i = 1; i <= counter; i++) {
+                formData.append('photos[]', document.getElementById('upload-image-' + i.toString()).src);
+            }*/
+
+            var photoPromises = [];
+            for (var i = 1; i <= counter; i++) {
+                var imgElement = document.getElementById("upload-image-" + i.toString());
+                var imgUrl = imgElement.src;
+                var imgPromise = fetch(imgUrl)
+                    .then(function (response) {
+                        return response.blob();
+                    })
+                    .then(function (blob) {
+                        var fileName = "photo_" + i.toString() + ".png";
+                        var file = new File([blob], fileName, { type: "image/png" });
+                        formData.append("photos[]", file);
+                    });
+                photoPromises.push(imgPromise);
+            }
+
+            await Promise.all(photoPromises);
+
+
+            $.ajax({
+                url: '{{route('admin.store')}}',
+                method: 'POST',
+                data: formData,
+                contentType : false,
+                processData : false,
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(response){
+                    console.log("success");
+                    alert(response.success);
+                },
+                error: function (response){
+                    console.log("error");
+                }
+            }
+            );
+
+        }
+    </script>
 </main>
 
 

@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Product_statistics extends Model
 {
     use HasFactory;
+    public $timestamps = false;
+    protected $guarded = [];
 }

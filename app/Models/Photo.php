@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Photo extends Model
 {
+    public $timestamps = false;
+    protected $guarded = [];
     use HasFactory;
 }

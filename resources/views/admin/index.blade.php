@@ -33,7 +33,7 @@
                     @if(empty($product->photos))
                         <span class="material-symbols-outlined img-thumbnail">image_not_supported</span>
                     @else
-                        <img class="img-thumbnail" src="{{asset('assets/products/' . $product->photos[0])}}" alt="{{$product->name}}">
+                        <img class="img-thumbnail" src="{{asset('photos/' . $product->photos[0])}}" alt="{{$product->name}}">
 
                     @endif
                     <!-- https://pixabay.com/photos/a-tree-nature-heart-cherry-flowers-5255288/ -->
