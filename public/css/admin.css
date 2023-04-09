@@ -41,9 +41,10 @@ div p, div h3{
     width: 20rem;
 }
 
-.scroll_to_bottom, .edit-div a{
+.scroll_to_bottom, .edit-div span{
     text-decoration: none;
     color: var(--avocado);
+    cursor: pointer;
 }
 
 .delete-div span{
@@ -52,8 +53,12 @@ div p, div h3{
     cursor: pointer;
 }
 
-.scroll_to_bottom:hover, .edit-div a:hover{
+.scroll_to_bottom:hover, .edit-div span:hover{
     color: var(--pakistan-green);
+}
+
+.delete-div span:hover{
+    color: darkred;
 }
 
 @media only screen and (min-width: 1299px) {

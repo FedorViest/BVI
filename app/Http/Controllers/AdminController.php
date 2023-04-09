@@ -127,7 +127,13 @@ class AdminController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $product_query = Product::find($id);
+        $product = new Product_with_photo($product_query);
+        $photos_query = Photo::query()->select('photo_path')->where('product_id', '=', $product->id)->get();
+        foreach ($photos_query as $photo_query){
+            $product->photos[] = $photo_query->photo_path;
+        }
+        return view('admin.edit_existing_product', ['product' => $product]);
     }
 
     /**

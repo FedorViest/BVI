@@ -25,6 +25,17 @@
 
 <main class="main row m-0 d-flex align-items-center my-4">
     <div class="images_div mt-4 col-10 col-lg-3 col-md-10 col-sm-10 d-flex flex-column gap-3 justify-content-start">
+        @foreach($product->photos as $photo)
+            <div class="image_wrapper d-flex flex-row col-12">
+                <img class="img-thumbnail p-0 preview-image" id="upload-image-1" src="{{asset('photos/' . $photo)}}" alt="{{$photo}}">
+                <div class="delete-div align-items-center d-flex">
+                    <a href="#" class="delete_image">
+                        <span class="material-symbols-outlined">delete</span>
+                    </a>
+                </div>
+            </div>
+        @endforeach
+
         <div class="col-12 d-flex justify-content-center text-center m-0">
             <form method="POST" action="/upload" enctype="multipart/form-data">
                 <label for="imageUpload" class="btn_custom">
@@ -38,7 +49,6 @@
     <script>
         // get the file input element
         const fileInput = document.getElementById('imageUpload');
-
         // get the container element for the image previews
         const previewContainer = document.querySelector('.images_div');
 
@@ -93,14 +103,14 @@
         <section class="input_section col-lg-8 d-flex flex-column">
             <label for="product_name">Product name<br></label>
             <label class="input_label">
-                <input class="d-flex w-75" type="text" placeholder="Product name..." id="product_name">
+                <input class="d-flex w-75" type="text" placeholder="Product name..." id="product_name" value="{{$product->name}}">
             </label>
         </section>
         <section class="input_section d-flex flex-column">
             <label for="price">Price<br></label>
             <div class="price_wrapper d-flex flex-row align-items-center">
                 <label class="input_label">
-                    <input class="d-flex" type="text" placeholder="Price..." id="Price">
+                    <input class="d-flex" type="text" placeholder="Price..." id="Price" value="{{$product->price}}">
                 </label>
                 <p class="euro text-center">€</p>
             </div>
@@ -109,15 +119,14 @@
             <label for="short_description">Short description<br></label>
             <label class="input_label">
                 <textarea class="form-control flex-grow-1 d-flex w-100" rows="3" type="text"
-                          placeholder="Product name..." id="short_description"></textarea>
+                          placeholder="Product name..." id="short_description" >{{$product->short_description}}</textarea>
             </label>
         </section>
         <section class="input_section col-lg-8 d-flex flex-column">
             <label for="long_description">Long description<br></label>
             <label class="input_label">
                 <textarea class="form-control flex-grow-1 d-flex w-100" rows="6" type="text"
-                          placeholder="Product description..." id="long_description">
-                </textarea>
+                          placeholder="Product description..." id="long_description">{{$product->description}}</textarea>
             </label>
         </section>
     </div>
@@ -152,9 +161,6 @@
             var photoPromises = [];
             for (var i = 1; i <= counter; i++) {
                 var imgElement = document.getElementById("upload-image-" + i.toString());
-                if (imgElement == null){
-                    continue;
-                }
                 var imgUrl = imgElement.src;
                 var imgPromise = fetch(imgUrl)
                     .then(function (response) {

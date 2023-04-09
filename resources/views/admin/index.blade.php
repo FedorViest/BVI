@@ -48,12 +48,12 @@
 
             <div class="col-4 col-lg-3 col-md-3 col-sm-3 align-items-center gap-4 justify-content-end m-0 p-0">
                 <div class="d-flex justify-content-between flex-row align-items-center m-0 p-0">
-                    <div class="price-div align-items-center d-flex  m-0 p-0">{{$product->price}}</div>
-                    <div class="edit-div align-items-center d-flex m-0 p-0">
-                        <a href="edit_product.html">
-                            <span class="material-symbols-outlined">edit_square</span>
-                        </a>
-                    </div>
+                    <div class="price-div align-items-center d-flex  m-0 p-0">{{$product->price}} €</div>
+                    <form name="editForm-{{$product->id}}" class="edit-div align-items-center d-flex  m-0 p-0" action="{{route('admin.show', $product->id)}}" method="get">
+                        <span class="material-symbols-outlined" onclick="document.forms['editForm-{{$product->id}}'].submit()">edit_square</span>
+                        @method('get')
+                        @csrf
+                    </form>
                     <form name="deleteForm-{{$product->id}}" class="delete-div align-items-center d-flex  m-0 p-0" action="{{route('admin.destroy', $product->id)}}" method="post">
                         <span class="material-symbols-outlined" onclick="document.forms['deleteForm-{{$product->id}}'].submit()">delete</span>
                         @method('delete')
