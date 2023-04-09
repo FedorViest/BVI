@@ -23,12 +23,18 @@ body{
 }
 
 
-.input_label input, .input_label textarea{
+.input_label input, .input_label textarea, .category_section select:focus{
     border-radius: 20px;
     border: solid grey 1px;
     padding: 5px 10px 5px 10px;
     -webkit-appearance: none;
     margin: 0;
+}
+
+.category_section select:focus, .input_label textarea:focus {
+    outline: none;
+    box-shadow: none;
+    border: solid 1px black;
 }
 
 .delete_image{
