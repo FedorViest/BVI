@@ -26,9 +26,9 @@ main.row {
 
 .order_by_btn {
     width: 100%;
-    background-color: var(--honeydew);
+    /* background-color: var(--honeydew);
     border: 3px solid var(--nyanza);
-    border-bottom: 3px solid var(--avocado);
+    border-bottom: 3px solid var(--avocado); */
     padding-top: 15px;
     padding-bottom: 15px;
     font-weight: 700;
@@ -39,11 +39,11 @@ main.row {
     background-color: var(--nyanza);
 }
 
-.order_by_btn:focus {
+/* .order_by_btn:focus {
     background-color: var(--nyanza);
     border: 3px solid var(--avocado);
     border-bottom: 3px solid var(--nyanza);
-}
+} */
 
 
 .items {

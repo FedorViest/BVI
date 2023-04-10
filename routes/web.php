@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ShopController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,8 @@ Route::get('/', function () {
     return file_get_contents(__DIR__ . '/../resources/pages/index.html');
 
 });
+
+Route::get('/shop', [ShopController::class, 'view']);
 
 //TODO delete before submission
 Route::get('/phpinfo', function () {
