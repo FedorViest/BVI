@@ -107,7 +107,7 @@ class AdminController extends Controller
         // Upload the photos to the Photos table
         //TODO crop image
         $this->upload_images($request, $product->id);
-        return Redirect::back()->with('success','Product successfully added !');
+        return redirect()->route('admin.index');
         //return response()->json(['success' => 'Product added successfully.']);
     }
 
@@ -168,7 +168,7 @@ class AdminController extends Controller
         // Upload the photos to the Photos table
         //TODO crop image
         $this->upload_images($request, $id);
-        return Redirect::back()->with('success','Product successfully added !');
+        return redirect('/admin');
     }
 
     /**

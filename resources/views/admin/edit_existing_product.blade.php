@@ -223,7 +223,6 @@
                 },
                 success: function(response){
                     console.log("success");
-                    alert(response.success);
                 },
                 error: function (response){
                     console.log("error");
