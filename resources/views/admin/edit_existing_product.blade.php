@@ -25,17 +25,6 @@
 
 <main class="main row m-0 d-flex align-items-center my-4">
     <div class="images_div mt-4 col-10 col-lg-3 col-md-10 col-sm-10 d-flex flex-column gap-3 justify-content-start">
-        @foreach($product->photos as $photo)
-            <div class="image_wrapper d-flex flex-row col-12">
-                <img class="img-thumbnail p-0 preview-image" id="upload-image-1" src="{{asset('photos/' . $photo)}}" alt="{{$photo}}">
-                <div class="delete-div align-items-center d-flex">
-                    <a href="#" class="delete_image">
-                        <span class="material-symbols-outlined">delete</span>
-                    </a>
-                </div>
-            </div>
-        @endforeach
-
         <div class="col-12 d-flex justify-content-center text-center m-0">
             <form method="POST" action="/upload" enctype="multipart/form-data">
                 <label for="imageUpload" class="btn_custom">
@@ -52,7 +41,7 @@
         // get the container element for the image previews
         const previewContainer = document.querySelector('.images_div');
 
-        var counter = 0;
+        var counter = {{count($product->photos) + 1}};
 
         // add an event listener to the file input element
         fileInput.addEventListener('change', function() {
@@ -66,47 +55,80 @@
 
             // loop through the selected files
             Array.from(files).forEach(function(file) {
-                counter++;
-                // create a new img element for each file
-                const imgWrapper = document.createElement('div');
-                imgWrapper.classList.add('image_wrapper', 'd-flex', 'flex-row', 'col-12');
-                const img = document.createElement('img');
-                img.classList.add('img-thumbnail', 'p-0', 'preview-image');
-                img.id = 'upload-image-' + counter.toString();
-                img.src = URL.createObjectURL(file);
-                img.alt = file.name;
-                imgWrapper.appendChild(img);
-
-                // create a new delete button for each image
-                const deleteBtn = document.createElement('a');
-                deleteBtn.href = "#";
-                deleteBtn.classList.add('delete_image');
-                deleteBtn.innerHTML = '<span class="material-symbols-outlined">delete</span>';
-                deleteBtn.addEventListener('click', function() {
-                    imgWrapper.remove();
-                });
-
-                // create a new div to contain the delete button
-                const deleteDiv = document.createElement('div');
-                deleteDiv.classList.add('delete-div', 'align-items-center', 'd-flex');
-                deleteDiv.appendChild(deleteBtn);
-                imgWrapper.appendChild(deleteDiv);
-
-                // append the img element to the preview container
-                previewContainer.insertBefore(imgWrapper, previewContainer.firstChild);
-            }
-
+                create_image_preview(URL.createObjectURL(file), file.name);
+                }
             );
         });
+
+        function create_image_preview(imgSource, imgAlt) {
+            counter++;
+            // create a new img element for each file
+            const imgWrapper = document.createElement('div');
+            imgWrapper.classList.add('image_wrapper', 'd-flex', 'flex-row', 'col-12');
+            const img = document.createElement('img');
+            img.classList.add('img-thumbnail', 'p-0', 'preview-image');
+            img.id = 'upload-image-' + counter.toString();
+            img.src = imgSource;
+            img.alt = imgAlt;
+            imgWrapper.appendChild(img);
+
+            // create a new delete button for each image
+            const deleteBtn = document.createElement('a');
+            deleteBtn.href = "#";
+            deleteBtn.classList.add('delete_image');
+            deleteBtn.innerHTML = '<span class="material-symbols-outlined">delete</span>';
+            deleteBtn.addEventListener('click', function() {
+                imgWrapper.remove();
+            });
+
+            // create a new div to contain the delete button
+            const deleteDiv = document.createElement('div');
+            deleteDiv.classList.add('delete-div', 'align-items-center', 'd-flex');
+            deleteDiv.appendChild(deleteBtn);
+            imgWrapper.appendChild(deleteDiv);
+
+            // append the img element to the preview container
+            previewContainer.insertBefore(imgWrapper, previewContainer.firstChild);
+        }
+    </script>
+    <script>
+        var path = '{!! asset('photos/') !!}';
+        var images = @json($product->photos);
+        images.forEach(function (image) {
+            create_image_preview(path + "/" + image, image);
+        });
+
     </script>
     <div class="forms_div col-10 col-lg-7 col-md-10 col-sm-10 my-4 d-flex flex-column gap-2">
         <section class="category_section form-group col-lg-8 d-flex flex-column">
             <label for="category">Category</label>
             <select class="form-control dropdown_list w-75" id="category" name="category">
-                <option value="">Select category...</option>
-                <option value="category1">Trees</option>
-                <option value="category2">Flowers</option>
-                <option value="category3">Fruits</option>
+                @switch($product->category)
+                    @case("trees")
+                        <option value="" disabled hidden>Select category...</option>
+                        <option value="trees" selected>Trees</option>
+                        <option value="flowers">Flowers</option>
+                        <option value="fruits">Fruits</option>
+                        @break
+                    @case("flowers")
+                        <option value="" disabled hidden>Select category...</option>
+                        <option value="trees">Trees</option>
+                        <option value="flowers" selected>Flowers</option>
+                        <option value="fruits">Fruits</option>
+                        @break
+                    @case("fruits")
+                        <option value="" disabled hidden>Select category...</option>
+                        <option value="trees" selected>Trees</option>
+                        <option value="flowers">Flowers</option>
+                        <option value="fruits" selected>Fruits</option>
+                        @break
+                    @default
+                        <option value="" selected disabled hidden>Select category...</option>
+                        <option value="trees">Trees</option>
+                        <option value="flowers">Flowers</option>
+                        <option value="fruits">Fruits</option>
+                        @break
+                @endswitch
             </select>
         </section>
         <section class="input_section col-lg-8 d-flex flex-column">
@@ -153,6 +175,7 @@
             var price = document.getElementById('Price').value;
             var short_desc = document.getElementById('short_description').value;
             var desc = document.getElementById('long_description').value;
+            var category = document.getElementById('category').value;
 
 
             var formData = new FormData();
@@ -160,7 +183,7 @@
             formData.append('price', price);
             formData.append('short_description', short_desc);
             formData.append('description', desc);
-
+            formData.append('category', category);
 
 
             /*for (var i = 1; i <= counter; i++) {
@@ -170,6 +193,9 @@
             var photoPromises = [];
             for (var i = 1; i <= counter; i++) {
                 var imgElement = document.getElementById("upload-image-" + i.toString());
+                if (imgElement == null){
+                    continue;
+                }
                 var imgUrl = imgElement.src;
                 var imgPromise = fetch(imgUrl)
                     .then(function (response) {
@@ -185,9 +211,9 @@
 
             await Promise.all(photoPromises);
 
-
+            formData.append('_method', 'PATCH');
             $.ajax({
-                url: '{{route('admin.store')}}',
+                url: '{{route('admin.update', $product->id)}}',
                 method: 'POST',
                 data: formData,
                 contentType : false,

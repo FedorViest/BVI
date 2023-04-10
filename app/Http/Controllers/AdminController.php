@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Photo;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\File;
 
 class Product_with_photo {
     public $id;
@@ -78,7 +79,7 @@ class AdminController extends Controller
             'price' => 'required|numeric|min:0',
             'description' => 'required|string|max:4096',
             'short_description' => 'required|string|max:4096',
-            //'category' => 'required|string',
+            'category' => 'required|string',
             //'photos' => 'required|array|min:1|max:10',
             //'photos.*' => 'required|image|max:2048',
         ]);
@@ -89,8 +90,8 @@ class AdminController extends Controller
             'price' => $validatedData['price'],
             'description' => $validatedData['description'],
             'short_description' => $validatedData['short_description'],
-            //'category' => $validatedData['category'],
-            'category' => 'trees'
+            'category' => $validatedData['category'],
+            //'category' => 'trees'
         ]);
 
         // Save the Product
@@ -105,20 +106,9 @@ class AdminController extends Controller
 
         // Upload the photos to the Photos table
         //TODO crop image
-        if (!empty($request->file('photos'))){
-            foreach ($request->file('photos') as $photo) {
-                $fileName = uniqid() . '.' . $photo->getClientOriginalExtension();
-                $filePath = public_path('photos/' . $fileName);
-                $photo->move(public_path('photos'), $fileName);
-                $photo = new Photo([
-                    'product_id' => $product->id,
-                    'photo_path' => $fileName,
-                ]);
-                $photo->save();
-            }
-        }
-
-        return response()->json(['success' => 'Product added successfully.']);
+        $this->upload_images($request, $product->id);
+        return Redirect::back()->with('success','Product successfully added !');
+        //return response()->json(['success' => 'Product added successfully.']);
     }
 
 
@@ -149,7 +139,36 @@ class AdminController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validatedData = $request->validate([
+            'product_name' => 'required|string|max:50',
+            'price' => 'required|numeric|min:0',
+            'description' => 'required|string|max:4096',
+            'short_description' => 'required|string|max:4096',
+            'category' => 'required|string',
+            //'photos' => 'required|array|min:1|max:10',
+            //'photos.*' => 'required|image|max:2048',
+        ]);
+
+        Product::query()->where('id', '=', $id)->update([
+            'name' => $validatedData['product_name'],
+            'price' => $validatedData['price'],
+            'description' => $validatedData['description'],
+            'short_description' => $validatedData['short_description'],
+            'category' => $validatedData['category'],
+        ]);
+
+        $orig_photos_query = Photo::query()->where('product_id', '=', $id);
+        $orig_photos = $orig_photos_query->get();
+        foreach ($orig_photos as $photo){
+            File::delete(public_path('photos/' . $photo->photo_path));
+        }
+        $orig_photos_query->delete();
+
+
+        // Upload the photos to the Photos table
+        //TODO crop image
+        $this->upload_images($request, $id);
+        return Redirect::back()->with('success','Product successfully added !');
     }
 
     /**
@@ -159,9 +178,36 @@ class AdminController extends Controller
     {
         $product = Product::query()->where('id', '=', $id);
         if ($product){
+
+            $photos = Photo::query()->where('product_id', '=', $id)->get();
+            foreach ($photos as $photo){
+                File::delete(public_path('photos/' . $photo->photo_path));
+            }
+
             $product->delete();
+
             return Redirect::back()->with('success','Product successfully deleted !');
         }
         return Redirect::back()->with('success','Product not found !');
+    }
+
+    /**
+     * @param Request $request
+     * @param string $id
+     * @return void
+     */
+    public function upload_images(Request $request, string $id): void
+    {
+        if (!empty($request->file('photos'))) {
+            foreach ($request->file('photos') as $photo) {
+                $fileName = uniqid() . '.' . $photo->getClientOriginalExtension();
+                $photo->move(public_path('photos'), $fileName);
+                $photo = new Photo([
+                    'product_id' => $id,
+                    'photo_path' => $fileName,
+                ]);
+                $photo->save();
+            }
+        }
     }
 }

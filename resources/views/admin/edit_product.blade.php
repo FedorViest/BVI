@@ -93,10 +93,10 @@
         <section class="category_section form-group col-lg-8 d-flex flex-column">
             <label for="category">Category</label>
             <select class="form-control dropdown_list w-75" id="category" name="category">
-                <option value="">Select category...</option>
-                <option value="category1">Trees</option>
-                <option value="category2">Flowers</option>
-                <option value="category3">Fruits</option>
+                <option value="" selected disabled hidden>Select category...</option>
+                <option value="trees">Trees</option>
+                <option value="flowers">Flowers</option>
+                <option value="fruits">Fruits</option>
             </select>
         </section>
         <section class="input_section col-lg-8 d-flex flex-column">
@@ -144,6 +144,7 @@
             var price = document.getElementById('Price').value;
             var short_desc = document.getElementById('short_description').value;
             var desc = document.getElementById('long_description').value;
+            var category = document.getElementById('category').value;
 
 
             var formData = new FormData();
@@ -151,6 +152,7 @@
             formData.append('price', price);
             formData.append('short_description', short_desc);
             formData.append('description', desc);
+            formData.append('category', category);
 
 
 
