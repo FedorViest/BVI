@@ -9,6 +9,7 @@ class ShopController extends Controller
 {
     public function view()
     {
-        return view('shop');
+        $products = [];     //TODO query to database
+        return view('shop', compact('products', $products));
     }
 }
