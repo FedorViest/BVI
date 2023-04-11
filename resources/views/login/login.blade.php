@@ -19,41 +19,7 @@
 
 <body>
 <!-- Header-->
-<header class="header">
-    <section class="site_name_logo">
-        <a href="index.html" class="website_name_a">
-            <img class="logo" src="assets/logo/wtech_logo_v2-removebg-preview.png" alt="logo">
-            <h3 class="website-name">Plant Hub</h3>
-        </a>
-    </section>
-    <section class="search-form">
-        <label class="search-form">
-            <input type="text" placeholder="Search...">
-        </label>
-        <button type="submit" onclick="window.location.href='shop.html'"><span class="material-symbols-outlined">search</span></button>
-    </section>
-    <nav class="show_all_nav">
-        <ul class="nav_links">
-            <li class="home_button"><a href="index.html">Home</a> </li>
-            <li><a href="shop.html">Shop</a> </li>
-            <li><a href="contact.html">Contact</a> </li>
-            <li><a href="shopping_cart.html"><span class="material-symbols-outlined">shopping_cart</span> </a></li>
-            <li><a href="login.html">Login</a> </li>
-        </ul>
-        <div class="dropdown dropdown-hover">
-            <button type="button" class="btn shadow-none" data-bs-toggle="dropdown">
-                <span class="material-symbols-outlined">menu</span>
-            </button>
-            <ul class="dropdown-menu dropdown-menu-end dropdown_content">
-                <li><a href="index.html">Home</a> </li>
-                <li><a href="shop.html">Shop</a> </li>
-                <li><a href="contact.html">Contact</a> </li>
-                <li><a href="shopping_cart.html">Cart</a> </li>
-                <li><a href="login.html">Login</a> </li>
-            </ul>
-        </div>
-    </nav>
-</header>
+@include('includes.header');
 <!-- end Header -->
 
 
@@ -93,39 +59,40 @@
 
         <!-- Start register section -->
         <section class="outline_block col-12 col-lg-6 col-md-12 col-sm-12">
-            <form class="details_block">
+            <form class="details_block" method="POST" action="{{url('register')}}">
+                @csrf
                 <h3>Register</h3>
                 <section class="register_section">
                     <label for="name_register">First name</label>
                     <label class="input_label">
-                        <input type="text" placeholder="First name" id="name_register">
+                        <input type="text" placeholder="First name" id="name_register" name="first_name">
                     </label>
                 </section>
                 <section class="register_section">
                     <label for="surname_register">Last name</label>
                     <label class="input_label">
-                        <input type="text" placeholder="Last name" id="surname_register">
+                        <input type="text" placeholder="Last name" id="surname_register" name="last_name">
                     </label>
                 </section>
                 <section class="register_section">
                     <label for="email_register">Email</label>
                     <label class="input_label">
-                        <input type="text" placeholder="Email" id="email_register">
+                        <input type="text" placeholder="Email" id="email_register" name="email">
                     </label>
                 </section>
                 <section class="register_section">
                     <label for="password_register">Password</label>
                     <label class="input_label">
-                        <input type="password" placeholder="Password" id="password_register">
+                        <input type="password" placeholder="Password" id="password_register" name="password">
                     </label>
                 </section>
                 <section class="register_section">
                     <label for="password_retype">Re-enter password</label>
                     <label class="input_label">
-                        <input type="password" placeholder="Password" id="password_retype">
+                        <input type="password" placeholder="Password" id="password_retype" name="password_retype">
                     </label>
                 </section>
-                <button class="btn_custom mt-5 align-self-center" type="button">Create Account</button>
+                <button class="btn_custom mt-5 align-self-center" type="submit">Create Account</button>
             </form>
         </section>
     </div>
@@ -133,28 +100,8 @@
 <!-- End register section -->
 
 <!-- Footer -->
-<footer class="footer">
-    <section class="site_logo">
-        <img class="footer_logo" src="assets/logo/wtech_logo_v2-removebg-preview.png" alt="logo">
-    </section>
-    <section class="blocks_holder">
-        <!-- canvas for the 3 blocks-->
-        <address class="block">
-            <span class="material-symbols-outlined">distance</span>
-            <p class="text">Main Address 24</p>
-        </address>
-
-        <address class="block">
-            <span class="material-symbols-outlined">alternate_email</span>
-            <p class="text">email@email.com</p>
-        </address>
-
-        <address class="block">
-            <span class="material-symbols-outlined">call</span>
-            <p class="text">0901234567</p>
-        </address>
-    </section>
-</footer>
+@include('includes.footer');
 <!-- end Footer -->
 </body>
 </html>
+

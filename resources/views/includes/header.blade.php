@@ -18,7 +18,11 @@
             <li><a href="shop.html">Shop</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li><a href="shopping_cart.html"><span class="material-symbols-outlined">shopping_cart</span> </a></li>
-            <li><a href="login.html">Login</a></li>
+            @if( auth()->check() and auth()->user()->first_name != NULL)
+                <li><a href="#">{{ auth()->user()->first_name . " " . auth()->user()->last_name }}</a></li>
+            @else
+                <li><a href="login.html">Login</a></li>
+            @endif
         </ul>
         <div class="dropdown dropdown-hover">
             <button type="button" class="btn shadow-none" data-bs-toggle="dropdown">
@@ -29,7 +33,11 @@
                 <li><a href="shop.html">Shop</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="shopping_cart.html">Cart</a></li>
-                <li><a href="login.html">Login</a></li>
+                @if( auth()->check() and auth()->user()->first_name != NULL)
+                    <li><a href="#">Logout</a></li>
+                @else
+                    <li><a href="login.html">Login</a></li>
+                @endif
             </ul>
         </div>
     </nav>
