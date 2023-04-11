@@ -19,10 +19,19 @@
 
 
     <script>
+        var num_clicked = Number(sessionStorage.getItem('num_clicked'));
+
         function order_by_clicked(num) {
+            if(num === undefined && num_clicked === null) {
+                sessionStorage.setItem('num_clicked', 0);
+            }
+            else if(num !== undefined) {
+                num_clicked = num;
+                sessionStorage.setItem('num_clicked', num);
+            }
             var order_by_buttons = document.getElementsByClassName("order_by_btn");
             for (let i = 0; i < order_by_buttons.length; i++) {
-                if(i === num) {
+                if(i === num_clicked) {
                     order_by_buttons[i].style.backgroundColor = "var(--nyanza)";
                     order_by_buttons[i].style.border = "3px solid var(--avocado)";
                     order_by_buttons[i].style.borderBottom = "3px solid var(--nyanza)";
@@ -56,7 +65,7 @@
     </script>
 
 </head>
-<body onload=order_by_clicked(0);>
+<body onload=order_by_clicked();>
 <!-- Header-->
 @include('includes.header')
 <!-- end Header -->

@@ -36,6 +36,7 @@ Route::get('/', function () {
 });
 
 Route::get('/shop', [ShopController::class, 'view']);
+Route::get('/shop/{order_direction}', [MainController::class, 'view'])->name('shop');
 
 //TODO delete before submission
 Route::get('/phpinfo', function () {
