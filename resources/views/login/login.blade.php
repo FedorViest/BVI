@@ -29,19 +29,26 @@
 <div class="container px-15">
     <div class="row justify-content-center m-5 p-0">
         <section class="outline_block col-12 col-lg-6 col-md-12 col-sm-12">
-            <form class="details_block">
+            <form class="details_block" method="POST" action="{{url('login')}}">
+                @csrf
                 <h3>Login</h3>
                 <section class="login_section">
                     <label for="email_login">Email</label>
                     <label class="input_label">
-                        <input type="email" placeholder="Email" id="email_login">
+                        <input type="email" placeholder="Email" id="email_login" name="email">
                     </label>
+                    @error('email')
+                    <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </section>
                 <section class="login_section">
                     <label for="password_login">Password</label>
                     <label class="input_label">
-                        <input type="password" placeholder="Password" id="password_login">
+                        <input type="password" placeholder="Password" id="password_login" name="password">
                     </label>
+                    @error('password')
+                    <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </section>
                 <section class="login_section">
                     <section class="checkbox_section my-4">
@@ -51,7 +58,7 @@
                         <label for="remember_me">Remember me</label>
                     </section>
                 </section>
-                <button class="btn_custom mt-5 align-self-center" type="button">Login</button>
+                <button class="btn_custom mt-5 align-self-center" type="submit">Login</button>
             </form>
         </section>
 
@@ -67,30 +74,45 @@
                     <label class="input_label">
                         <input type="text" placeholder="First name" id="name_register" name="first_name">
                     </label>
+                    @error('first_name')
+                    <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </section>
                 <section class="register_section">
                     <label for="surname_register">Last name</label>
                     <label class="input_label">
                         <input type="text" placeholder="Last name" id="surname_register" name="last_name">
                     </label>
+                    @error('last_name')
+                    <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </section>
                 <section class="register_section">
                     <label for="email_register">Email</label>
                     <label class="input_label">
                         <input type="text" placeholder="Email" id="email_register" name="email">
                     </label>
+                    @error('email')
+                    <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </section>
                 <section class="register_section">
                     <label for="password_register">Password</label>
                     <label class="input_label">
                         <input type="password" placeholder="Password" id="password_register" name="password">
                     </label>
+                    @error('password')
+                    <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </section>
                 <section class="register_section">
                     <label for="password_retype">Re-enter password</label>
                     <label class="input_label">
                         <input type="password" placeholder="Password" id="password_retype" name="password_retype">
                     </label>
+                    @error('password_retype')
+                    <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </section>
                 <button class="btn_custom mt-5 align-self-center" type="submit">Create Account</button>
             </form>

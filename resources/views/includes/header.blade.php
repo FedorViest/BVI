@@ -21,7 +21,7 @@
             @if( auth()->check() and auth()->user()->first_name != NULL)
                 <li><a href="#">{{ auth()->user()->first_name . " " . auth()->user()->last_name }}</a></li>
             @else
-                <li><a href="login.html">Login</a></li>
+                <li><a href="{{url('login')}}">Login</a></li>
             @endif
         </ul>
         <div class="dropdown dropdown-hover">
@@ -34,9 +34,13 @@
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="shopping_cart.html">Cart</a></li>
                 @if( auth()->check() and auth()->user()->first_name != NULL)
-                    <li><a href="#">Logout</a></li>
+                    <li><form name="logout-form" class="m-0 p-0" action="{{url('logout')}}" method="post">
+                        <a onclick="document.forms['logout-form'].submit()">Logout</a>
+                        @method('delete')
+                        @csrf
+                        </form></li>
                 @else
-                    <li><a href="login.html">Login</a></li>
+                    <li><a href="{{url('login')}}">Login</a></li>
                 @endif
             </ul>
         </div>

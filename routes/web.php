@@ -7,6 +7,7 @@ use App\Http\Controllers\ShopController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\SessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,8 +24,11 @@ Route::get('/admin/add_product', [AdminController::class, 'add_product']);
 Route::resource('admin', AdminController::class);
 Route::resource('index', IndexController::class);
 Route::resource('cart', CartController::class);
-Route::get('/register', [RegisterController::class, 'create']);
 Route::post('/register', [RegisterController::class, 'register']);
+
+Route::get('/login', [SessionController::class, 'create']);
+Route::post('/login', [SessionController::class, 'store']);
+Route::delete('/logout', [SessionController::class, 'destroy']);
 
 Route::get('/', function () {
     return redirect('index');
