@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\IndexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,11 +19,12 @@ use App\Http\Controllers\ShopController;
 
 Route::get('/admin/add_product', [AdminController::class, 'add_product']);
 Route::resource('admin', AdminController::class);
+Route::resource('index', IndexController::class);
 
 Route::get('/', function () {
     //return view('welcome');
 
-    return file_get_contents(__DIR__ . '/../resources/pages/index.html');
+    return redirect('index');
 
 });
 
