@@ -224,6 +224,7 @@
                 },
                 success: function(response){
                     console.log("success");
+                    window.location.href='/admin';
                 },
                 error: function (response){
                     console.log("error");

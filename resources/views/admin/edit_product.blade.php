@@ -125,8 +125,7 @@
             <label for="long_description">Long description<br></label>
             <label class="input_label">
                 <textarea class="form-control flex-grow-1 d-flex w-100" rows="6" type="text"
-                          placeholder="Product description..." id="long_description">
-                </textarea>
+                          placeholder="Product description..." id="long_description"></textarea>
             </label>
         </section>
     </div>
@@ -182,7 +181,7 @@
             await Promise.all(photoPromises);
 
 
-            $.ajax({
+            await $.ajax({
                 url: '{{route('admin.store')}}',
                 method: 'POST',
                 data: formData,
@@ -193,6 +192,7 @@
                 },
                 success: function(response){
                     console.log("success");
+                    window.location.href='/admin';
                 },
                 error: function (response){
                     console.log("error");

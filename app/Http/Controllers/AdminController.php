@@ -107,8 +107,7 @@ class AdminController extends Controller
         // Upload the photos to the Photos table
         //TODO crop image
         $this->upload_images($request, $product->id);
-        return redirect()->route('admin.index');
-        //return response()->json(['success' => 'Product added successfully.']);
+        return response()->json(['success' => 'Product added successfully.']);
     }
 
 
