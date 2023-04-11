@@ -23,7 +23,7 @@ body{
 }
 
 
-.input_label input, .input_label textarea, .category_section select:focus{
+.input_label input, .input_label textarea, .category_section select{
     border-radius: 20px;
     border: solid grey 1px;
     padding: 5px 10px 5px 10px;
@@ -31,7 +31,7 @@ body{
     margin: 0;
 }
 
-.category_section select:focus, .input_label textarea:focus {
+.category_section select:focus, .input_label textarea:focus .category_section select:focus{
     outline: none;
     box-shadow: none;
     border: solid 1px black;

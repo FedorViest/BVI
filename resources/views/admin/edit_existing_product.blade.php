@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -149,15 +149,15 @@
         <section class="input_section col-lg-8 d-flex flex-column">
             <label for="short_description">Short description<br></label>
             <label class="input_label">
-                <textarea class="form-control flex-grow-1 d-flex w-100" rows="3" type="text"
+                <textarea class="form-control flex-grow-1 d-flex w-100" rows="3"
                           placeholder="Product name..." id="short_description" >{{$product->short_description}}</textarea>
             </label>
         </section>
         <section class="input_section col-lg-8 d-flex flex-column">
             <label for="long_description">Long description<br></label>
             <label class="input_label">
-                <textarea class="form-control flex-grow-1 d-flex w-100" rows="6" type="text"
-                          placeholder="Product description..." id="long_description">{{$product->description}}</textarea>
+                <textarea class="form-control flex-grow-1 d-flex w-100" rows="6"
+                          placeholder="Product name..." id="long_description" >{{$product->description}}</textarea>
             </label>
         </section>
     </div>
@@ -167,6 +167,7 @@
         </button>
     </div>
     <script>
+        console.log('{!! $product->description !!}');
         var button = document.getElementById('save_changes');
         button.addEventListener("click", save_changes_func);
 
@@ -238,14 +239,6 @@
 <!-- Footer -->
 @include('includes.footer')
 <!-- end Footer -->
-
-<script>
-    // Get the textarea element by its ID
-    var textarea = document.getElementById('long_description');
-
-    // Clear the textarea content on page load
-    textarea.value = '';
-</script>
 
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -208,14 +208,6 @@
 <!-- Footer -->
 @include('includes.footer')
 <!-- end Footer -->
-
-<script>
-    // Get the textarea element by its ID
-    var textarea = document.getElementById('long_description');
-
-    // Clear the textarea content on page load
-    textarea.value = '';
-</script>
 
 </body>
 </html>
