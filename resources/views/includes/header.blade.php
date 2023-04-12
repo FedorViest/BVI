@@ -17,8 +17,12 @@
             <li class="home_button"><a href="index.html">Home</a></li>
             <li><a href="shop.html">Shop</a></li>
             <li><a href="contact.html">Contact</a></li>
-            <li><a href="shopping_cart.html"><span class="material-symbols-outlined">shopping_cart</span> </a></li>
-            @if( auth()->check() and auth()->user()->first_name != NULL)
+            <li><a href="#" onclick="event.preventDefault(); document.getElementById('cart-form').submit();"><span class="material-symbols-outlined">shopping_cart</span></a></li>
+            <form id="cart-form" action="{{ route('cart.register') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+            <!--<p>{{auth()->user()}}</p> -->
+        @if( auth()->check() and auth()->user()->first_name != NULL)
                 <li><a href="#">{{ auth()->user()->first_name . " " . auth()->user()->last_name }}</a></li>
             @else
                 <li><a href="{{url('login')}}">Login</a></li>
@@ -32,7 +36,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="shop.html">Shop</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="shopping_cart.html">Cart</a></li>
+                <li><a href="{{url('cart')}}">Cart</a></li>
                 @if( auth()->check() and auth()->user()->first_name != NULL)
                     <li><form name="logout-form" class="m-0 p-0" action="{{url('logout')}}" method="post">
                         <a onclick="document.forms['logout-form'].submit()">Logout</a>

@@ -13,8 +13,11 @@ class SessionController extends Controller
 
     public function store(Request $request)
     {
+        if (auth()->check()){
+            auth()->logout();
+        }
         $request->validate([
-            'email' => 'required|string|email|max:255|unique:profiles',
+            'email' => 'required|string|email|max:255',
             'password' => 'required|string|min:8',
         ]);
         if (!auth()->attempt(request(['email', 'password']))) {
