@@ -80,7 +80,7 @@ class AdminController extends Controller
             'description' => 'required|string|max:4096',
             'short_description' => 'required|string|max:4096',
             'category' => 'required|string',
-            //'photos' => 'required|array|min:1|max:10',
+            'photos' => 'required|array|min:1|max:10',
             //'photos.*' => 'required|image|max:2048',
         ]);
 
@@ -144,7 +144,7 @@ class AdminController extends Controller
             'description' => 'required|string|max:4096',
             'short_description' => 'required|string|max:4096',
             'category' => 'required|string',
-            //'photos' => 'required|array|min:1|max:10',
+            'photos' => 'required|array|min:1|max:10',
             //'photos.*' => 'required|image|max:2048',
         ]);
 
