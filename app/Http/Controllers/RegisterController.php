@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {    public function register(Request $request){
+
         // Validate user input
         $request->validate([
             'first_name' => 'required|string|max:255',
@@ -26,6 +27,10 @@ class RegisterController extends Controller
 
         // Save the profile to the database
         $profile->save();
+
+        if (auth()->check()){
+            auth()->logout();
+        }
 
         auth()->login($profile);
 

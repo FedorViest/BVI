@@ -6,7 +6,6 @@ use App\Models\Photo;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
-
 class Product_with_photo {
     public $id;
     public $name;

@@ -197,9 +197,19 @@ class AdminController extends Controller
      */
     public function upload_images(Request $request, string $id): void
     {
+        $photos = Photo::query()->where('product_id', '=', $id)->get();
+        $product = Product::query()->where('id', '=', $id)->get();
+        $numbers = array();
+
+        foreach ($photos as $photo){
+            $numbers[] = explode("_", $photo->photo_path)[1];
+        }
+
+
         if (!empty($request->file('photos'))) {
             foreach ($request->file('photos') as $photo) {
-                $fileName = uniqid() . '.' . $photo->getClientOriginalExtension();
+                $fileName = $product[0]->name . '_' . $product[0]->id . '_' . $this->getMax($numbers) + 1 . '.' . $photo->getClientOriginalExtension();
+                $numbers[] = $this->getMax($numbers) + 1;
                 $photo->move(public_path('photos'), $fileName);
                 $photo = new Photo([
                     'product_id' => $id,
@@ -207,6 +217,17 @@ class AdminController extends Controller
                 ]);
                 $photo->save();
             }
+        }
+    }
+
+    public function getMax(array $numbers)
+    {
+
+        if (empty($numbers)){
+            return 0;
+        }
+        else{
+            return max($numbers);
         }
     }
 }

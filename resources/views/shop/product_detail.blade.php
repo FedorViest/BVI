@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Title</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
@@ -18,7 +19,7 @@
     <link rel="stylesheet" href="{{ asset('css/shop_content.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/product_detail.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/button_1.css') }}" type="text/css">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 
     <script>
         function display(element) {
@@ -63,7 +64,7 @@
 
 <!-- Product detail -->
 <main class="row">
-    
+
     @include('includes.side_nav')
 
     <!-- Product part -->
@@ -104,7 +105,7 @@
                                 class="material-symbols-outlined">remove</span></button>
                     </div>
                     <div class="buy_button">
-                        <button type="button" class="btn_custom">
+                        <button type="button" class="btn_custom" id="cart_button">
                             <img class="shopping_cart_img" src="{{ asset('assets/shoppping_cart.png') }}" alt="shopping_cart">
                             Add to cart
                         </button>
@@ -112,6 +113,32 @@
                 </div>
             </div>
         </div>
+        <script>
+            var button = document.getElementById('cart_button');
+            button.addEventListener("click", function (){
+                var formData = new FormData();
+                formData.append('product_id', {{$product_detail->id}});
+                formData.append('quantity', document.getElementById("num_counter1").value);
+
+                $.ajax({
+                        url: '{{route('cart.store')}}',
+                        method: 'POST',
+                        data: formData,
+                        contentType : false,
+                        processData : false,
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        success: function(response){
+                            console.log("success");
+                        },
+                        error: function (response){
+                            console.log("error");
+                        }
+                    }
+                );
+            });
+        </script>
         <div class="description">
             <section class="long_description">
                 <h2>Description</h2>

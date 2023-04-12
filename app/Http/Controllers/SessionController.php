@@ -13,13 +13,14 @@ class SessionController extends Controller
 
     public function store(Request $request)
     {
-        if (auth()->check()){
-            auth()->logout();
-        }
         $request->validate([
             'email' => 'required|string|email|max:255',
             'password' => 'required|string|min:8',
         ]);
+        if (auth()->check()){
+            //TODO check if cart exists, if yes, then store it
+            auth()->logout();
+        }
         if (!auth()->attempt(request(['email', 'password']))) {
             return back()->withErrors([
                 'message' => 'The email or password is incorrect, please try again'

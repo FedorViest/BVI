@@ -26,8 +26,6 @@ Route::resource('index', IndexController::class);
 Route::resource('cart', CartController::class);
 Route::post('/register', [RegisterController::class, 'register']);
 
-Route::post('/cart', [CartController::class, 'register'])->name('cart.register');;
-
 Route::get('/login', [SessionController::class, 'create']);
 Route::post('/login', [SessionController::class, 'store']);
 Route::delete('/logout', [SessionController::class, 'destroy']);
