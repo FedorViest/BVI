@@ -35,8 +35,8 @@ Route::get('/', function () {
 
 });
 
-Route::get('/shop', [ShopController::class, 'view']);
-Route::get('/shop/{order_direction}', [MainController::class, 'view'])->name('shop');
+Route::get('/shop', [ShopController::class, 'viewShop']);
+Route::get('/product/{product_id}', [ShopController::class, 'viewProduct'])->name('product');
 
 //TODO delete before submission
 Route::get('/phpinfo', function () {

@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class ShopController extends Controller
 {
-    public function view(Request $request)
+    public function viewShop(Request $request)
     {
         if($request->order_by === null) {
             // echo "<script>console.log('tu')</script>";
@@ -22,6 +22,19 @@ class ShopController extends Controller
         }
         // echo "<script>console.log('$products')</script>";
 
-        return view('shop', ['products' => $products]);
+        return view('shop/shop', ['products' => $products]);
     }
+
+    public function viewProduct(Request $request)
+    {
+        // $temp = $request->product_id;
+        // echo "<script>console.log('$temp')</script>";
+
+        $product_detail = Product::where('id', '>=', $request->product_id)->first();
+
+        // echo "<script>console.log('$product_detail')</script>";
+
+        return view('shop/product_detail', ['product_detail' => $product_detail]);
+    }
+
 }

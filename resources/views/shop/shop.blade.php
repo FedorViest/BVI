@@ -83,7 +83,7 @@
             @foreach($products as $product)
                 <div class="col">
                     <article class="card">
-                        <a href="/produkt/{{$product->id}}">
+                        <a href="/product/{{$product->id}}">
                             <!-- TODO priradit spravny obrazok -->
                             <img class="card-img" src="assets/products/cherry_tree.jpg" alt="product_image">  <!-- https://pixabay.com/photos/a-tree-nature-heart-cherry-flowers-5255288/ -->
                             <section class="card-body">
