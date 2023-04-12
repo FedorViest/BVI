@@ -88,7 +88,7 @@
                             <img class="card-img" src="assets/products/cherry_tree.jpg" alt="product_image">  <!-- https://pixabay.com/photos/a-tree-nature-heart-cherry-flowers-5255288/ -->
                             <section class="card-body">
                                 <h3 class="card-title">{{$product->name}}</h3>
-                                <p class="card-price">{{$product->price}} €</p>
+                                <p class="card-price">{{number_format($product->price, 2)}} €</p>
                             </section>
                         </a>
                     </article>

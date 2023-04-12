@@ -90,7 +90,7 @@
                 <section class="main_product_info">
                     <h1>{{ $product_detail->name }}</h1>  <!-- Zdroj: https://www.zones.sk/studentske-prace/biologia/14520-ceresna-vtacia/ -->
                     <p class="short_description">{{ $product_detail->short_description }}</p>
-                    <div class="product_detail_price">{{ $product_detail->price }} €</div>
+                    <div class="product_detail_price">{{number_format($product_detail->price, 2)}} €</div>
                     <hr>
                 </section>
                 <div class="buyer_interaction">
