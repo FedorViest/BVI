@@ -17,8 +17,20 @@ class ShopController extends Controller
             // echo "<script>console.log('$temp')</script>";
 
             $products= Product::orderBy('id', 'asc')->get();
+            $orderby_clicked = 0;
         } else {
             $products= Product::orderBy($request->order_by,$request->order_type)->get();
+            if($request->order_by === 'id') {
+                $orderby_clicked = 0;
+            } else if($request->order_by === 'name') {
+                $orderby_clicked = 1;
+            } else if($request->order_by === 'price') {
+                if($request->order_type === 'desc') {
+                    $orderby_clicked = 2;
+                } else if($request->order_type === 'asc') {
+                    $orderby_clicked = 3;
+                }
+            } 
         }
         // echo "<script>console.log('$products')</script>";
 
@@ -36,7 +48,7 @@ class ShopController extends Controller
 
         // echo "<script>console.log('$products_temp')</script>";
 
-        return view('shop/shop', ['products' => $products, 'photos' => $photos]);
+        return view('shop/shop', ['products' => $products, 'photos' => $photos, 'orderby_clicked' => $orderby_clicked]);
     }
 
     public function viewProduct(Request $request)

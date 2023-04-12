@@ -108,6 +108,7 @@
                         <button type="button" class="btn_custom" id="cart_button">
                             <img class="shopping_cart_img" src="{{ asset('assets/shoppping_cart.png') }}" alt="shopping_cart">
                             Add to cart
+                            <!-- id produtku, quantity POSLAT NA ENDPOINT -->
                         </button>
                     </div>
                 </div>
@@ -142,11 +143,14 @@
         <div class="description">
             <section class="long_description">
                 <h2>Description</h2>
-                <ul>
-                @foreach(explode(';', $product_detail->description) as $info)
+                <pre>
+                    {{ $product_detail->description }}
+                </pre>
+                <!-- <ul>
+                @foreach(explode('\n', $product_detail->description) as $info)
                     <li>{{ $info }}</li>
                 @endforeach
-                </ul>
+                </ul> -->
             </section>
         </div>
 

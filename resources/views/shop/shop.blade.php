@@ -19,17 +19,11 @@
 
 
     <script>
-        var num_clicked = Number(sessionStorage.getItem('num_clicked'));
 
         function order_by_clicked(num) {
-            if(num === undefined && num_clicked === null) {
-                sessionStorage.setItem('num_clicked', 0);
-            }
-            else if(num !== undefined) {
-                num_clicked = num;
-                sessionStorage.setItem('num_clicked', num);
-            }
+            var num_clicked = Number('<?php echo $orderby_clicked; ?>');
             var order_by_buttons = document.getElementsByClassName("order_by_btn");
+
             for (let i = 0; i < order_by_buttons.length; i++) {
                 if(i === num_clicked) {
                     order_by_buttons[i].style.backgroundColor = "var(--nyanza)";
