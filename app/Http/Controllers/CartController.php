@@ -81,11 +81,15 @@ class CartController extends Controller
         if (!Auth::check()){
             return view('cart.empty_cart');
         }
+        $cart_query = Cart::query()->where('profile_id', '=', auth()->user()->id)->first();
+        if (!$cart_query){
+            return view('cart.empty_cart');
+        }
         $cart = new Cart_products(
-            Cart::query()->where('profile_id', '=', auth()->user()->id)->first()
+            $cart_query
         );
         $cart_contents = Cart_content::query()->where('cart_id', '=', $cart->id)
-            ->join('products', 'products.id', '=', 'cart_contents.product_id')->get();
+            ->join('products', 'products.id', '=', 'cart_contents.product_id')->orderBy('cart_contents.id')->get();
         if (empty($cart_contents)){
             return view('cart.empty_cart');
         }
@@ -191,18 +195,31 @@ class CartController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the cart product quantity
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validatedData = $request->validate([
+            'product_id' => 'required|numeric|min:1',
+            'quantity' => 'required|numeric|min:1',
+        ]);
+        $product_id = $validatedData['product_id'];
+        $quantity = $validatedData['quantity'];
+        $cart_content = Cart_content::query()->where('cart_id', '=', $id)
+            ->where('product_id', '=', $product_id);
+        $cart_content->update([
+            'quantity' => $quantity
+        ]);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $id, string $product_id)
     {
-        //
+        $cart_content = Cart_content::query()->where('cart_id', '=', $id)
+            ->where('product_id', '=', $product_id);
+        $cart_content->delete();
+        return back();
     }
 }
