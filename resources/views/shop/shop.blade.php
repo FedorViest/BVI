@@ -78,8 +78,7 @@
                 <div class="col">
                     <article class="card">
                         <a href="/product/{{$product->id}}">
-                            <!-- TODO priradit spravny obrazok -->
-                            <img class="card-img" src="assets/products/cherry_tree.jpg" alt="product_image">  <!-- https://pixabay.com/photos/a-tree-nature-heart-cherry-flowers-5255288/ -->
+                            <img class="card-img" src="{{$product->photo_path}}" alt="{{$product->name}}">
                             <section class="card-body">
                                 <h3 class="card-title">{{$product->name}}</h3>
                                 <p class="card-price">{{number_format($product->price, 2)}} €</p>

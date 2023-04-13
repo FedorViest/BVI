@@ -3,23 +3,30 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Photo;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ShopController extends Controller
 {
     public function viewShop(Request $request)
     {
         if($request->order_by === null) {
-            // echo "<script>console.log('tu')</script>";
-            // $request->session()->put('something', 0);
-            // $temp = $request->session()->get("num_clicked");
-            // echo "<script>console.log('$temp')</script>";
-
-            $products= Product::orderBy('id', 'asc')->get();
             $orderby_clicked = 0;
+
+            $products = Product::select('products.*', DB::raw('MIN(photo_path) AS photo_path'))
+                ->leftJoin('photos', 'products.id', '=', 'photos.product_id')
+                ->orderBy('products.id', 'asc')
+                ->groupBy('products.id')
+                ->get();
         } else {
-            $products= Product::orderBy($request->order_by,$request->order_type)->get();
+            $products = Product::select('products.*', DB::raw('MIN(photo_path) AS photo_path'))
+                ->leftJoin('photos', 'products.id', '=', 'photos.product_id')
+                ->orderBy($request->order_by,$request->order_type)
+                ->groupBy('products.id')
+                ->get();
+            
             if($request->order_by === 'id') {
                 $orderby_clicked = 0;
             } else if($request->order_by === 'name') {
@@ -34,21 +41,7 @@ class ShopController extends Controller
         }
         // echo "<script>console.log('$products')</script>";
 
-        $photos = [];
-
-        // $products_temp = Product::with('photos')->orderBy('id', 'asc')->get();
-        // $products_temp = Product::select('products.*', 'photos.photo_path')
-        //     ->leftJoin('photos', 'photos.product_id', '=', 'products.id')
-        //     ->orderBy('id', 'asc')
-        //     ->get();
-        // $products_temp = Product::with('photos')
-        //     ->leftJoin('photos', 'products.id', '=', 'photos.product_id')
-        //     ->groupBy('products.id')
-        //     ->get();
-
-        // echo "<script>console.log('$products_temp')</script>";
-
-        return view('shop/shop', ['products' => $products, 'photos' => $photos, 'orderby_clicked' => $orderby_clicked]);
+        return view('shop/shop', ['products' => $products, 'orderby_clicked' => $orderby_clicked]);
     }
 
     public function viewProduct(Request $request)
@@ -58,10 +51,19 @@ class ShopController extends Controller
 
         // $product_detail = Product::where('id', '>=', $request->product_id)->first();
         $product_detail = Product::find($request->product_id);
+        $photos = Photo::where('product_id', '=', $request->product_id)->get();
 
-        // echo "<script>console.log('$product_detail')</script>";
+        // echo "<script>console.log('$photos')</script>";
 
-        return view('shop/product_detail', ['product_detail' => $product_detail]);
+        $best_sellers = Product::select('products.*', DB::raw('MIN(photo_path) AS photo_path'))
+            ->leftJoin('photos', 'products.id', '=', 'photos.product_id')
+            ->where('products.id', '<>', $request->product_id)
+            ->orderBy('products.id', 'asc')
+            ->groupBy('products.id')
+            ->take(6)
+            ->get();
+
+        return view('shop/product_detail', ['product_detail' => $product_detail, 'photos' => $photos, 'best_sellers' => $best_sellers]);
     }
 
 }
