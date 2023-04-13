@@ -75,14 +75,14 @@ class CartController extends Controller
      * Display a listing of the resource.
      */
 
-
-    public function index()
-    {
+    public function create_cart(){
         if (!Auth::check()){
+            //no account
             return view('cart.empty_cart');
         }
         $cart_query = Cart::query()->where('profile_id', '=', auth()->user()->id)->first();
         if (!$cart_query){
+            //no cart
             return view('cart.empty_cart');
         }
         $cart = new Cart_products(
@@ -91,6 +91,7 @@ class CartController extends Controller
         $cart_contents = Cart_content::query()->where('cart_id', '=', $cart->id)
             ->join('products', 'products.id', '=', 'cart_contents.product_id')->orderBy('cart_contents.id')->get();
         if (empty($cart_contents)){
+            //no products in cart
             return view('cart.empty_cart');
         }
         foreach ($cart_contents as $cart_content){
@@ -103,6 +104,18 @@ class CartController extends Controller
             $cart->products[] = $product;
 
         }
+        return $cart;
+    }
+    //shipping & payment
+
+    public function shipping_payment(){
+        $cart = $this->create_cart();
+        return view('cart.shipping_payment', ['cart' => $cart]);
+    }
+
+    public function index()
+    {
+        $cart = $this->create_cart();
         return view('cart.shopping_cart', ['cart' => $cart]);
     }
 
@@ -215,8 +228,12 @@ class CartController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id, string $product_id)
+    public function destroy(Request $request, string $id)
     {
+        $validatedData = $request->validate([
+            'product_id' => 'required|numeric|min:1',
+        ]);
+        $product_id = $validatedData['product_id'];
         $cart_content = Cart_content::query()->where('cart_id', '=', $id)
             ->where('product_id', '=', $product_id);
         $cart_content->delete();

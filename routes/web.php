@@ -23,7 +23,11 @@ use App\Http\Controllers\SessionController;
 Route::get('/admin/add_product', [AdminController::class, 'add_product']);
 Route::resource('admin', AdminController::class);
 Route::resource('index', IndexController::class);
+//cart controller
+Route::get('cart/shipping_payment', [CartController::class, 'shipping_payment']);
 Route::resource('cart', CartController::class);
+//Route::put('cart/shipping_payment', [CartController::class, 'shipping_payment']);
+
 Route::post('/register', [RegisterController::class, 'register']);
 
 Route::get('/login', [SessionController::class, 'create']);

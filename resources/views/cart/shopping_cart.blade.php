@@ -91,13 +91,7 @@
 
 <section class="content">
     <!-- Cart Navbar-->
-    <nav class="cart_navigation">
-        <a class="nav_cart" href="shopping_cart.html">Shopping Cart</a>
-        >>
-        <a class="nav_shipping" href="shipping_payment.html">Shipping & Payment</a>
-        >>
-        <a class="nav_billing" href="billing_address.html">Billing Address</a>
-    </nav>
+    @include('includes.nav_cart')
     <!-- Cart Navbar-->
     <section class="inside_content">
         <div class="container-fluid w-100 p-0 m-0">
@@ -105,7 +99,7 @@
                 <div class="row justify-content-around m-0">
                     <div class="col-9 col-lg-5 col-md-6 col-sm-7 d-inline-block m-0 p-0">
                         <div class="flex-row d-flex">
-                            <img class="img-thumbnail" src="{{asset('photos/' . $product->photos[0])}}" alt="Cherry tree">  <!-- https://pixabay.com/photos/a-tree-nature-heart-cherry-flowers-5255288/ -->
+                            <img class="img-thumbnail" src="{{asset('photos/' . $product->photos[0])}}" alt="{{$product->photos[0]}}">  <!-- https://pixabay.com/photos/a-tree-nature-heart-cherry-flowers-5255288/ -->
                             <div class="col m-2">
                                 <h3>{{$product->name}}</h3>
                                 <p>{{$product->short_description}}</p>
@@ -128,7 +122,7 @@
                             <!--</div>-->
                             <div class="price-div align-items-center d-flex  m-0 p-0">{{$product->price}}€</div>
                             <div class="delete-div align-items-center d-flex  m-0 p-0">
-                                <form name="deleteForm-{{$product->id}}" class="delete-div align-items-center d-flex  m-0 p-0" action="{{route('cart.destroy', $cart->id . '/' . $product->id)}}" method="post">
+                                <form name="deleteForm-{{$product->id}}" class="delete-div align-items-center d-flex  m-0 p-0" action="{{route('cart.destroy', ['cart' => $cart->id, 'id' => $cart->id ,'product_id' => $product->id]);}}" method="post">
                                     <span class="material-symbols-outlined" onclick="document.forms['deleteForm-{{$product->id}}'].submit()">delete</span>
                                     @method('delete')
                                     @csrf
