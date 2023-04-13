@@ -113,6 +113,22 @@ class CartController extends Controller
         return view('cart.shipping_payment', ['cart' => $cart]);
     }
 
+    public function put_shipping_payment(Request $request, string $id){
+        $query = Cart::query()->where('id', '=', $id);
+        if ($request->has("shipping")){
+            $query->update([
+                'delivery' => $request->get("shipping"),
+                //'delivery_price' => $request->get("price")
+            ]);
+        }
+        else if ($request->has("payment")){
+            $query->update([
+                'payment' => $request->get("payment"),
+                //'payment_price' => $request->get("price")
+            ]);
+        }
+    }
+
     public function index()
     {
         $cart = $this->create_cart();

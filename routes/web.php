@@ -25,6 +25,7 @@ Route::resource('admin', AdminController::class);
 Route::resource('index', IndexController::class);
 //cart controller
 Route::get('cart/shipping_payment', [CartController::class, 'shipping_payment']);
+Route::put('cart/shipping_payment', [CartController::class, 'put_shipping_payment'])->name('put_shipping_payment');
 Route::resource('cart', CartController::class);
 //Route::put('cart/shipping_payment', [CartController::class, 'shipping_payment']);
 
