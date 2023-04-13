@@ -70,26 +70,36 @@
     <!-- Product part -->
     <div class="product_detail col-sm-12 col-md-9">
         <div class="main_info row">
-            <div class="product_images col-xs-12 col-md-6 carousel slide">
+            <div id="product_detail_carousel" class="product_images col-xs-12 col-md-6 carousel slide" data-bs-ride="carousel" data-bs-interval="false">
                 <div class="carousel-inner">
+
                     <div class="carousel-item active">
-                        <img class="product_img" src="{{ asset('assets/products/cherry_tree.jpg') }}" alt="product_image">  <!-- https://pixabay.com/photos/a-tree-nature-heart-cherry-flowers-5255288/ -->
-                    </div>
-                    <div class="carousel-item">
-                        <img class="product_img" src="{{ asset('assets/products/cherry_tree.jpg') }}" alt="product_image">  <!-- https://pixabay.com/photos/a-tree-nature-heart-cherry-flowers-5255288/ -->
+                        <img class="d-block product_img" src="{{ asset($photos[0]->photo_path) }}" alt="{{ $product_detail->name }}"> 
                     </div>
 
-                    <button class="carousel-control-prev">
+                    @if(count($photos) > 1)
+                        @foreach($photos as $key => $photo)
+                            @if($key == 0)
+                                @continue
+                            @endif
+                            <div class="carousel-item">
+                                <img class="d-block product_img" src="{{ asset($photo->photo_path) }}" alt="{{ $product_detail->name }}"> 
+                            </div>
+                        @endforeach
+                    @endif
+
+                    <button class="carousel-control-prev" data-bs-target="#product_detail_carousel" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon"></span>
                     </button>
-                    <button class="carousel-control-next">
+                    <button class="carousel-control-next" data-bs-target="#product_detail_carousel" data-bs-slide="next">
                         <span class="carousel-control-next-icon"></span>
                     </button>
+
                 </div>
             </div>
             <div class="product_info col-md-6">
                 <section class="main_product_info">
-                    <h1>{{ $product_detail->name }}</h1>  <!-- Zdroj: https://www.zones.sk/studentske-prace/biologia/14520-ceresna-vtacia/ -->
+                    <h1>{{ $product_detail->name }}</h1>
                     <p class="short_description">{{ $product_detail->short_description }}</p>
                     <div class="product_detail_price">{{number_format($product_detail->price, 2)}} €</div>
                     <hr>
@@ -156,79 +166,26 @@
 
         <!-- Recommended items -->
         <section class="recommended_items">
-            <h2 class="recommended_items_text"> Recommended items</h2>
+            <h2 class="recommended_items_text">Best-sellers</h2>
         </section>
 
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12">
                     <div class="products_wrapper row row-cols-2 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 g-3">
+                    @foreach($best_sellers as $best_seller)
                         <div class="col">
-                            <section class="card">
-                                <a href="product_detail.html">
-                                    <img class="card-img" src="{{ asset('assets/products/apple_tree.png') }}" alt="product_image">
+                            <article class="card">
+                                <a href="/product/{{$best_seller->id}}">
+                                    <img class="card-img" src="{{ asset($best_seller->photo_path) }}" alt="{{$best_seller->name}}">
                                     <section class="card-body">
-                                        <h3 class="card-title">Apple tree</h3>
-                                        <p class="card-price">19.99€</p>
+                                        <h3 class="card-title">{{$best_seller->name}}</h3>
+                                        <p class="card-price">{{number_format($best_seller->price, 2)}} €</p>
                                     </section>
                                 </a>
-                            </section>
+                            </article>
                         </div>
-                        <div class="col">
-                            <section class="card">
-                                <a href="product_detail.html">
-                                    <img class="card-img" src="{{ asset('assets/products/cherry_tree.jpg') }}" alt="product_image">
-                                    <section class="card-body">
-                                        <h3 class="card-title">Cherry tree</h3>
-                                        <p class="card-price">19.99€</p>
-                                    </section>
-                                </a>
-                            </section>
-                        </div>
-                        <div class="col">
-                            <section class="card">
-                                <a href="product_detail.html">
-                                    <img class="card-img" src="{{ asset('assets/products/beech_tree.jpg') }}" alt="product_image">
-                                    <section class="card-body">
-                                        <h3 class="card-title">Beech tree</h3>
-                                        <p class="card-price">19.99€</p>
-                                    </section>
-                                </a>
-                            </section>
-                        </div>
-                        <div class="col">
-                            <section class="card">
-                                <a href="product_detail.html">
-                                    <img class="card-img" src="{{ asset('assets/products/linden_tree.jpg') }}" alt="product_image">
-                                    <section class="card-body">
-                                        <h3 class="card-title">Linden tree</h3>
-                                        <p class="card-price">19.99€</p>
-                                    </section>
-                                </a>
-                            </section>
-                        </div>
-                        <div class="col">
-                            <section class="card">
-                                <a href="product_detail.html">
-                                    <img class="card-img" src="{{ asset('assets/products/pine_tree.jpg') }}" alt="product_image">
-                                    <section class="card-body">
-                                        <h3 class="card-title">Pine tree</h3>
-                                        <p class="card-price">19.99€</p>
-                                    </section>
-                                </a>
-                            </section>
-                        </div>
-                        <div class="col">
-                            <section class="card">
-                                <a href="product_detail.html">
-                                    <img class="card-img" src="{{ asset('assets/products/plum_tree.jpg') }}" alt="product_image">
-                                    <section class="card-body">
-                                        <h3 class="card-title">Plum tree</h3>
-                                        <p class="card-price">19.99€</p>
-                                    </section>
-                                </a>
-                            </section>
-                        </div>
+                    @endforeach
                     </div>
                 </div>
             </div>
