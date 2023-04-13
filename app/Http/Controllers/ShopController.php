@@ -12,36 +12,75 @@ class ShopController extends Controller
 {
     public function viewShop(Request $request)
     {
-        if($request->order_by === null) {
+        $order_by = $request->order_by;
+        $order_type = $request->order_type;
+        
+        $category = $request->category;
+        switch($category) {
+            case 'flowers': 
+                $category_clicked = 1;
+                break;
+            case 'trees': 
+                $category_clicked = 2;
+                break;
+            case 'fruits': 
+                $category_clicked = 3;
+                break;
+            case 'vegetables': 
+                $category_clicked = 4;
+                break;
+            default: 
+                $category_clicked = 0;
+                break;
+        }
+
+        if($category === null) {
+            $category = ['flowers', 'trees', 'fruits', 'vegetables'];
+        }
+        else {
+            $category = array($category);
+        }
+
+        if($order_by === null) {
             $orderby_clicked = 0;
 
-            $products = Product::select('products.*', DB::raw('MIN(photo_path) AS photo_path'))
-                ->leftJoin('photos', 'products.id', '=', 'photos.product_id')
-                ->orderBy('products.id', 'asc')
-                ->groupBy('products.id')
-                ->get();
+            $order_by = 'products.id';
+            $order_type = 'asc';
+
+            // $products = Product::select('products.*', DB::raw('MIN(photo_path) AS photo_path'))
+            //     ->leftJoin('photos', 'products.id', '=', 'photos.product_id')
+            //     ->orderBy('products.id', 'asc')
+            //     ->groupBy('products.id')
+            //     ->get();
         } else {
-            $products = Product::select('products.*', DB::raw('MIN(photo_path) AS photo_path'))
-                ->leftJoin('photos', 'products.id', '=', 'photos.product_id')
-                ->orderBy($request->order_by,$request->order_type)
-                ->groupBy('products.id')
-                ->get();
+            // $products = Product::select('products.*', DB::raw('MIN(photo_path) AS photo_path'))
+            //     ->leftJoin('photos', 'products.id', '=', 'photos.product_id')
+            //     ->orderBy($request->order_by,$request->order_type)
+            //     ->groupBy('products.id')
+            //     ->get();
             
-            if($request->order_by === 'id') {
+            if($order_by === 'id') {
                 $orderby_clicked = 0;
-            } else if($request->order_by === 'name') {
+            } else if($order_by === 'name') {
                 $orderby_clicked = 1;
-            } else if($request->order_by === 'price') {
-                if($request->order_type === 'desc') {
+            } else if($order_by === 'price') {
+                if($order_type === 'desc') {
                     $orderby_clicked = 2;
-                } else if($request->order_type === 'asc') {
+                } else if($order_type === 'asc') {
                     $orderby_clicked = 3;
                 }
             } 
         }
         // echo "<script>console.log('$products')</script>";
 
-        return view('shop/shop', ['products' => $products, 'orderby_clicked' => $orderby_clicked]);
+        $products = Product::select('products.*', DB::raw('MIN(photo_path) AS photo_path'))
+                ->leftJoin('photos', 'products.id', '=', 'photos.product_id')
+                ->whereIn('category', $category)
+                ->orderBy($order_by, $order_type)
+                ->groupBy('products.id')
+                ->get();
+
+        return view('shop/shop', ['products' => $products, 'orderby_clicked' => $orderby_clicked, 'category_clicked' => $category_clicked]);
     }
 
     public function viewProduct(Request $request)

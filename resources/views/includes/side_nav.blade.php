@@ -6,16 +6,29 @@
             </button>
             <ul id="sub_side_nav_links" class="sub_side_nav_links">
                 <li>
-                    <button class="side_nav_button">Flowers</button>
+                    <a href="{{ request()->fullUrlWithQuery(['category' => null]) }}" class="side_nav_link">
+                        All<!-- <button class="side_nav_button">All</button> -->
+                    </a>
                 </li>
                 <li>
-                    <button class="side_nav_button">Trees</button>
+                    <a href="{{ request()->fullUrlWithQuery(['category' => 'flowers']) }}" class="side_nav_link">
+                        Flowers<!-- <button class="side_nav_button">Flowers</button> -->
+                    </a>
                 </li>
                 <li>
-                    <button class="side_nav_button">Fruit</button>
+                    <a href="{{ request()->fullUrlWithQuery(['category' => 'trees']) }}" class="side_nav_link">
+                        Trees<!-- <button class="side_nav_button">Trees</button> -->
+                    </a>
                 </li>
                 <li>
-                    <button class="side_nav_button">Vegetables</button>
+                    <a href="{{ request()->fullUrlWithQuery(['category' => 'fruits']) }}" class="side_nav_link">
+                        Fruits<!-- <button class="side_nav_button">Fruits</button> -->
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ request()->fullUrlWithQuery(['category' => 'vegetables']) }}" class="side_nav_link">
+                        Vegetables<!-- <button class="side_nav_button">Vegetables</button> -->
+                    </a>
                 </li>
             </ul>
         </li>
@@ -63,7 +76,7 @@
                     <button class="side_nav_button_SS dropdown-item">Trees</button>
                 </li>
                 <li>
-                    <button class="side_nav_button_SS dropdown-item">Fruit</button>
+                    <button class="side_nav_button_SS dropdown-item">Fruits</button>
                 </li>
                 <li>
                     <button class="side_nav_button_SS dropdown-item">Vegetables</button>

@@ -22,18 +22,35 @@ main.row {
 
 .orderby_buttons ul li {
     padding: 0;
+    text-align: center;
+    /* padding-top: 15px;
+    padding-bottom: 15px; */
 }
 
-.order_by_btn {
+.order_by_link a {
+    display: grid;
     width: 100%;
-    /* background-color: var(--honeydew);
+    height: 55px;
+    font-weight: 700;
+    flex-grow: 1;
+    color: inherit;
+    text-decoration: none;
+    align-items: center;
+}
+
+/* .order_by_btn {
+    width: 100%;
+    height: 100%;
+    background-color: var(--honeydew);
     border: 3px solid var(--nyanza);
-    border-bottom: 3px solid var(--avocado); */
+    border-bottom: 3px solid var(--avocado);
     padding-top: 15px;
     padding-bottom: 15px;
     font-weight: 700;
     flex-grow: 1;
-}
+    color: inherit;
+    text-decoration: none;
+} */
 
 .order_by_btn:hover {
     background-color: var(--nyanza);

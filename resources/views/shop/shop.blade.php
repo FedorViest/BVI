@@ -22,7 +22,7 @@
 
         function order_by_clicked(num) {
             var num_clicked = Number('<?php echo $orderby_clicked; ?>');
-            var order_by_buttons = document.getElementsByClassName("order_by_btn");
+            var order_by_buttons = document.getElementsByClassName("order_by_link");
 
             for (let i = 0; i < order_by_buttons.length; i++) {
                 if(i === num_clicked) {
@@ -34,6 +34,20 @@
                     order_by_buttons[i].style.backgroundColor = "var(--honeydew)";
                     order_by_buttons[i].style.border = "3px solid var(--nyanza)";
                     order_by_buttons[i].style.borderBottom = "3px solid var(--avocado)";
+                }
+            }
+        }
+
+        function category_clicked() {
+            var num_clicked = Number('<?php echo $category_clicked; ?>');
+            var category_buttons = document.getElementsByClassName("side_nav_link");
+
+            for (let i = 0; i < category_buttons.length; i++) {
+                if(i === num_clicked) {
+                    category_buttons[i].style.backgroundColor = "var(--honeydew)";
+                }
+                else {
+                    category_buttons[i].style.backgroundColor = "var(--nyanza)";
                 }
             }
         }
@@ -59,7 +73,7 @@
     </script>
 
 </head>
-<body onload=order_by_clicked();>
+<body onload="order_by_clicked(), category_clicked()">
 <!-- Header-->
 @include('includes.header')
 <!-- end Header -->
