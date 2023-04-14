@@ -100,7 +100,8 @@ class PaymentController extends Controller
             $cart->products[] = $product;
 
         }
-        return view('cart.shipping_payment', ['cart' => $cart]);
+        $methods = json_decode(file_get_contents(__DIR__ . "\..\..\..\shipping_payment.json"));
+        return view('cart.shipping_payment', ['cart' => $cart, 'methods' => $methods]);
     }
 
     /**
@@ -142,16 +143,17 @@ class PaymentController extends Controller
     {
         //
         $query = Cart::query()->where('id', '=', $id);
+        $methods = json_decode(file_get_contents(__DIR__ . "\..\..\..\shipping_payment.json"));
         if ($request->has("shipping")){
             $query->update([
                 'delivery' => $request->get("shipping"),
-                //'delivery_price' => $request->get("price")
+                'delivery_price' => $methods->shipping->{$request->get("shipping")}->price
             ]);
         }
         else if ($request->has("payment")){
             $query->update([
                 'payment' => $request->get("payment"),
-                //'payment_price' => $request->get("price")
+                'payment_price' => $methods->payment->{$request->get("payment")}->price
             ]);
         }
     }
