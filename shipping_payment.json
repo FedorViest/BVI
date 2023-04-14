@@ -1,0 +1,32 @@
+{
+    "shipping" :
+    {
+        "Store":  {
+            "price": 0,
+            "icon": "store"
+        },
+        "Pickup Point":  {
+            "price": 1.99,
+            "icon": "archive"
+        },
+        "Home Delivery":  {
+            "price": 2.99,
+            "icon": "local_shipping"
+        }
+    },
+    "payment":
+    {
+        "Credit Card": {
+            "price": 0,
+            "icon": "credit_card"
+        },
+        "Cash":  {
+            "price": 0.99,
+            "icon": "payments"
+        },
+        "Internet Banking":  {
+            "price": 0,
+            "icon": "payments"
+        }
+    }
+}
