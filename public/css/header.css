@@ -16,7 +16,7 @@
     ;
 }
 
-.header li, .header a, .header h3 {
+.header li, .header a, .header h3, .a_logout{
     font-family: "Montserrat", sans-serif;
     font-weight: 550;
     font-size: 16px;

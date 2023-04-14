@@ -8,6 +8,7 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,8 @@ Route::get('/login', [SessionController::class, 'create']);
 Route::post('/login', [SessionController::class, 'store']);
 Route::delete('/logout', [SessionController::class, 'destroy']);
 
+Route::resource('contact', ContactController::class);
+
 Route::get('/', function () {
     return redirect('index');
 
@@ -46,7 +49,7 @@ Route::get('/product/{product_id}', [ShopController::class, 'viewProduct'])->nam
 //TODO delete before submission
 Route::get('/phpinfo', function () {
     //return view('welcome');
-
+    //echo bcrypt('adminadmin');
     return phpinfo();
 
 });
