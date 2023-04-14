@@ -56,7 +56,7 @@
                         @foreach($products_new as $product)
                             <div class="col">
                                 <article class="card">
-                                    <a href="product_detail.html">
+                                    <a href="/product/{{$product->id}}">
                                         <img class="card-img" src="{{asset('photos/' . $product->photos[0])}}"
                                              alt="{{$product->photos[0]}}">
                                         <!-- https://pixabay.com/photos/apple-tree-apples-leaves-fall-3735679/ -->
@@ -129,7 +129,7 @@
         articleElement.className = 'card';
 
         var anchorElement = document.createElement('a');
-        anchorElement.href = 'product_detail.html';
+        anchorElement.href = '/product/{{$product->id}} ';
 
         var imageElement = document.createElement('img');
         imageElement.className = 'card-img';

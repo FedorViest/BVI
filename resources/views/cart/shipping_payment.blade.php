@@ -105,7 +105,7 @@
         async function send_ajax(formData){
             var success = true;
             await $.ajax({
-                url: '{{url('cart/shipping_payment', $cart->id)}}',
+                url: '{{ route('shipping_payment.update', $cart->id) }}',
                 data: formData,
                 method: "POST",
                 contentType : false,
@@ -118,7 +118,7 @@
                 },
                 error: function (response){
                     success = true;
-                    console.log(response.responseText);
+                    //console.log(response.responseText);
                 }
             });
             return success;
