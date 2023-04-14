@@ -46,7 +46,7 @@ Route::get('/product/{product_id}', [ShopController::class, 'viewProduct'])->nam
 //TODO delete before submission
 Route::get('/phpinfo', function () {
     //return view('welcome');
-
+    //echo bcrypt('adminadmin');
     return phpinfo();
 
 });

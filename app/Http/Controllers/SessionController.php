@@ -15,7 +15,7 @@ class SessionController extends Controller
     {
         $request->validate([
             'email' => 'required|string|email|max:255',
-            'password' => 'required|string|min:8',
+            'password' => 'required|string',
         ]);
         if (auth()->check()){
             //TODO check if cart exists, if yes, then store it
