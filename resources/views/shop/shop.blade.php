@@ -92,7 +92,7 @@
                 <div class="col">
                     <article class="card">
                         <a href="/product/{{$product->id}}">
-                            <img class="card-img" src="{{$product->photo_path}}" alt="{{$product->name}}">
+                            <img class="card-img" src="{{ asset('photos/' . $product->photo_path) }}" alt="{{$product->name}}">
                             <section class="card-body">
                                 <h3 class="card-title">{{$product->name}}</h3>
                                 <p class="card-price">{{number_format($product->price, 2)}} €</p>

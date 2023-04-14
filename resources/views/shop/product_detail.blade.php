@@ -74,7 +74,7 @@
                 <div class="carousel-inner">
 
                     <div class="carousel-item active">
-                        <img class="d-block product_img" src="{{ asset($photos[0]->photo_path) }}" alt="{{ $product_detail->name }}"> 
+                        <img class="d-block product_img" src="{{ asset('photos/' . $photos[0]->photo_path) }}" alt="{{ $product_detail->name }}"> 
                     </div>
 
                     @if(count($photos) > 1)
@@ -83,7 +83,7 @@
                                 @continue
                             @endif
                             <div class="carousel-item">
-                                <img class="d-block product_img" src="{{ asset($photo->photo_path) }}" alt="{{ $product_detail->name }}"> 
+                                <img class="d-block product_img" src="{{ asset('photos/' . $photo->photo_path) }}" alt="{{ $product_detail->name }}"> 
                             </div>
                         @endforeach
                     @endif
@@ -177,7 +177,7 @@
                         <div class="col">
                             <article class="card">
                                 <a href="/product/{{$best_seller->id}}">
-                                    <img class="card-img" src="{{ asset($best_seller->photo_path) }}" alt="{{$best_seller->name}}">
+                                    <img class="card-img" src="{{ asset('photos/' . $best_seller->photo_path) }}" alt="{{$best_seller->name}}">
                                     <section class="card-body">
                                         <h3 class="card-title">{{$best_seller->name}}</h3>
                                         <p class="card-price">{{number_format($best_seller->price, 2)}} €</p>
