@@ -109,7 +109,34 @@ class CartController extends Controller
     //shipping & payment
 
     public function shipping_payment(){
-        $cart = $this->create_cart();
+        if (!Auth::check()){
+            //no account
+            return view('cart.empty_cart');
+        }
+        $cart_query = Cart::query()->where('profile_id', '=', auth()->user()->id)->first();
+        if (!$cart_query){
+            //no cart
+            return view('cart.empty_cart');
+        }
+        $cart = new Cart_products(
+            $cart_query
+        );
+        $cart_contents = Cart_content::query()->where('cart_id', '=', $cart->id)
+            ->join('products', 'products.id', '=', 'cart_contents.product_id')->orderBy('cart_contents.id')->get();
+        if (empty($cart_contents)){
+            //no products in cart
+            return view('cart.empty_cart');
+        }
+        foreach ($cart_contents as $cart_content){
+            $product = new Product_quantity($cart_content);
+            //TODO check product ID
+            $photos_query = Photo::query()->select('photo_path')->where('product_id', '=', $product->id)->get();
+            foreach ($photos_query as $photo_query){
+                $product->photos[] = $photo_query->photo_path;
+            }
+            $cart->products[] = $product;
+
+        }
         return view('cart.shipping_payment', ['cart' => $cart]);
     }
 
@@ -131,7 +158,34 @@ class CartController extends Controller
 
     public function index()
     {
-        $cart = $this->create_cart();
+        if (!Auth::check()){
+            //no account
+            return view('cart.empty_cart');
+        }
+        $cart_query = Cart::query()->where('profile_id', '=', auth()->user()->id)->first();
+        if (!$cart_query){
+            //no cart
+            return view('cart.empty_cart');
+        }
+        $cart = new Cart_products(
+            $cart_query
+        );
+        $cart_contents = Cart_content::query()->where('cart_id', '=', $cart->id)
+            ->join('products', 'products.id', '=', 'cart_contents.product_id')->orderBy('cart_contents.id')->get();
+        if (empty($cart_contents)){
+            //no products in cart
+            return view('cart.empty_cart');
+        }
+        foreach ($cart_contents as $cart_content){
+            $product = new Product_quantity($cart_content);
+            //TODO check product ID
+            $photos_query = Photo::query()->select('photo_path')->where('product_id', '=', $product->id)->get();
+            foreach ($photos_query as $photo_query){
+                $product->photos[] = $photo_query->photo_path;
+            }
+            $cart->products[] = $product;
+
+        }
         return view('cart.shopping_cart', ['cart' => $cart]);
     }
 

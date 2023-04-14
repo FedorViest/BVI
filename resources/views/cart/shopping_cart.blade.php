@@ -122,7 +122,7 @@
                             <!--</div>-->
                             <div class="price-div align-items-center d-flex  m-0 p-0">{{$product->price}}€</div>
                             <div class="delete-div align-items-center d-flex  m-0 p-0">
-                                <form name="deleteForm-{{$product->id}}" class="delete-div align-items-center d-flex  m-0 p-0" action="{{route('cart.destroy', ['cart' => $cart->id, 'id' => $cart->id ,'product_id' => $product->id]);}}" method="post">
+                                <form name="deleteForm-{{$product->id}}" class="delete-div align-items-center d-flex  m-0 p-0" action="{{route('cart.destroy', ['cart' => $cart->id, 'id' => $cart->id ,'product_id' => $product->id])}}" method="post">
                                     <span class="material-symbols-outlined" onclick="document.forms['deleteForm-{{$product->id}}'].submit()">delete</span>
                                     @method('delete')
                                     @csrf
