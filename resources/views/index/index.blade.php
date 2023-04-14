@@ -51,20 +51,22 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12">
-                    <div class="products_wrapper row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-xl-6 row-cols-lg-4 g-3">
+                    <div
+                        class="products_wrapper row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-xl-6 row-cols-lg-4 g-3">
                         @foreach($products_new as $product)
-                        <div class="col">
-                            <article class="card">
-                                <a href="product_detail.html">
-                                    <img class="card-img" src="{{asset('photos/' . $product->photos[0])}}" alt="{{$product->photos[0]}}">
-                                    <!-- https://pixabay.com/photos/apple-tree-apples-leaves-fall-3735679/ -->
-                                    <section class="card-body">
-                                        <h3 class="card-title">{{$product->name}}</h3>
-                                        <p class="card-price">{{$product->price}}€</p>
-                                    </section>
-                                </a>
-                            </article>
-                        </div>
+                            <div class="col">
+                                <article class="card">
+                                    <a href="product_detail.html">
+                                        <img class="card-img" src="{{asset('photos/' . $product->photos[0])}}"
+                                             alt="{{$product->photos[0]}}">
+                                        <!-- https://pixabay.com/photos/apple-tree-apples-leaves-fall-3735679/ -->
+                                        <section class="card-body">
+                                            <h3 class="card-title">{{$product->name}}</h3>
+                                            <p class="card-price">{{$product->price}}€</p>
+                                        </section>
+                                    </a>
+                                </article>
+                            </div>
                         @endforeach
                     </div>
                 </div>
@@ -75,66 +77,82 @@
 
 <script>
     var product = @json($products_best);
-    previewContainer = document.querySelector('.carousel-inner');
+    var productLength = Math.floor(product.length / 4) * 4;
+    product = product.slice(0, productLength);
+    var previewContainer = document.querySelector('.carousel-inner');
 
-    for(let i = 0; i < product.length; i++){
-        if(i % 4 === 0){
-            var carouselItem = document.createElement('div');
-            if (i === 0){
-                carouselItem.className = 'carousel-item active';
-            }
-            else{
-                carouselItem.className = 'carousel-item';
-            }
-            var cardWrapper = document.createElement('div');
-            cardWrapper.className = 'card-wrapper';
+    var itemsPerCarouselItem = {
+        default: 4,
+        medium: 3,
+        small: 2
+    };
 
-            carouselItem.append(cardWrapper);
+    function updateCarouselItems() {
+        var windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+
+        var numItemsPerCarouselItem = itemsPerCarouselItem.default;
+        if (windowWidth < 1299) {
+            numItemsPerCarouselItem = itemsPerCarouselItem.medium;
         }
-        var articleElement = create_card(product[i]);
-        cardWrapper.append(articleElement);
-        previewContainer.insertBefore(carouselItem, previewContainer.firstChild);
+        if (windowWidth < 815) {
+            numItemsPerCarouselItem = itemsPerCarouselItem.small;
+        }
+
+        previewContainer.innerHTML = '';
+
+        for (let i = 0; i < product.length; i++) {
+            if (i % numItemsPerCarouselItem === 0) {
+                var carouselItem = document.createElement('div');
+                if (i === 0) {
+                    carouselItem.className = 'carousel-item active';
+                } else {
+                    carouselItem.className = 'carousel-item';
+                }
+                var cardWrapper = document.createElement('div');
+                cardWrapper.className = 'card-wrapper';
+
+                carouselItem.append(cardWrapper);
+            }
+            var articleElement = create_card(product[i]);
+            cardWrapper.append(articleElement);
+            previewContainer.insertBefore(carouselItem, previewContainer.firstChild);
+        }
     }
+
+    updateCarouselItems();
+
+    window.addEventListener('resize', updateCarouselItems);
 
     function create_card(product) {
         var path = '{!! asset('photos/') !!}';
-        // Create a new article element with class "card"
         var articleElement = document.createElement('article');
         articleElement.className = 'card';
 
-// Create a new anchor element with href "product_detail.html"
         var anchorElement = document.createElement('a');
         anchorElement.href = 'product_detail.html';
 
-// Create a new image element with class "card-img", src "assets/products/apple_tree.png", and alt "product_image"
         var imageElement = document.createElement('img');
         imageElement.className = 'card-img';
         imageElement.src = path + '/' + product.photos[0];
         imageElement.alt = product.photos[0];
 
-// Create a new section element with class "card-body"
         var sectionElement = document.createElement('section');
         sectionElement.className = 'card-body';
 
-// Create a new h3 element with class "card-title" and text "Apple tree"
         var h3Element = document.createElement('h3');
         h3Element.className = 'card-title';
         h3Element.textContent = product.name;
 
-// Create a new p element with class "card-price" and text "19.99€"
         var pElement = document.createElement('p');
         pElement.className = 'card-price';
         pElement.textContent = product.price + '€';
 
-// Append the h3 and p elements to the section element
         sectionElement.appendChild(h3Element);
         sectionElement.appendChild(pElement);
 
-// Append the image and section elements to the anchor element
         anchorElement.appendChild(imageElement);
         anchorElement.appendChild(sectionElement);
 
-// Append the anchor element to the article element
         articleElement.appendChild(anchorElement);
         return articleElement;
     }

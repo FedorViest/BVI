@@ -165,10 +165,6 @@ PRODCUT BOX CSS END
 }
 
 @media only screen and (max-width: 1299px) {
-    .carousel-inner .card:is(:last-child){
-        display: none;
-    }
-
     .welcome_text{
         font-size: 40px;
     }
@@ -186,10 +182,6 @@ PRODCUT BOX CSS END
 
     .card-title{
         max-width: 100px;
-    }
-
-    .carousel-inner .card:is(:nth-last-child(2)){
-        display: none;
     }
 
     .welcome_image{
