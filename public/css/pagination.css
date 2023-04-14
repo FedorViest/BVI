@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('constants.css');
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 700,
+        'GRAD' 200,
+        'opsz' 48
+;
+}
+
+.pagination-links{
+    background-color: black;
+    color: var(--avocado) !important;
+}
+
+.page-link{
+    font-weight: bold;
+    color: var(--avocado);
+    background-color: var(--nyanza);
+}
+
+.page-item.active .page-link{
+    font-weight: bold;
+    color: var(--pakistan-green);
+    background-color: var(--avocado);
+    border-color: var(--platinum);
+}
+
+.page-item:focus, .page-link:focus{
+    -webkit-appearance: none;
+}
+
+.page-item:hover .page-link{
+    font-weight: bold;
+    color: var(--pakistan-green);
+    background-color: var(--avocado);
+}

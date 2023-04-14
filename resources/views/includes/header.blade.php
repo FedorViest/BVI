@@ -5,13 +5,12 @@
             <h3 class="website-name">Plant Hub</h3>
         </a>
     </section>
-    <section class="search-form">
-        <label class="search-form">
-            <input type="text" placeholder="Search...">
-        </label>
-        <button type="submit" onclick="window.location.href='shop.html'"><span
-            class="material-symbols-outlined">search</span></button>
-    </section>
+    <form action="{{url('search')}}" method="get" class="search-form">
+        @csrf <!-- Add CSRF token for security -->
+        <label class="search-form" for="query"></label>
+            <input type="text" name="query" id="query" placeholder="Search..." value="{{isset($query) ? $query : ''}}">
+        <button type="submit"><span class="material-symbols-outlined">search</span></button>
+    </form>
     <nav class="show_all_nav">
         <ul class="nav_links">
             <li class="home_button"><a href="{{url('index')}}">Home</a></li>
