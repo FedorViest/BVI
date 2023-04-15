@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Address;
 use App\Models\Cart;
 use App\Models\Cart_content;
 use App\Models\Photo;
@@ -74,88 +75,6 @@ class CartController extends Controller
     /**
      * Display a listing of the resource.
      */
-
-    public function create_cart(){
-        if (!Auth::check()){
-            //no account
-            return view('cart.empty_cart');
-        }
-        $cart_query = Cart::query()->where('profile_id', '=', auth()->user()->id)->first();
-        if (!$cart_query){
-            //no cart
-            return view('cart.empty_cart');
-        }
-        $cart = new Cart_products(
-            $cart_query
-        );
-        $cart_contents = Cart_content::query()->where('cart_id', '=', $cart->id)
-            ->join('products', 'products.id', '=', 'cart_contents.product_id')->orderBy('cart_contents.id')->get();
-        if (empty($cart_contents)){
-            //no products in cart
-            return view('cart.empty_cart');
-        }
-        foreach ($cart_contents as $cart_content){
-            $product = new Product_quantity($cart_content);
-            //TODO check product ID
-            $photos_query = Photo::query()->select('photo_path')->where('product_id', '=', $product->id)->get();
-            foreach ($photos_query as $photo_query){
-                $product->photos[] = $photo_query->photo_path;
-            }
-            $cart->products[] = $product;
-
-        }
-        return $cart;
-    }
-    //shipping & payment
-
-    public function shipping_payment(){
-        if (!Auth::check()){
-            //no account
-            return view('cart.empty_cart');
-        }
-        $cart_query = Cart::query()->where('profile_id', '=', auth()->user()->id)->first();
-        if (!$cart_query){
-            //no cart
-            return view('cart.empty_cart');
-        }
-        $cart = new Cart_products(
-            $cart_query
-        );
-        $cart_contents = Cart_content::query()->where('cart_id', '=', $cart->id)
-            ->join('products', 'products.id', '=', 'cart_contents.product_id')->orderBy('cart_contents.id')->get();
-        if (empty($cart_contents)){
-            //no products in cart
-            return view('cart.empty_cart');
-        }
-        foreach ($cart_contents as $cart_content){
-            $product = new Product_quantity($cart_content);
-            //TODO check product ID
-            $photos_query = Photo::query()->select('photo_path')->where('product_id', '=', $product->id)->get();
-            foreach ($photos_query as $photo_query){
-                $product->photos[] = $photo_query->photo_path;
-            }
-            $cart->products[] = $product;
-
-        }
-        return view('cart.shipping_payment', ['cart' => $cart]);
-    }
-
-    public function put_shipping_payment(Request $request, string $id){
-        $query = Cart::query()->where('id', '=', $id);
-        if ($request->has("shipping")){
-            $query->update([
-                'delivery' => $request->get("shipping"),
-                //'delivery_price' => $request->get("price")
-            ]);
-        }
-        else if ($request->has("payment")){
-            $query->update([
-                'payment' => $request->get("payment"),
-                //'payment_price' => $request->get("price")
-            ]);
-        }
-    }
-
     public function index()
     {
         if (!Auth::check()){
@@ -218,7 +137,14 @@ class CartController extends Controller
         //check if user is logged and has cart
         if (!auth()->check()){
             //create temp profile
-            $profile = new Profile();
+
+            $address = new Address();
+
+            $address->save();
+
+            $profile = new Profile([
+                'address_id' => $address->id,
+            ]);
 
             $profile->save();
             auth()->login($profile);

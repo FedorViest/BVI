@@ -90,18 +90,18 @@
                 <section class="register_section">
                     <label for="email_register">Email</label>
                     <label class="input_label">
-                        <input type="text" placeholder="Email" id="email_register" name="email">
+                        <input type="text" placeholder="Email" id="email_register" name="email_register">
                     </label>
-                    @error('email')
+                    @error('email_register')
                     <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </section>
                 <section class="register_section">
                     <label for="password_register">Password</label>
                     <label class="input_label">
-                        <input type="password" placeholder="Password" id="password_register" name="password">
+                        <input type="password" placeholder="Password" id="password_register" name="password_register">
                     </label>
-                    @error('password')
+                    @error('password_register')
                     <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </section>
