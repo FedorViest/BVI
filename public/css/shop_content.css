@@ -168,6 +168,10 @@ PRODCUT BOX CSS END
 
 @media only screen and (max-width: 767.89px), only screen and (max-device-width: 767.89px) {
 
+    main.row {
+        min-height: auto;
+    }
+    
     .side_nav ul {
         line-height: 60px;
     }

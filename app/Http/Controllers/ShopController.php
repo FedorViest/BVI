@@ -14,7 +14,7 @@ class ShopController extends Controller
     {
         $order_by = $request->order_by;
         $order_type = $request->order_type;
-        
+
         $category = $request->category;
         switch($category) {
             case 'flowers': 
@@ -39,6 +39,20 @@ class ShopController extends Controller
         }
         else {
             $category = array($category);
+        }
+
+        $min_price = $request->min_price;
+        // echo "<script>console.log('$min_price')</script>";
+        if($min_price == null) {
+            $min_price = number_format(Product::whereIn('category', $category)->min('price'), 2);
+        }
+        // else {
+        //     echo "<script>console.log('tu')</script>";
+        // }
+        // echo "<script>console.log('$min_price')</script>";
+        $max_price = $request->max_price;
+        if($max_price == null) {
+            $max_price = number_format(Product::whereIn('category', $category)->max('price'), 2);
         }
 
         if($order_by === null) {
@@ -76,11 +90,13 @@ class ShopController extends Controller
         $products = Product::select('products.*', DB::raw('MIN(photo_path) AS photo_path'))
                 ->leftJoin('photos', 'products.id', '=', 'photos.product_id')
                 ->whereIn('category', $category)
+                ->where('price', '>=', $min_price)
+                ->where('price', '<=', $max_price)
                 ->orderBy($order_by, $order_type)
                 ->groupBy('products.id')
                 ->get();
 
-        return view('shop/shop', ['products' => $products, 'orderby_clicked' => $orderby_clicked, 'category_clicked' => $category_clicked]);
+        return view('shop/shop', ['products' => $products, 'orderby_clicked' => $orderby_clicked, 'category_clicked' => $category_clicked, 'min_price' => $min_price, 'max_price' => $max_price]);
     }
 
     public function viewProduct(Request $request)
@@ -94,6 +110,15 @@ class ShopController extends Controller
 
         // echo "<script>console.log('$photos')</script>";
 
+        $min_price = $request->min_price;
+        if($min_price == null) {
+            $min_price = number_format(Product::min('price'), 2);
+        }
+        $max_price = $request->max_price;
+        if($max_price == null) {
+            $max_price = number_format(Product::max('price'), 2);
+        }
+
         $best_sellers = Product::select('products.*', DB::raw('MIN(photo_path) AS photo_path'))
             ->leftJoin('photos', 'products.id', '=', 'photos.product_id')
             ->where('products.id', '<>', $request->product_id)
@@ -102,7 +127,7 @@ class ShopController extends Controller
             ->take(6)
             ->get();
 
-        return view('shop/product_detail', ['product_detail' => $product_detail, 'photos' => $photos, 'best_sellers' => $best_sellers]);
+        return view('shop/product_detail', ['product_detail' => $product_detail, 'photos' => $photos, 'best_sellers' => $best_sellers, 'min_price' => $min_price, 'max_price' => $max_price]);
     }
 
 }

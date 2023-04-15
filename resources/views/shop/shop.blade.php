@@ -48,6 +48,20 @@
                 }
                 else {
                     category_buttons[i].style.backgroundColor = "var(--nyanza)";
+                    // category_buttons[i].addEventListener('mouseover', () => {
+                    //     category_buttons[i].style.backgroundColor = 'var(--honeydew)';
+                    // });
+
+                    // category_buttons[i].addEventListener('mouseout', () => {
+                    //     category_buttons[i].style.backgroundColor = '';
+                    // });
+                    // category_buttons[i].addEventListener("click", function() {
+                    // if (category_buttons[i].classList.contains("hover-style")) {
+                    //     category_buttons[i].classList.remove("hover-style");
+                    // } else {
+                    //     category_buttons[i].classList.add("hover-style");
+                    // }
+                    // };
                 }
             }
         }
@@ -62,14 +76,14 @@
             }
         }
 
-        function clicked_checkbox(checkbox, input_element) {
-            var inp = document.getElementById(input_element);
-            if (checkbox.checked === false) {
-                inp.style.pointerEvents = "none";
-            } else {
-                inp.style.pointerEvents = "auto";
-            }
-        }
+        // function clicked_checkbox(checkbox, input_element) {
+        //     var inp = document.getElementById(input_element);
+        //     if (checkbox.checked === false) {
+        //         inp.style.pointerEvents = "none";
+        //     } else {
+        //         inp.style.pointerEvents = "auto";
+        //     }
+        // }
     </script>
 
 </head>
@@ -84,7 +98,7 @@
     @include('includes.side_nav')
 
 
-    <div class="shop col-md-9">
+    <div class="shop col-sm-12 col-md-9">
         @include('includes.order_by_nav')
 
         <div class="products_wrapper items row row-cols-2 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 rows-cols-xl-4 g-3">

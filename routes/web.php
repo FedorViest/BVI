@@ -49,7 +49,7 @@ Route::get('/', function () {
 
 Route::get('/search', [SearchController::class, 'search']);
 
-Route::get('/shop', [ShopController::class, 'viewShop']);
+Route::get('/shop', [ShopController::class, 'viewShop'])->name('shop');
 Route::get('/product/{product_id}', [ShopController::class, 'viewProduct'])->name('product');
 
 //TODO delete before submission

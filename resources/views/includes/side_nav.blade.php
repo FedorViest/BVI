@@ -1,32 +1,33 @@
-<div class="side_nav col-md-3">
+<div class="side_nav col-sm-12 col-md-3">
     <ul class="side_nav_links">
         <li>
             <button class="side_nav_button" onclick="display('sub_side_nav_links')">
                 Categories<span class="material-symbols-outlined">expand_more</span>
             </button>
             <ul id="sub_side_nav_links" class="sub_side_nav_links">
-                <li>
-                    <a href="{{ request()->fullUrlWithQuery(['category' => null]) }}" class="side_nav_link">
+                <li class="side_nav_link">
+                <!-- <a href="{{ route('shop', ['category' => 'vegetables', 'price' => 10]) }}" class="side_nav_link"> -->
+                    <a href="{{ request()->fullUrlWithQuery(['category' => null]) }}">
                         All<!-- <button class="side_nav_button">All</button> -->
                     </a>
                 </li>
-                <li>
-                    <a href="{{ request()->fullUrlWithQuery(['category' => 'flowers']) }}" class="side_nav_link">
+                <li class="side_nav_link">
+                    <a href="{{ request()->fullUrlWithQuery(['category' => 'flowers']) }}">
                         Flowers<!-- <button class="side_nav_button">Flowers</button> -->
                     </a>
                 </li>
-                <li>
-                    <a href="{{ request()->fullUrlWithQuery(['category' => 'trees']) }}" class="side_nav_link">
+                <li class="side_nav_link">
+                    <a href="{{ request()->fullUrlWithQuery(['category' => 'trees']) }}">
                         Trees<!-- <button class="side_nav_button">Trees</button> -->
                     </a>
                 </li>
-                <li>
-                    <a href="{{ request()->fullUrlWithQuery(['category' => 'fruits']) }}" class="side_nav_link">
+                <li class="side_nav_link">
+                    <a href="{{ request()->fullUrlWithQuery(['category' => 'fruits']) }}">
                         Fruits<!-- <button class="side_nav_button">Fruits</button> -->
                     </a>
                 </li>
-                <li>
-                    <a href="{{ request()->fullUrlWithQuery(['category' => 'vegetables']) }}" class="side_nav_link">
+                <li class="side_nav_link">
+                    <a href="{{ request()->fullUrlWithQuery(['category' => 'vegetables']) }}">
                         Vegetables<!-- <button class="side_nav_button">Vegetables</button> -->
                     </a>
                 </li>
@@ -34,32 +35,33 @@
         </li>
         <li>
             <button class="side_nav_button" onclick="display('side_nav_filters')">
-                Filters<span class="material-symbols-outlined">expand_more</span>
+                Price<span class="material-symbols-outlined">expand_more</span>
             </button>
             <ul id="side_nav_filters" class="side_nav_filters">
                 <li>
-                    <label class="filter_label">Price</label>
-                    <div class="price_values">
-                        <div class="price_value_range">
-                            <label>
-                                <input class="checkbox" type="checkbox"
-                                        onclick="clicked_checkbox(this, 'price_input_min')">
-                            </label>
-                            <label class="price_label" for="price_input_min">Min</label>
-                            <input id="price_input_min" class="price_input price_input_min" type="number" value="0">
+                    <!-- <form method="get" action="{{ route('shop', ['a' => 'a']) }}"> -->
+                    <form method="get" action="{{ route('shop') }}">
+                    <!-- <form> -->
+                        <!-- <label class="filter_label">Price</label> -->
+                        <div class="price_values">
+                            <div class="price_value_range">
+                                <label class="price_label" for="price_input_min">Min</label>
+                                <input id="price_input_min" class="price_input" name="min_price" type="number" min="0" max="{{ $max_price }}" value="{{ $min_price }}" step="0.01">
+                            </div>
+                            <div class="price_value_range">
+                                <label class="price_label" for="price_input_max">Max</label>
+                                <input id="price_input_max" class="price_input" name="max_price" type="number" min="{{ $min_price }}" value="{{ $max_price }}" step="0.01">
+                            </div>
                         </div>
-                        <div class="price_value_range">
-                            <label>
-                                <input class="checkbox" type="checkbox" checked
-                                        onclick="clicked_checkbox(this, 'price_input_max')">
-                            </label>
-                            <label class="price_label" for="price_input_max">Max</label>
-                            <input id="price_input_max" class="price_input" type="number" value="19.99">
-                        </div>
-                    </div>
-                    <button class="set_price_button">Set</button>
+                        <button class="set_price_button" type="submit">Set</button>
+                    </form>
                 </li>
             </ul>
+        </li>
+        <li>
+            <button class="side_nav_button" onclick="display('')">
+                Filter<span class="material-symbols-outlined">expand_more</span>
+            </button>
         </li>
     </ul>
 
@@ -70,16 +72,29 @@
             </button>
             <ul class="side_nav_sub_links_SS dropdown-menu">
                 <li>
-                    <button class="side_nav_button_SS dropdown-item">Flowers</button>
+                    <a href="{{ request()->fullUrlWithQuery(['category' => null]) }}" class="side_nav_link_SS dropdown-item">
+                        All
+                    </a>
                 </li>
                 <li>
-                    <button class="side_nav_button_SS dropdown-item">Trees</button>
+                    <a href="{{ request()->fullUrlWithQuery(['category' => 'flowers']) }}" class="side_nav_link_SS dropdown-item">
+                        Flowers
+                    </a>
                 </li>
                 <li>
-                    <button class="side_nav_button_SS dropdown-item">Fruits</button>
+                    <a href="{{ request()->fullUrlWithQuery(['category' => 'trees']) }}" class="side_nav_link_SS dropdown-item">
+                        Trees
+                    </a>
                 </li>
                 <li>
-                    <button class="side_nav_button_SS dropdown-item">Vegetables</button>
+                    <a href="{{ request()->fullUrlWithQuery(['category' => 'fruits']) }}" class="side_nav_link_SS dropdown-item">
+                        Fruits
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ request()->fullUrlWithQuery(['category' => 'vegetables']) }}" class="side_nav_link_SS dropdown-item">
+                        Vegetables
+                    </a>
                 </li>
             </ul>
         </li>
@@ -90,25 +105,25 @@
             <ul class="side_nav_filters_SS side_nav_sub_links_SS dropdown-menu">
                 <li class="dropdown-item">
                     <label class="filter_label">Price</label>
-                    <div class="price_values">
-                        <div class="price_value_range">
-                            <label>
-                                <input class="checkbox" type="checkbox"
-                                        onclick="clicked_checkbox(this, 'price_input_min_SS')">
-                            </label>
-                            <label class="price_label" for="price_input_min_SS">Min</label>
-                            <input id="price_input_min_SS" class="price_input price_input_min" type="number" value="0">
+                    <!-- <form method="get" action="{{ route('shop', ['a' => 'a']) }}"> -->
+                    <form method="get" action="{{ route('shop') }}">
+                    <!-- <form> -->
+                        <!-- <label class="filter_label">Price</label> -->
+                        <div class="price_values">
+                            <div class="price_value_range">
+                                <label class="price_label" for="price_input_min">Min</label>
+                                <input id="price_input_min" class="price_input" name="min_price" type="number" min="0" max="{{ $max_price }}" value="{{ $min_price }}" step="0.01">
+                            </div>
+                            <div class="price_value_range">
+                                <label class="price_label" for="price_input_max">Max</label>
+                                <input id="price_input_max" class="price_input" name="max_price" type="number" min="{{ $min_price }}" value="{{ $max_price }}" step="0.01">
+                            </div>
                         </div>
-                        <div class="price_value_range">
-                            <label>
-                                <input class="checkbox" type="checkbox" checked
-                                        onclick="clicked_checkbox(this, 'price_input_max_SS')">
-                            </label>
-                            <label class="price_label" for="price_input_max_SS">Max</label>
-                            <input id="price_input_max_SS" class="price_input" type="number" value="19.99">
-                        </div>
-                    </div>
-                    <button class="set_price_button_SS">Set</button>
+                        <button class="set_price_button" type="submit">Set</button>
+                    </form>
+                </li>
+                <li class="dropdown-item">
+                    <label class="filter_label">Filter</label>
                 </li>
             </ul>
         </li>
@@ -118,16 +133,24 @@
             </button>
             <ul class="side_nav_sub_links_SS dropdown-menu dropdown-menu-end">
                 <li>
-                    <button class="side_nav_button_SS dropdown-item">Best-sellers</button>
+                    <a href="{{ request()->fullUrlWithQuery(['order_by' => 'id','order_type'=>'asc']) }}"  class="side_nav_link_SS dropdown-item">
+                        Best-sellers
+                    </a>
                 </li>
                 <li>
-                    <button class="side_nav_button_SS dropdown-item">New</button>
+                    <a href="{{ request()->fullUrlWithQuery(['order_by' => 'name','order_type'=>'asc']) }}"  class="side_nav_link_SS dropdown-item">
+                        New
+                    </a>
                 </li>
                 <li>
-                    <button class="side_nav_button_SS dropdown-item">€ High to low</button>
+                    <a href="{{ request()->fullUrlWithQuery(['order_by' => 'price','order_type'=>'desc']) }}"  class="side_nav_link_SS dropdown-item">
+                        € High to low
+                    </a>
                 </li>
                 <li>
-                    <button class="side_nav_button_SS dropdown-item">€ Low to high</button>
+                <a href="{{ request()->fullUrlWithQuery(['order_by' => 'price','order_type'=>'asc']) }}"  class="side_nav_link_SS dropdown-item">
+                        € Low to high
+                    </a>
                 </li>
             </ul>
         </li>

@@ -24,9 +24,9 @@
     padding-left: 14%;
 }
 
-.side_nav_button:hover {
+/* .side_nav_button:hover {
     background-color: var(--honeydew);
-}
+} */
 
 .side_nav_links li {
     border-bottom: 3px solid black;
@@ -41,15 +41,18 @@
 .sub_side_nav_links a {
     display: grid;
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
     padding-left: 26%;
-    font-weight: 400;
+    /* font-weight: 400; */
     color: inherit;
     text-decoration: none;
 }
 
 .sub_side_nav_links li:hover {
     background-color: var(--honeydew);
+    color: var(--avocado);
+    font-weight: 700;
+    /* border: 1px solid var(--honeydew); */
 }
 
 .sub_side_nav_links li {
@@ -57,9 +60,9 @@
 }
 
 /* filters */
-.side_nav_filters {
+/* .side_nav_filters {
     display: none;
-}
+} */
 
 .side_nav_filters li {
     padding-left: 26%;
@@ -82,19 +85,19 @@
 }
 
 .price_input {
-    width: 50%;
+    width: 60%;
     border-radius: 5px;
     border: 2px solid var(--platinum);
     background-color: var(--honeydew);
 }
 
-.price_input_min {
+/* .price_input_min {
     pointer-events: none;
-}
+} */
 
 .set_price_button {
     width: 75%;
-    height: 50px;
+    /* height: 50px; */
     border-radius: 5px;
     border: 2px solid var(--platinum);
     background-color: var(--honeydew);
@@ -137,12 +140,13 @@
     border: 2px solid black;
 }
 
-.side_nav_sub_links_SS button {
+.side_nav_sub_links_SS a {
     background-color: var(--honeydew);
     font-weight: 400;
+    text-align: center;
 }
 
-.side_nav_sub_links_SS button:hover {
+.side_nav_link_SS:hover {
     background-color: var(--honeydew);
     color: var(--avocado);
     font-weight: 700;
