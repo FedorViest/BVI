@@ -76,7 +76,7 @@ class PaymentController extends Controller
             //no account
             return view('cart.empty_cart');
         }
-        $cart_query = Cart::query()->where('profile_id', '=', auth()->user()->id)->first();
+        $cart_query = Cart::query()->where('profile_id', '=', auth()->user()->id)->orderByDesc('updated_at')->first();
         if (!$cart_query){
             //no cart
             return view('cart.empty_cart');

@@ -18,7 +18,7 @@
             <li><a href="{{url('contact')}}">Contact</a></li>
             <li><a href="{{ url('cart/') }}"><span class="material-symbols-outlined">shopping_cart</span></a></li>
             <p>{{auth()->user()}}</p>
-            @if( auth()->check() and auth()->user()->role != 'temp')
+            @if( auth()->check() and auth()->user()->role != \App\Enums\ProfileRoleEnum::Temp)
                 <li>
                     <a href="#" data-bs-toggle="dropdown">
                         {{ auth()->user()->first_name . " " . auth()->user()->last_name }}

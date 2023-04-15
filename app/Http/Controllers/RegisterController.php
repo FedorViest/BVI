@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\ProfileRoleEnum;
 use App\Models\Address;
+use App\Models\Cart;
 use App\Models\Profile;
 use Illuminate\Http\Request;
 
@@ -37,6 +39,16 @@ class RegisterController extends Controller
         $profile->save();
 
         if (auth()->check()){
+
+            if (auth()->user()->role == ProfileRoleEnum::Temp){
+                $cart = Cart::query()->where('carts.profile_id', '=', auth()->user()->id)->first();
+
+                if ($cart){
+                    Cart::query()->where('carts.profile_id', '=', auth()->user()->id)->
+                        update(['profile_id'=>$profile->id]);
+                }
+            }
+
             auth()->logout();
         }
 
