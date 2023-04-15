@@ -11,7 +11,6 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PaymentController;
-use App\Http\Controllers\SearchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,8 +45,6 @@ Route::get('/', function () {
     return redirect('index');
 
 });
-
-Route::get('/search', [SearchController::class, 'search']);
 
 Route::get('/shop', [ShopController::class, 'viewShop'])->name('shop');
 Route::get('/product/{product_id}', [ShopController::class, 'viewProduct'])->name('product');

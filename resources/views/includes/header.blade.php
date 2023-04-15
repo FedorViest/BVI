@@ -5,10 +5,10 @@
             <h3 class="website-name">Plant Hub</h3>
         </a>
     </section>
-    <form action="{{url('search')}}" method="get" class="search-form">
+    <form action="{{url('shop')}}" method="get" class="search-form">
         @csrf <!-- Add CSRF token for security -->
         <label class="search-form" for="query"></label>
-            <input type="text" name="query" id="query" placeholder="Search..." value="{{isset($query) ? $query : ''}}">
+        <input type="text" name="search_query" id="query" placeholder="Search..." value="{{isset($search_query) ? $search_query : ''}}">
         <button type="submit"><span class="material-symbols-outlined">search</span></button>
     </form>
     <nav class="show_all_nav">

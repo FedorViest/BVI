@@ -14,22 +14,23 @@ class ShopController extends Controller
     {
         $order_by = $request->order_by;
         $order_type = $request->order_type;
+        $search_query = $request->input('search_query');
 
         $category = $request->category;
         switch($category) {
-            case 'flowers': 
+            case 'flowers':
                 $category_clicked = 1;
                 break;
-            case 'trees': 
+            case 'trees':
                 $category_clicked = 2;
                 break;
-            case 'fruits': 
+            case 'fruits':
                 $category_clicked = 3;
                 break;
-            case 'vegetables': 
+            case 'vegetables':
                 $category_clicked = 4;
                 break;
-            default: 
+            default:
                 $category_clicked = 0;
                 break;
         }
@@ -72,7 +73,7 @@ class ShopController extends Controller
             //     ->orderBy($request->order_by,$request->order_type)
             //     ->groupBy('products.id')
             //     ->get();
-            
+
             if($order_by === 'id') {
                 $orderby_clicked = 0;
             } else if($order_by === 'name') {
@@ -83,12 +84,13 @@ class ShopController extends Controller
                 } else if($order_type === 'asc') {
                     $orderby_clicked = 3;
                 }
-            } 
+            }
         }
         // echo "<script>console.log('$products')</script>";
 
         $products = Product::select('products.*', DB::raw('MIN(photo_path) AS photo_path'))
                 ->leftJoin('photos', 'products.id', '=', 'photos.product_id')
+                ->where('name', 'LIKE', '%' . $search_query . '%')
                 ->whereIn('category', $category)
                 ->where('price', '>=', $min_price)
                 ->where('price', '<=', $max_price)
@@ -96,7 +98,7 @@ class ShopController extends Controller
                 ->groupBy('products.id')
                 ->get();
 
-        return view('shop/shop', ['products' => $products, 'orderby_clicked' => $orderby_clicked, 'category_clicked' => $category_clicked, 'min_price' => $min_price, 'max_price' => $max_price]);
+        return view('shop/shop', ['products' => $products, 'orderby_clicked' => $orderby_clicked, 'category_clicked' => $category_clicked, 'min_price' => $min_price, 'max_price' => $max_price, 'search_query'=>$search_query]);
     }
 
     public function viewProduct(Request $request)
