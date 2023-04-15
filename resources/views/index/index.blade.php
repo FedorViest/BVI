@@ -51,23 +51,27 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12">
-                    <div
-                        class="products_wrapper row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-xl-6 row-cols-lg-4 g-3">
-                        @foreach($products_new as $product)
+                    <div class="products_wrapper row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-xl-6 row-cols-lg-4 g-3">
+                        @forelse($products_new as $product)
                             <div class="col">
                                 <article class="card">
                                     <a href="/product/{{$product->id}}">
-                                        <img class="card-img" src="{{asset('photos/' . $product->photos[0])}}"
-                                             alt="{{$product->photos[0]}}">
+                                        <img class="card-img" src="{{asset('photos/' . $product->photo_path)}}"
+                                             alt="{{$product->photo_path}}">
                                         <!-- https://pixabay.com/photos/apple-tree-apples-leaves-fall-3735679/ -->
                                         <section class="card-body">
                                             <h3 class="card-title">{{$product->name}}</h3>
-                                            <p class="card-price">{{$product->price}}€</p>
+                                            <p class="card-price">{{floor($product->price * 100) / 100 }}€</p>
                                         </section>
                                     </a>
                                 </article>
                             </div>
-                        @endforeach
+                        @empty
+                            <div class="d-flex justify-content-center w-100">
+                                <br>
+                                <h2>Unable to load products</h2>
+                            </div>
+                        @endforelse
                     </div>
                 </div>
             </div>
@@ -77,9 +81,20 @@
 
 <script>
     var product = @json($products_best);
-    var productLength = Math.floor(product.length / 4) * 4;
-    product = product.slice(0, productLength);
+
     var previewContainer = document.querySelector('.carousel-inner');
+
+    if (product.length === 0) {
+        var emptyElement = document.createElement('div');
+        emptyElement.className = 'd-flex justify-content-center w-100';
+        var heading = document.createElement('h2')
+        heading.textContent = "No products available";
+        emptyElement.appendChild(heading);
+        previewContainer.appendChild(emptyElement);
+    }
+
+    var productLength = Math.floor(product.length / 4 + 1) * 4;
+    product = product.slice(0, productLength);
 
     var itemsPerCarouselItem = {
         default: 4,
@@ -99,6 +114,8 @@
         }
 
         previewContainer.innerHTML = '';
+
+        console.log(product.length)
 
         for (let i = 0; i < product.length; i++) {
             if (i % numItemsPerCarouselItem === 0) {
@@ -129,12 +146,12 @@
         articleElement.className = 'card';
 
         var anchorElement = document.createElement('a');
-        anchorElement.href = '/product/{{$product->id}} ';
+        anchorElement.href = '/product/' + product.id;
 
         var imageElement = document.createElement('img');
         imageElement.className = 'card-img';
-        imageElement.src = path + '/' + product.photos[0];
-        imageElement.alt = product.photos[0];
+        imageElement.src = path + '/' + product.photo_path;
+        imageElement.alt = product.photo_path;
 
         var sectionElement = document.createElement('section');
         sectionElement.className = 'card-body';
