@@ -57,10 +57,10 @@
                 </section>
                 <!-- end Billing section -->
                 <section class="billing_section">
-                    <Label for="profiles.phone">Phone Number<br></Label>
+                    <Label for="profiles.phone_number">Phone Number<br></Label>
                     <div class="input_label">
                         +<label for="profiles.phone_prefix"></label><input type="text" placeholder="421" id="profiles.phone_prefix" style="width: 50px" value="{{$profile->phone_prefix ?? ''}}">
-                        <input type="text" placeholder="Mobile phone number" id="profiles.phone" value="{{$profile->phone_number ?? ''}}">
+                        <input type="text" placeholder="Mobile phone number" id="profiles.phone_number" value="{{$profile->phone_number ?? ''}}">
                     </div>
                 </section>
                 <!-- Billing section -->

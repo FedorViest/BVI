@@ -5,7 +5,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Shipping & Payment</title>
     <link rel="stylesheet" href="{{asset('css/shipping_payment.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset('css/shopping_cart.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('css/header.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('css/footer.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('css/button_1.css')}}" type="text/css">
@@ -244,7 +243,7 @@
         </section>
     </section>
     <section class="w-50 d-flex justify-content-center text-center pe-4">
-        <button type="button" class="btn_custom" onclick="window.location.href='billing_address.html'">
+        <button type="button" class="btn_custom" onclick="window.location.href='{{url('billing')}}'">
             Checkout
         </button>
     </section>

@@ -152,7 +152,7 @@
                         </div>
                     </div>
                     <div class="col-3 d-flex justify-content-center text-center m-0">
-                        <button type="button" class="btn_custom" onclick="window.location.href='shipping_payment.html'">
+                        <button type="submit" class="btn_custom" onclick="window.location.href='{{url('shipping_payment')}}'">
                             Checkout
                         </button>
                     </div>

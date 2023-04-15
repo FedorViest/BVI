@@ -12,9 +12,7 @@ class Profile extends Model implements Authenticatable
     use HasFactory;
     public $timestamps = false;
 
-    protected $fillable = [
-        'first_name', 'last_name', 'email', 'password', 'role'
-    ];
+    protected $guarded = [];
 
     protected $casts = [
         'role' => ProfileRoleEnum::class
