@@ -24,7 +24,7 @@
                         {{ auth()->user()->first_name . " " . auth()->user()->last_name }}
                     </a>
                     <ul class="dropdown-menu dropdown_content">
-                        @if(auth()->user()->role == "admin")
+                        @if(auth()->user()->role == \App\Enums\ProfileRoleEnum::Admin)
                             <li><a href="{{url('admin')}}">Admin menu</a></li>
                         @endif
                             <li><a href="#" class="a_logout" onclick="document.forms['logout-form'].submit()">Logout</a></li>
@@ -47,10 +47,10 @@
                 <li><a href="{{url('shop')}}">Shop</a></li>
                 <li><a href="{{url('contact')}}">Contact</a></li>
                 <li><a href="{{url('cart')}}">Cart</a></li>
-                @if(auth()->check() and auth()->user()->role == "admin")
+                @if(auth()->check() and auth()->user()->role == \App\Enums\ProfileRoleEnum::Admin)
                     <li><a href="{{url('admin')}}">Admin menu</a></li>
                 @endif
-                @if( auth()->check() and auth()->user()->role != 'temp')
+                @if( auth()->check() and auth()->user()->role != \App\Enums\ProfileRoleEnum::Temp)
                     <li><a href="#" class="a_logout" onclick="document.forms['logout-form'].submit()">Logout</a></li>
                         <form name="logout-form" class="m-0 p-0" action="{{url('logout')}}" method="post">
                         @method('delete')

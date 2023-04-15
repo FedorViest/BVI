@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\BillingController;
+use App\Models\Address;
+use App\Models\Profile;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminController;
@@ -11,6 +13,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Middleware\AdminMiddleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,8 +26,12 @@ use App\Http\Controllers\PaymentController;
 |
 */
 
-Route::get('/admin/add_product', [AdminController::class, 'add_product']);
-Route::resource('admin', AdminController::class);
+Route::middleware([AdminMiddleware::class])->group(function () {
+    // Routes that require admin role
+    Route::get('/admin/add_product', [AdminController::class, 'add_product']);
+    Route::resource('admin', AdminController::class);
+});
+
 Route::resource('index', IndexController::class);
 //cart controller
 //Route::get('cart/shipping_payment', [CartController::class, 'shipping_payment']);
