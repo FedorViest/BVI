@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BillingController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminController;
@@ -30,6 +31,7 @@ Route::resource('index', IndexController::class);
 //Route::get('cart/shipping_payment', [CartController::class, 'shipping_payment']);
 Route::resource('shipping_payment', PaymentController::class);
 Route::resource('cart', CartController::class);
+Route::resource('billing', BillingController::class);
 //Route::put('cart/shipping_payment', [CartController::class, 'shipping_payment']);
 
 Route::post('/register', [RegisterController::class, 'register']);

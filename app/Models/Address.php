@@ -9,5 +9,7 @@ class Address extends Model
 {
     use HasFactory;
     public $timestamps = false;
-    protected $guarded = [];
+    protected $fillable = [
+        'street', 'street_number', 'postcode'
+    ];
 }

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('password', 100)->nullable();
             $table->string('phone_prefix', 3)->nullable();
             $table->string('phone_number', 9)->nullable();
-            $table->enum('role', ['admin', 'user'])->default('user');
+            $table->enum('role', ['admin', 'user', 'temp'])->default('user');
             $table->foreign('address_id')->references('id')->on('addresses')->onDelete('set null');
         });
     }

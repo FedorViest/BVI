@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\ProfileRoleEnum;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -12,7 +13,11 @@ class Profile extends Model implements Authenticatable
     public $timestamps = false;
 
     protected $fillable = [
-        'first_name', 'last_name', 'email', 'password',
+        'first_name', 'last_name', 'email', 'password', 'role'
+    ];
+
+    protected $casts = [
+        'role' => ProfileRoleEnum::class
     ];
 
     // Implement the required methods from Authenticatable contract

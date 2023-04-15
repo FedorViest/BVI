@@ -2,17 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Enums\ProfileRoleEnum;
 use App\Http\Controllers\Controller;
 use App\Models\Address;
 use App\Models\Cart;
 use App\Models\Cart_content;
 use App\Models\Photo;
-use App\Models\Product;
 use App\Models\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
 
 class Product_with_photo {
     public $id;
@@ -69,15 +66,14 @@ class Product_quantity extends Product_with_photo {
     }
 }
 
-
-
-class CartController extends Controller
+class BillingController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
+        //
         if (!Auth::check()){
             //no account
             return view('cart.empty_cart');
@@ -106,7 +102,10 @@ class CartController extends Controller
             $cart->products[] = $product;
 
         }
-        return view('cart.shopping_cart', ['cart' => $cart]);
+        $profile = Profile::query()->where("profiles.id", '=', auth()->user()->id)
+            ->join('addresses', 'addresses.id', '=', 'profiles.address_id')->first();
+
+        return view('cart.billing_address', ['cart' => $cart, 'profile' => $profile]);
     }
 
     /**
@@ -122,71 +121,7 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        //check if product ID and quantity is given
-        $validatedData = $request->validate([
-            'product_id' => 'required|numeric|min:1',
-            'quantity' => 'required|numeric|min:1',
-        ]);
-        $product_id = $validatedData['product_id'];
-        $quantity = $validatedData['quantity'];
-        $product = Product::query()->where('id', '=', $product_id)->get();
-        if (!$product){
-            return back()->withErrors([
-                'message' => 'The product ID is not found'
-            ]);
-        }
-        //check if user is logged and has cart
-        if (!auth()->check()){
-            //create temp profile
-
-            $address = new Address();
-
-            $address->save();
-
-            $profile = new Profile([
-                'address_id' => $address->id,
-                'role' => ProfileRoleEnum::Temp,
-            ]);
-
-            $profile->save();
-            auth()->login($profile);
-        }
-
-        //check for cart
-        $profile_id =  auth()->user()->id;
-        $cart_all = Cart::query()->where('profile_id', '=', $profile_id)->first();
-        if (!$cart_all){
-            //if no cart
-            $cart = new Cart([
-                'profile_id' => $profile_id
-            ]);
-            $cart->save();
-        }
-
-        //get cart
-        $cart= Cart::query()->where('profile_id', '=', $profile_id)
-            ->orderByDesc('updated_at')->first();
-
-        //check if cart already has that item
-        $cart_content_query = Cart_content::query()->where('cart_id', '=', $cart->id)
-            ->where('product_id', '=', $product_id);
-        $cart_content = $cart_content_query->first();
-        if ($cart_content){
-            //update cart quantity
-            $cart_content_query->update([
-                'quantity' => $cart_content->quantity + $quantity
-            ]);
-        }
-        else{
-            //add new product to cart
-            $new_content = new Cart_content([
-                'cart_id' => $cart->id,
-                'product_id' => $product_id,
-                'quantity' => $quantity
-            ]);
-            $new_content->save();
-        }
-        return back();
+        //
     }
 
     /**
@@ -206,35 +141,38 @@ class CartController extends Controller
     }
 
     /**
-     * Update the cart product quantity
+     * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
     {
-        $validatedData = $request->validate([
-            'product_id' => 'required|numeric|min:1',
-            'quantity' => 'required|numeric|min:1',
-        ]);
-        $product_id = $validatedData['product_id'];
-        $quantity = $validatedData['quantity'];
-        $cart_content = Cart_content::query()->where('cart_id', '=', $id)
-            ->where('product_id', '=', $product_id);
-        $cart_content->update([
-            'quantity' => $quantity
-        ]);
+        if (explode(".", $request->input('column'))[0] == 'profiles'){
+            Profile::query()->where('id', '=', auth()->user()->id)->update([
+                $request->input('column') => $request->input('value'),
+            ]);
+        }
+        else{
+            $profile = Profile::query()->where('id', '=', auth()->user()->id)->first();
+            Address::query()->where('id', '=', $profile->address_id)->update([
+                    $request->input('column') => $request->input('value'),
+                ]);
+            /*Address::query()->join('profiles', 'addresses.id', '=', 'profiles.address_id')
+                ->where('profiles.id', '=', auth()->user()->id)->update([
+                    $request->input('column') => $request->input('value'),
+                ]);*/
+        }
+        /*$cart = Cart::query()->where('carts.id', '=', $id)
+            ->join('profiles', 'profiles.id', '=', 'carts.profile_id')
+            ->join('addresses', 'addresses.id', '=', 'profiles.id');
+        $cart->update([
+            $request->input('column') => $request->input('value'),
+        ]);*/
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Request $request, string $id)
+    public function destroy(string $id)
     {
-        $validatedData = $request->validate([
-            'product_id' => 'required|numeric|min:1',
-        ]);
-        $product_id = $validatedData['product_id'];
-        $cart_content = Cart_content::query()->where('cart_id', '=', $id)
-            ->where('product_id', '=', $product_id);
-        $cart_content->delete();
-        return back();
+        //
     }
 }

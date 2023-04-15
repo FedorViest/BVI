@@ -100,31 +100,6 @@
             });
             return success;
         }
-
-        /*var shipping = "{{$cart->delivery ?? 'None'}}";
-        var radioButtonsShipping = document.getElementsByName("shipping");
-        for(var i = 0; i < radioButtonsShipping.length; i++) {
-            if(radioButtonsShipping[i].value === shipping) {
-                radioButtonsShipping[i].checked = true;
-                $('.details_shipping').text(shipping);
-                $('.details_shipping_price').text(methods.shipping[shipping].price);
-                set_total_price();
-                break;
-            }
-        }
-
-        var payment = "{{$cart->payment ?? 'None'}}";
-        var radioButtonsPayment = document.getElementsByName("payment");
-        for(var i = 0; i < radioButtonsPayment.length; i++) {
-            if(radioButtonsPayment[i].value === payment) {
-                radioButtonsPayment[i].checked = true;
-                $('.details_payment').text(payment);
-                $('.details_payment_price').text(methods.payment[payment].price);
-                set_total_price();
-                break;
-            }
-        }
-        set_total_price();*/
     </script>
 </head>
 <body>

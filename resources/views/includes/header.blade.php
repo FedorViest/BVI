@@ -17,8 +17,8 @@
             <li><a href="{{url('shop')}}">Shop</a></li>
             <li><a href="{{url('contact')}}">Contact</a></li>
             <li><a href="{{ url('cart/') }}"><span class="material-symbols-outlined">shopping_cart</span></a></li>
-            <!--<p>{{auth()->user()}}</p> -->
-            @if( auth()->check() and auth()->user()->first_name != NULL)
+            <p>{{auth()->user()}}</p>
+            @if( auth()->check() and auth()->user()->role != 'temp')
                 <li>
                     <a href="#" data-bs-toggle="dropdown">
                         {{ auth()->user()->first_name . " " . auth()->user()->last_name }}
@@ -50,7 +50,7 @@
                 @if(auth()->check() and auth()->user()->role == "admin")
                     <li><a href="{{url('admin')}}">Admin menu</a></li>
                 @endif
-                @if( auth()->check() /*and auth()->user()->first_name != NULL*/)
+                @if( auth()->check() and auth()->user()->role != 'temp')
                     <li><a href="#" class="a_logout" onclick="document.forms['logout-form'].submit()">Logout</a></li>
                         <form name="logout-form" class="m-0 p-0" action="{{url('logout')}}" method="post">
                         @method('delete')
