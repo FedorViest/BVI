@@ -75,7 +75,7 @@
                     }
                 }
             }
-            document.getElementById('total-price').value = total_price;
+            document.getElementById('total-price').value = total_price + "€";
         }
 
         async function send_ajax(formData) {
@@ -228,15 +228,15 @@
                     <div class="col-9 align-items-center p-0 m-0">
                         <p class="total_price p-0 m-0">Total price</p>
                     </div>
-                    <div class="col-2 p-0 m-0">
+                    <div class="col-2 p-0 m-0 align-items-center d-flex">
                         <label for="total-price">
                         </label>
-                        <input class="total-price p-0 m-0" id="total-price" type="number"
+                        <input class="total-price p-0 m-0" id="total-price" type="text"
                                value="<?php  $val = 0;
                                         foreach ($cart->products as $product)
                                         {$val += $product->quantity * $product->price;}
                                         echo($val + $cart->delivery_price + $cart->payment_price);
-                                        ?>">
+                                        ?>€">
                     </div>
                 </div>
             </div>

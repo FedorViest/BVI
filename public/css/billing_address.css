@@ -128,6 +128,20 @@ div h4{
     border-radius: 3px;
 }
 
+.total-price{
+    -webkit-appearance: none;
+    border: none;
+    width: 100%;
+}
+
+.total-price:focus{
+    outline: none;
+}
+
+.total-price::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+}
+
 @media only screen and (max-width: 815px), (max-device-width: 815px){
     .inside_content{
         flex-direction: column-reverse;

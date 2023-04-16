@@ -46,7 +46,7 @@
                 total_price += products[i].price * document.getElementById('num_counter-' + products[i].id).value;
                 //total_price = total_price.toFixed(2);
             }
-            document.getElementById('total-price').value = total_price;
+            document.getElementById('total-price').value = total_price + "€";
         }
 
         /*var products = @json($cart->products);
@@ -138,20 +138,20 @@
                 <div class="col-6"></div>
                 <div class="row d-flex flex-column align-content-end">
                     <div class="col-4">
-                        <div class="row-12 d-flex">
+                        <div class="row-12 d-flex align-items-center">
                             <div class="col-6">
-                                <h6 class="total_price">Total price</h6>
+                                <h6 class="total_price m-0">Total price</h6>
                             </div>
                             <div class="col-6">
-                                <div class="total_price">
+                                <div class="total_price align-items-center d-flex">
                                     <label for="total-price">
                                     </label>
-                                    <input class="total-price" id="total-price" type="number" value="0"></div>
+                                    <input class="total-price" id="total-price" type="text" value="0" readonly></div>
                             <script>set_total_price();</script>
                             </div>
                         </div>
                     </div>
-                    <div class="col-3 d-flex justify-content-center text-center m-0">
+                    <div class="col-3 d-flex justify-content-center text-center m-2">
                         <button type="submit" class="btn_custom" onclick="window.location.href='{{url('shipping_payment')}}'">
                             Checkout
                         </button>
