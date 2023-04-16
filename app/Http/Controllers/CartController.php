@@ -210,6 +210,12 @@ class CartController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $cart_check = Cart::query()->where('id', '=', $id)
+            ->where('profile_id', '=', auth()->user()->id)->first();
+        if (!$cart_check){
+            return;
+        }
+
         $validatedData = $request->validate([
             'product_id' => 'required|numeric|min:1',
             'quantity' => 'required|numeric|min:1',
@@ -228,6 +234,11 @@ class CartController extends Controller
      */
     public function destroy(Request $request, string $id)
     {
+        $cart_check = Cart::query()->where('id', '=', $id)
+            ->where('profile_id', '=', auth()->user()->id)->first();
+        if (!$cart_check){
+            return back();
+        }
         $validatedData = $request->validate([
             'product_id' => 'required|numeric|min:1',
         ]);

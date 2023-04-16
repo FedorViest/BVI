@@ -121,7 +121,7 @@ div p, div h3{
     width: 100%;
 }
 
-.total-price:focus{
+.total-price:focus, .num_counter:focus{
     outline: none;
 }
 

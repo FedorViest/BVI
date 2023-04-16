@@ -187,7 +187,7 @@
                     <div class="col-2 p-0 m-0  align-items-center d-flex">
                         <label for="total-price">
                         </label>
-                        <input class="total-price p-0 m-0" id="total-price" type="text"
+                        <input class="total-price p-0 m-0" id="total-price" type="text" readonly
                                value="<?php  $val = 0;
                                         foreach ($cart->products as $product)
                                         {$val += $product->quantity * $product->price;}

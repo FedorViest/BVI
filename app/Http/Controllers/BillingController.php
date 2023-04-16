@@ -145,6 +145,57 @@ class BillingController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $cart_check = Cart::query()->where('id', '=', $id)
+            ->where('profile_id', '=', auth()->user()->id)->first();
+        if (!$cart_check){
+            return;
+        }
+
+        //validate input
+        switch ($request->input('column')){
+            case 'profiles.last_name':
+            case 'profiles.first_name':
+                $request->validate([
+                    'value' => 'required|string|max:50',
+                ]);
+                break;
+            case 'profiles.email':
+                $request->validate([
+                    'value' => 'required|email|max:255',
+                ]);
+                break;
+            case 'profiles.phone_number':
+                $request->validate([
+                    'value' => 'required|digits:9',
+                ]);
+                break;
+            case 'profiles.phone_prefix':
+                $request->validate([
+                    'value' => 'required|numeric|digits:3',
+                ]);
+                break;
+            case 'addresses.street':
+                $request->validate([
+                    'value' => 'required|string|max:30',
+                ]);
+                break;
+            case 'addresses.street_number':
+                $request->validate([
+                    'value' => 'required|numeric',
+                ]);
+                break;
+            case 'addresses.postcode':
+                $request->validate([
+                    'value' => 'required|digits:5',
+                ]);
+                break;
+            default:
+        }
+
+        if ($request->input('profiles.email')){
+            return;
+        }
+
         if (explode(".", $request->input('column'))[0] == 'profiles'){
             Profile::query()->where('id', '=', auth()->user()->id)->update([
                 $request->input('column') => $request->input('value'),

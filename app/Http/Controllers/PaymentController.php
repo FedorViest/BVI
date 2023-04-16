@@ -142,6 +142,11 @@ class PaymentController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $cart_check = Cart::query()->where('id', '=', $id)
+            ->where('profile_id', '=', auth()->user()->id)->first();
+        if (!$cart_check){
+            return;
+        }
         $query = Cart::query()->where('id', '=', $id);
         $methods = json_decode(file_get_contents(__DIR__ . "\..\..\..\shipping_payment.json"));
         if ($request->has("shipping")){

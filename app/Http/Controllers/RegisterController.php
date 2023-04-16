@@ -13,8 +13,8 @@ class RegisterController extends Controller
 
         // Validate user input
         $request->validate([
-            'first_name' => 'required|string|max:255',
-            'last_name' => 'required|string|max:255',
+            'first_name' => 'required|string|max:50',
+            'last_name' => 'required|string|max:50',
             'email_register' => 'required|string|email|max:255|unique:profiles,email',
             'password_register' => 'required|string|min:8',
             'password_retype' => 'required|same:password_register'

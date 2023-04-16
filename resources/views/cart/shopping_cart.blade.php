@@ -114,7 +114,7 @@
                                 <button class="button_counter" onclick="increase('num_counter-{{$product->id}}', {{$product->id}})"><span
                                         class="material-symbols-outlined">add</span></button>
                                 <label>
-                                    <input class="num_counter" id="num_counter-{{$product->id}}" type="number" value="{{$product->quantity}}">
+                                    <input class="num_counter" id="num_counter-{{$product->id}}" type="number" readonly value="{{$product->quantity}}">
                                 </label>
                                 <button class="button_counter align-items-center" onclick="decrease('num_counter-{{$product->id}}', {{$product->id}})"><span
                                         class="material-symbols-outlined">remove</span></button>
