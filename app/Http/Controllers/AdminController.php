@@ -85,10 +85,11 @@ class AdminController extends Controller
             //'photos.*' => 'required|image|max:2048',
         ]);
 
+
         // Create a new Product
         $product = new Product([
             'name' => $validatedData['product_name'],
-            'price' => $validatedData['price'],
+            'price' => number_format($validatedData['price'], 2, decimal_separator: '.', thousands_separator: ''),
             'description' => $validatedData['description'],
             'short_description' => $validatedData['short_description'],
             'category' => $validatedData['category'],
@@ -151,7 +152,7 @@ class AdminController extends Controller
 
         Product::query()->where('id', '=', $id)->update([
             'name' => $validatedData['product_name'],
-            'price' => $validatedData['price'],
+            'price' => number_format($validatedData['price'], 2, decimal_separator: '.', thousands_separator: ''),
             'description' => $validatedData['description'],
             'short_description' => $validatedData['short_description'],
             'category' => $validatedData['category'],

@@ -45,7 +45,7 @@ class ShopController extends Controller
         $min_price = $request->min_price;
         // echo "<script>console.log('$min_price')</script>";
         if($min_price == null) {
-            $min_price = number_format(Product::whereIn('category', $category)->min('price'), 2);
+            $min_price = number_format(Product::whereIn('category', $category)->min('price'), 2, decimal_separator: '.', thousands_separator: '');
         }
         // else {
         //     echo "<script>console.log('tu')</script>";
@@ -53,7 +53,7 @@ class ShopController extends Controller
         // echo "<script>console.log('$min_price')</script>";
         $max_price = $request->max_price;
         if($max_price == null) {
-            $max_price = number_format(Product::whereIn('category', $category)->max('price'), 2);
+            $max_price = number_format(Product::whereIn('category', $category)->max('price'), 2, decimal_separator: '.', thousands_separator: '');
         }
 
         if($order_by === null) {
