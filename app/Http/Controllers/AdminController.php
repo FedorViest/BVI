@@ -9,6 +9,7 @@ use App\Models\Product;
 use App\Models\Photo;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\File;
+use Intervention\Image\Facades\Image;
 
 class Product_with_photo {
     public $id;
@@ -210,7 +211,13 @@ class AdminController extends Controller
             foreach ($request->file('photos') as $photo) {
                 $fileName = $product[0]->name . '_' . $product[0]->id . '_' . $this->getMax($numbers) + 1 . '.' . $photo->getClientOriginalExtension();
                 $numbers[] = $this->getMax($numbers) + 1;
-                $photo->move(public_path('photos'), $fileName);
+
+                $image = Image::make($photo);
+                $image->fit(200, 200);
+
+                $image->save(public_path('photos') . '/' . $fileName);
+
+                //$photo->move(public_path('photos'), $fileName);
                 $photo = new Photo([
                     'product_id' => $id,
                     'photo_path' => $fileName,
