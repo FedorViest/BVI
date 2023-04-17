@@ -85,14 +85,6 @@
                 function send_ajax(formData) {
                     var success = false;
 
-                    var formInputs = form.querySelectorAll('input');
-                    for (var i = 0; i < formInputs.length; i++) {
-                        if (formInputs[i].value.trim() === '') {
-                            alert('Please fill in all the fields.');
-                            return false;
-                        }
-                    }
-
                     $.ajax({
                         url: '{{ route('billing.update', $cart->id) }}',
                         data: formData,
@@ -234,11 +226,16 @@
                 },
                 success: function (response) {
                     success = true;
-                    window.location.href = '{{url('order')}}';
+                    if (response === "1"){
+                        window.location.href = '{{url('order')}}';
+                    }
+                    else{
+                        alert('Something is missing, check your cart.');
+                    }
                 },
                 error: function (response) {
                     success = false;
-                    //console.log(response.responseText);
+                    alert('Something is missing, check your cart.');
                 }
             });
             return success;

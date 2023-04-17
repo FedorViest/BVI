@@ -55,14 +55,17 @@ class OrderController extends Controller
             ->join('products', 'products.id', '=', 'cart_contents.product_id')
             ->get();
 
-        //TODO check ci vsetko existuje
-
         $total_price = 0;
 
         foreach ($cart_content_query as $cart_content){
             $total_price += $cart_content->quantity * $cart_content->price;
         }
         $total_price += $cart_query->delivery_price + $cart_query->payment_price;
+
+        #validate input
+         if (!$this->check_db($cart_query, $cart_content_query, $total_price, $email)){
+             return 0;
+         }
 
         $order = new Order([
             'profile_id'=> $cart_query->profile_id,
@@ -73,7 +76,7 @@ class OrderController extends Controller
             'total_price'=>$total_price,
             'first_name'=>$cart_query->first_name,
             'last_name'=>$cart_query->last_name,
-            'email'=>$cart_query->email,
+            'email'=>$email,
             'phone_prefix'=>$cart_query->phone_prefix,
             'phone_number'=>$cart_query->phone_number,
             'street'=>$cart_query->street,
@@ -93,9 +96,54 @@ class OrderController extends Controller
             $order_content->save();
         }
 
-        return [true];
+        return 1;
 
     }
+
+    public function check_db($cart_query, $cart_content_query, $total_price, $email){
+        if (!$cart_content_query or !$cart_query){
+            return false;
+        }
+        $request = new Request([
+            'profile_id'=> $cart_query->profile_id,
+            'delivery'=>$cart_query->delivery,
+            'delivery_price'=>$cart_query->delivery_price,
+            'payment'=>$cart_query->payment,
+            'payment_price'=>$cart_query->payment_price,
+            'total_price'=>$total_price,
+            'first_name'=>$cart_query->first_name,
+            'last_name'=>$cart_query->last_name,
+            'email'=>$email,
+            'phone_prefix'=>$cart_query->phone_prefix,
+            'phone_number'=>$cart_query->phone_number,
+            'street'=>$cart_query->street,
+            'street_number'=>$cart_query->street_number,
+            'postcode'=>$cart_query->postcode
+        ]);
+
+        $request->validate([
+            'profile_id'=> 'required|numeric|min:1',
+            'delivery'=> 'required|string',
+            'delivery_price'=> 'required|numeric',
+            'payment'=> 'required|string',
+            'payment_price'=> 'required|numeric',
+            'total_price'=> 'required|numeric',
+            'first_name'=> 'required|string|max:50',
+            'last_name'=> 'required|string|max:50',
+            'email'=> 'required|email|max:255',
+            'phone_prefix'=> 'required|numeric|digits:3',
+            'phone_number'=> 'required|digits:9',
+            'street'=> 'required|string|max:30',
+            'street_number'=> 'required|numeric',
+            'postcode'=> 'required|digits:5'
+        ]);
+
+        Cart::query()->where('profile_id', '=', auth()->user()->id)->delete();
+
+        return true;
+    }
+
+
 
     /**
      * Display the specified resource.

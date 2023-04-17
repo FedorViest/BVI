@@ -26,7 +26,7 @@
         <h1>Cart is empty</h1>
     </section>
     <section class="href_content">
-        <a href="index.html">Go back to Main page</a>
+        <a href="{{url('index')}}">Go back to Main page</a>
     </section>
 </section>
 <!-- Footer -->
