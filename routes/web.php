@@ -14,6 +14,7 @@ use App\Http\Controllers\SessionController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Middleware\AdminMiddleware;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,7 @@ Route::post('/login', [SessionController::class, 'store']);
 Route::delete('/logout', [SessionController::class, 'destroy']);
 
 Route::resource('contact', ContactController::class);
+Route::resource('order', OrderController::class);
 
 Route::get('/', function () {
     return redirect('index');

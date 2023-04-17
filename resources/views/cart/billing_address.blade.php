@@ -84,6 +84,15 @@
 
                 function send_ajax(formData) {
                     var success = false;
+
+                    var formInputs = form.querySelectorAll('input');
+                    for (var i = 0; i < formInputs.length; i++) {
+                        if (formInputs[i].value.trim() === '') {
+                            alert('Please fill in all the fields.');
+                            return false;
+                        }
+                    }
+
                     $.ajax({
                         url: '{{ route('billing.update', $cart->id) }}',
                         data: formData,
@@ -199,10 +208,53 @@
         </section>
     </section>
     <section class="w-50 text-center d-flex justify-content-center pe-4">
-        <button type="button" class="btn_custom" onclick="window.location.href='order_confirm.html'">
+        <button type="submit" id="submit_billing_button" class="btn_custom">
             Purchase
         </button>
     </section>
+
+    <script>
+
+        var button = document.getElementById('submit_billing_button')
+
+        button.addEventListener('click', function (){
+            get_email();
+        })
+
+        function create_order(formData) {
+            var success = false;
+            $.ajax({
+                url: '{{ route('order.store') }}',
+                data: formData,
+                method: "POST",
+                contentType: false,
+                processData: false,
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function (response) {
+                    success = true;
+                    window.location.href = '{{url('order')}}';
+                },
+                error: function (response) {
+                    success = false;
+                    //console.log(response.responseText);
+                }
+            });
+            return success;
+        }
+
+        function get_email() {
+
+            var formData = new FormData();
+            console.log(document.getElementById('profiles.email').value);
+            formData.append('email', document.getElementById('profiles.email').value);
+            formData.append('cart_id', {{$cart->id ?? 0}});
+
+            create_order(formData);
+        }
+
+    </script>
 </section>
 <!-- Footer -->
 @include('includes.footer')
