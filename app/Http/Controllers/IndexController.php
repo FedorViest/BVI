@@ -14,6 +14,7 @@ class Product_with_photo {
     public $short_description;
     public $price;
     public $category;
+    public $product_size;
     public $created_at;
     public $modified_at;
     public $photos = array();
@@ -26,6 +27,7 @@ class Product_with_photo {
         $this->short_description = $row['short_description'];
         $this->price = $row['price'];
         $this->category = $row['category'];
+        $this->product_size = $row['product_size'];
         $this->created_at = $row['created_at'];
         $this->modified_at = $row['modified_at'];
     }

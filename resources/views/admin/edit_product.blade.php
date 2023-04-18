@@ -99,6 +99,15 @@
                 <option value="fruits">Fruits</option>
             </select>
         </section>
+        <section class="category_section form-group col-lg-8 d-flex flex-column">
+            <label for="product_size">Product Size</label>
+            <select class="form-control dropdown_list w-75" id="product_size" name="product_size">
+                <option value="" selected disabled hidden>Select product size...</option>
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+            </select>
+        </section>
         <section class="input_section col-lg-8 d-flex flex-column">
             <label for="product_name">Product name<br></label>
             <label class="input_label">
@@ -144,6 +153,7 @@
             var short_desc = document.getElementById('short_description').value;
             var desc = document.getElementById('long_description').value;
             var category = document.getElementById('category').value;
+            var product_size = document.getElementById('product_size').value;
 
 
             var formData = new FormData();
@@ -152,6 +162,7 @@
             formData.append('short_description', short_desc);
             formData.append('description', desc);
             formData.append('category', category);
+            formData.append('product_size', product_size);
 
 
 

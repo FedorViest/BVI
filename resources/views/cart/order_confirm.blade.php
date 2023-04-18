@@ -23,7 +23,7 @@
 <section class="content">
     <section class="inside_content">
         <span class="material-symbols-outlined">check_circle</span>
-        <h1>Cart is empty</h1>
+        <h1>Thank you for your purchase!</h1>
     </section>
     <section class="href_content">
         <a href="{{url('index')}}">Go back to Main page</a>

@@ -18,6 +18,7 @@ class Product_with_photo {
     public $short_description;
     public $price;
     public $category;
+    public $product_size;
     public $created_at;
     public $modified_at;
     public $photos = array();
@@ -30,6 +31,7 @@ class Product_with_photo {
         $this->short_description = $row['short_description'];
         $this->price = $row['price'];
         $this->category = $row['category'];
+        $this->product_size = $row['product_size'];
         $this->created_at = $row['created_at'];
         $this->modified_at = $row['modified_at'];
     }
@@ -81,6 +83,7 @@ class AdminController extends Controller
             'description' => 'required|string|max:4096',
             'short_description' => 'required|string|max:4096',
             'category' => 'required|string',
+            'product_size' => 'required|string',
             'photos' => 'required|array|min:1|max:10',
             //'photos.*' => 'required|image|max:2048',
         ]);
@@ -93,6 +96,7 @@ class AdminController extends Controller
             'description' => $validatedData['description'],
             'short_description' => $validatedData['short_description'],
             'category' => $validatedData['category'],
+            'product_size' => $validatedData['product_size'],
             //'category' => 'trees'
         ]);
 
@@ -146,6 +150,7 @@ class AdminController extends Controller
             'description' => 'required|string|max:4096',
             'short_description' => 'required|string|max:4096',
             'category' => 'required|string',
+            'product_size' => 'required|string',
             'photos' => 'required|array|min:1|max:10',
             //'photos.*' => 'required|image|max:2048',
         ]);
@@ -156,6 +161,7 @@ class AdminController extends Controller
             'description' => $validatedData['description'],
             'short_description' => $validatedData['short_description'],
             'category' => $validatedData['category'],
+            'product_size' => $validatedData['product_size']
         ]);
 
         $orig_photos_query = Photo::query()->where('product_id', '=', $id);
