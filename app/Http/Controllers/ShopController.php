@@ -97,7 +97,7 @@ class ShopController extends Controller
                 ->where('price', '<=', $max_price)
                 ->orderBy($order_by, $order_type)
                 ->groupBy('products.id')
-                ->paginate(2);
+                ->paginate(10);
 
         return view('shop/shop', ['products' => $products, 'orderby_clicked' => $orderby_clicked, 'category_clicked' => $category_clicked, 'min_price' => $min_price, 'max_price' => $max_price, 'search_query'=>$search_query]);
     }
