@@ -52,6 +52,15 @@
             }
             document.getElementById(element).value = num;
         }
+
+        function product_added() {
+            var x= document.getElementById('product_added');
+            x.style.display = 'flex';
+            setTimeout(() => {
+                x.style.display = 'none';
+            }, 3000);
+        }
+
     </script>
 
 </head>
@@ -120,13 +129,18 @@
                                 class="material-symbols-outlined">remove</span></button>
                     </div>
                     <div class="buy_button">
-                        <button type="button" class="btn_custom" id="cart_button">
+                        <button type="button" class="btn_custom" id="cart_button" onclick="product_added()">
                             <img class="shopping_cart_img" src="{{ asset('assets/shoppping_cart.png') }}" alt="shopping_cart">
                             Add to cart
                             <!-- id produtku, quantity POSLAT NA ENDPOINT -->
                         </button>
                     </div>
                 </div>
+                <section id="product_added" class="product_added">
+                    <p><strong>
+                        Product added to cart
+                    </strong></p>
+                </section>
             </div>
         </div>
         <script>

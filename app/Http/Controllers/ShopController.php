@@ -74,9 +74,9 @@ class ShopController extends Controller
             //     ->groupBy('products.id')
             //     ->get();
 
-            if($order_by === 'id') {
+            if($order_by === 'best_sellers') {
                 $orderby_clicked = 0;
-            } else if($order_by === 'name') {
+            } else if($order_by === 'created_at') {
                 $orderby_clicked = 1;
             } else if($order_by === 'price') {
                 if($order_type === 'desc') {
@@ -86,17 +86,18 @@ class ShopController extends Controller
                 }
             }
         }
-        // echo "<script>console.log('$products')</script>";
+        // echo "<script>console.log('$orderby_clicked')</script>";
 
-        $products = Product::select('products.*', DB::raw('MIN(photo_path) AS photo_path'))
+        $products = Product::select('products.*', DB::raw('MIN(photo_path) AS photo_path, MAX(product_statistics.count) AS best_sellers'))
                 ->leftJoin('photos', 'products.id', '=', 'photos.product_id')
+                ->leftJoin('product_statistics', 'products.id', '=', 'product_statistics.product_id')
                 ->where('name', 'LIKE', '%' . $search_query . '%')
                 ->whereIn('category', $category)
                 ->where('price', '>=', $min_price)
                 ->where('price', '<=', $max_price)
                 ->orderBy($order_by, $order_type)
                 ->groupBy('products.id')
-                ->get();
+                ->paginate(1);
 
         return view('shop/shop', ['products' => $products, 'orderby_clicked' => $orderby_clicked, 'category_clicked' => $category_clicked, 'min_price' => $min_price, 'max_price' => $max_price, 'search_query'=>$search_query]);
     }
@@ -121,10 +122,11 @@ class ShopController extends Controller
             $max_price = number_format(Product::max('price'), 2);
         }
 
-        $best_sellers = Product::select('products.*', DB::raw('MIN(photo_path) AS photo_path'))
+        $best_sellers = Product::select('products.*', DB::raw('MIN(photo_path) AS photo_path, MAX(product_statistics.count) AS best_sellers'))
             ->leftJoin('photos', 'products.id', '=', 'photos.product_id')
+            ->leftJoin('product_statistics', 'products.id', '=', 'product_statistics.product_id')
             ->where('products.id', '<>', $request->product_id)
-            ->orderBy('products.id', 'asc')
+            ->orderBy('best_sellers', 'asc')
             ->groupBy('products.id')
             ->take(6)
             ->get();

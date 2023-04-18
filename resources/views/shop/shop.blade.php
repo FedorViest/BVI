@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="css/footer.css" type="text/css">
     <link rel="stylesheet" href="css/side_nav.css" type="text/css">
     <link rel="stylesheet" href="css/shop_content.css" type="text/css">
+    <link rel="stylesheet" href="css/pagination.css" type="text/css">
 
 
     <script>
@@ -116,7 +117,12 @@
                 </div>
             @endforeach
         </div>
+
+        <div class="justify-content-center d-flex mt-3">
+            {{ $products->appends(request()->input())->links('pagination::bootstrap-4', ['class' => 'pagination-links']) }}
+        </div>
     </div>
+
 </main>
 
 <!-- end SHOP CONTENT -->
