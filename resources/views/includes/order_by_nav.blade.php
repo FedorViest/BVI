@@ -1,12 +1,12 @@
 <div class="orderby_buttons">
     <ul class="row">
         <li class="col order_by_link">
-            <a href="{{ request()->fullUrlWithQuery(['order_by' => 'id','order_type'=>'asc']) }}">
+            <a href="{{ request()->fullUrlWithQuery(['order_by' => 'best_sellers','order_type'=>'asc']) }}">
                 Best-sellers
             </a>
         </li>
         <li class="col order_by_link">
-            <a href="{{ request()->fullUrlWithQuery(['order_by' => 'name','order_type'=>'asc']) }}">
+            <a href="{{ request()->fullUrlWithQuery(['order_by' => 'updated_at','order_type'=>'desc']) }}">
                 New
             </a>
         </li>

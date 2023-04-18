@@ -116,7 +116,12 @@
                 </div>
             @endforeach
         </div>
+
+        <div class="justify-content-center d-flex">
+            {{ $products->appends(request()->input())->links('pagination::bootstrap-4', ['class' => 'pagination-links']) }}
+        </div>
     </div>
+
 </main>
 
 <!-- end SHOP CONTENT -->
