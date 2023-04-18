@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="css/footer.css" type="text/css">
     <link rel="stylesheet" href="css/side_nav.css" type="text/css">
     <link rel="stylesheet" href="css/shop_content.css" type="text/css">
+    <link rel="stylesheet" href="css/pagination.css" type="text/css">
 
 
     <script>

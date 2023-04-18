@@ -6,7 +6,7 @@
             </a>
         </li>
         <li class="col order_by_link">
-            <a href="{{ request()->fullUrlWithQuery(['order_by' => 'updated_at','order_type'=>'desc']) }}">
+            <a href="{{ request()->fullUrlWithQuery(['order_by' => 'created_at','order_type'=>'desc']) }}">
                 New
             </a>
         </li>

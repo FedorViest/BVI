@@ -76,7 +76,7 @@ class ShopController extends Controller
 
             if($order_by === 'best_sellers') {
                 $orderby_clicked = 0;
-            } else if($order_by === 'updated_at') {
+            } else if($order_by === 'created_at') {
                 $orderby_clicked = 1;
             } else if($order_by === 'price') {
                 if($order_type === 'desc') {
@@ -97,7 +97,7 @@ class ShopController extends Controller
                 ->where('price', '<=', $max_price)
                 ->orderBy($order_by, $order_type)
                 ->groupBy('products.id')
-                ->paginate(10);
+                ->paginate(1);
 
         return view('shop/shop', ['products' => $products, 'orderby_clicked' => $orderby_clicked, 'category_clicked' => $category_clicked, 'min_price' => $min_price, 'max_price' => $max_price, 'search_query'=>$search_query]);
     }
