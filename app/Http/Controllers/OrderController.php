@@ -6,6 +6,7 @@ use App\Models\Cart;
 use App\Models\Cart_content;
 use App\Models\Order;
 use App\Models\Order_content;
+use App\Models\Product_statistics;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -94,7 +95,18 @@ class OrderController extends Controller
             ]);
 
             $order_content->save();
+
+            //update product_statistics
+
+            $statistics_query = Product_statistics::query()->where('product_id', '=', $cart_content->product_id);
+            $statistics = $statistics_query->first();
+            $statistics?->update([
+                'count' => $statistics->count + $cart_content->quantity
+            ]);
         }
+
+
+        Cart::query()->where('profile_id', '=', auth()->user()->id)->delete();
 
         return 1;
 
@@ -137,9 +149,6 @@ class OrderController extends Controller
             'street_number'=> 'required|numeric',
             'postcode'=> 'required|digits:5'
         ]);
-
-        Cart::query()->where('profile_id', '=', auth()->user()->id)->delete();
-
         return true;
     }
 

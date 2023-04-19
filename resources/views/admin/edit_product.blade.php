@@ -97,6 +97,7 @@
                 <option value="trees">Trees</option>
                 <option value="flowers">Flowers</option>
                 <option value="fruits">Fruits</option>
+                <option value="vegetables">Vegetables</option>
             </select>
         </section>
         <section class="category_section form-group col-lg-8 d-flex flex-column">

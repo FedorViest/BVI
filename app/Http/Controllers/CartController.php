@@ -13,6 +13,7 @@ use App\Models\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use function Webmozart\Assert\Tests\StaticAnalysis\length;
 
 class Product_with_photo {
     public $id;
@@ -94,7 +95,7 @@ class CartController extends Controller
         );
         $cart_contents = Cart_content::query()->where('cart_id', '=', $cart->id)
             ->join('products', 'products.id', '=', 'cart_contents.product_id')->orderBy('cart_contents.id')->get();
-        if (empty($cart_contents)){
+        if ($cart_contents->count() == 0){
             //no products in cart
             return view('cart.empty_cart');
         }

@@ -109,18 +109,28 @@
                         <option value="trees" selected>Trees</option>
                         <option value="flowers">Flowers</option>
                         <option value="fruits">Fruits</option>
+                        <option value="vegetables">Vegetables</option>
                         @break
                     @case("flowers")
                         <option value="" disabled hidden>Select category...</option>
                         <option value="trees">Trees</option>
                         <option value="flowers" selected>Flowers</option>
                         <option value="fruits">Fruits</option>
+                        <option value="vegetables">Vegetables</option>
                         @break
                     @case("fruits")
                         <option value="" disabled hidden>Select category...</option>
-                        <option value="trees" selected>Trees</option>
+                        <option value="trees" >Trees</option>
                         <option value="flowers">Flowers</option>
                         <option value="fruits" selected>Fruits</option>
+                        <option value="vegetables">Vegetables</option>
+                        @break
+                    @case("vegetables")
+                        <option value="" disabled hidden>Select category...</option>
+                        <option value="trees" >Trees</option>
+                        <option value="flowers">Flowers</option>
+                        <option value="fruits" >Fruits</option>
+                        <option value="vegetables" selected>Vegetables</option>
                         @break
                     @default
                         <option value="" selected disabled hidden>Select category...</option>
