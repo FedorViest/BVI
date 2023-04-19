@@ -102,25 +102,33 @@
     <div class="shop col-sm-12 col-md-9">
         @include('includes.order_by_nav')
 
-        <div class="products_wrapper items row row-cols-2 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 rows-cols-xl-4 g-3">
-            @foreach($products as $product)
-                <div class="col">
-                    <article class="card">
-                        <a href="/product/{{$product->id}}">
-                            <img class="card-img" src="{{ asset('photos/' . $product->photo_path) }}" alt="{{$product->name}}">
-                            <section class="card-body">
-                                <h3 class="card-title">{{$product->name}}</h3>
-                                <p class="card-price">{{number_format($product->price, 2)}} €</p>
-                            </section>
-                        </a>
-                    </article>
-                </div>
-            @endforeach
-        </div>
 
-        <div class="justify-content-center d-flex mt-3">
-            {{ $products->appends(request()->input())->links('pagination::bootstrap-4', ['class' => 'pagination-links']) }}
-        </div>
+        @if($products[0] === null)
+            <section class="col items p-3">
+                <h2>No Products Found!</h2>
+                <p>We are sorry, but we could not find any products that match your search criteria. Please try again with different filters or search terms.</p>
+            </section>
+        @else
+            <div class="products_wrapper items row row-cols-2 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 rows-cols-xl-4 g-3">
+                @foreach($products as $product)
+                    <div class="col">
+                        <article class="card">
+                            <a href="/product/{{$product->id}}">
+                                <img class="card-img" src="{{ asset('photos/' . $product->photo_path) }}" alt="{{$product->name}}">
+                                <section class="card-body">
+                                    <h3 class="card-title">{{$product->name}}</h3>
+                                    <p class="card-price">{{number_format($product->price, 2)}} €</p>
+                                </section>
+                            </a>
+                        </article>
+                    </div>
+                @endforeach
+            </div>
+
+            <div class="justify-content-center d-block mt-3">
+                {{ $products->appends(request()->input())->links('pagination::bootstrap-4', ['class' => 'pagination-links']) }}
+            </div>
+        @endif
     </div>
 
 </main>
