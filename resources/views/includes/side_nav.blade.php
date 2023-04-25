@@ -7,27 +7,27 @@
             <ul id="sub_side_nav_links" class="sub_side_nav_links">
                 <li class="side_nav_link">
                 <!-- <a href="{{ route('shop', ['category' => 'vegetables', 'price' => 10]) }}" class="side_nav_link"> -->
-                    <a href="{{ url('/shop') }}">
+                    <a href="{{ strpos(Request::url(), 'shop') ? request()->fullUrlWithQuery(['category' => null]) : url('/shop') }}">
                         All<!-- <button class="side_nav_button">All</button> -->
                     </a>
                 </li>
                 <li class="side_nav_link">
-                    <a href="{{ url('/shop') . '?' . http_build_query(['category' => 'flowers']) }}">
+                    <a href="{{ strpos(Request::url(), 'shop') ? request()->fullUrlWithQuery(['category' => 'flowers']) : url('/shop') . '?' . http_build_query(['category' => 'flowers']) }}">
                         Flowers<!-- <button class="side_nav_button">Flowers</button> -->
                     </a>
                 </li>
                 <li class="side_nav_link">
-                    <a href="{{ url('/shop') . '?' . http_build_query(['category' => 'trees']) }}">
+                    <a href="{{ strpos(Request::url(), 'shop') ? request()->fullUrlWithQuery(['category' => 'trees']) : url('/shop') . '?' . http_build_query(['category' => 'trees']) }}">
                         Trees<!-- <button class="side_nav_button">Trees</button> -->
                     </a>
                 </li>
                 <li class="side_nav_link">
-                    <a href="{{ url('/shop') . '?' . http_build_query(['category' => 'fruits']) }}">
+                    <a href="{{ strpos(Request::url(), 'shop') ? request()->fullUrlWithQuery(['category' => 'fruits']) : url('/shop') . '?' . http_build_query(['category' => 'fruits']) }}">
                         Fruits<!-- <button class="side_nav_button">Fruits</button> -->
                     </a>
                 </li>
                 <li class="side_nav_link">
-                    <a href="{{ url('/shop') . '?' . http_build_query(['category' => 'vegetables']) }}">
+                    <a href="{{ strpos(Request::url(), 'shop') ? request()->fullUrlWithQuery(['category' => 'vegetables']) : url('/shop') . '?' . http_build_query(['category' => 'vegetables']) }}">
                         Vegetables<!-- <button class="side_nav_button">Vegetables</button> -->
                     </a>
                 </li>
@@ -72,27 +72,27 @@
             </button>
             <ul class="side_nav_sub_links_SS dropdown-menu">
                 <li>
-                    <a href="{{ url('/shop') }}" class="side_nav_link_SS dropdown-item">
+                    <a href="{{ strpos(Request::url(), 'shop') ? request()->fullUrlWithQuery(['category' => null]) : url('/shop') }}" class="side_nav_link_SS dropdown-item">
                         All
                     </a>
                 </li>
                 <li>
-                    <a href="{{ url('/shop') . '?' . http_build_query(['category' => 'flowers']) }}" class="side_nav_link_SS dropdown-item">
+                    <a href="{{ strpos(Request::url(), 'shop') ? request()->fullUrlWithQuery(['category' => 'flowers']) : url('/shop') . '?' . http_build_query(['category' => 'flowers']) }}" class="side_nav_link_SS dropdown-item">
                         Flowers
                     </a>
                 </li>
                 <li>
-                    <a href="{{ url('/shop') . '?' . http_build_query(['category' => 'trees']) }}" class="side_nav_link_SS dropdown-item">
+                    <a href="{{ strpos(Request::url(), 'shop') ? request()->fullUrlWithQuery(['category' => 'trees']) : url('/shop') . '?' . http_build_query(['category' => 'trees']) }}" class="side_nav_link_SS dropdown-item">
                         Trees
                     </a>
                 </li>
                 <li>
-                    <a href="{{ url('/shop') . '?' . http_build_query(['category' => 'fruits']) }}" class="side_nav_link_SS dropdown-item">
+                    <a href="{{ strpos(Request::url(), 'shop') ? request()->fullUrlWithQuery(['category' => 'fruits']) : url('/shop') . '?' . http_build_query(['category' => 'fruits']) }}" class="side_nav_link_SS dropdown-item">
                         Fruits
                     </a>
                 </li>
                 <li>
-                    <a href="{{ url('/shop') . '?' . http_build_query(['category' => 'vegetables']) }}" class="side_nav_link_SS dropdown-item">
+                    <a href="{{ strpos(Request::url(), 'shop') ? request()->fullUrlWithQuery(['category' => 'vegetables']) : url('/shop') . '?' . http_build_query(['category' => 'vegetables']) }}" class="side_nav_link_SS dropdown-item">
                         Vegetables
                     </a>
                 </li>
@@ -133,22 +133,22 @@
             </button>
             <ul class="side_nav_sub_links_SS dropdown-menu dropdown-menu-end">
                 <li>
-                    <a href="{{ request()->fullUrlWithQuery(['order_by' => 'best_sellers','order_type'=>'asc']) }}"  class="side_nav_link_SS dropdown-item">
+                    <a href="{{ strpos(Request::url(), 'shop') ? request()->fullUrlWithQuery(['order_by' => 'best_sellers','order_type'=>'asc']) : url('/shop') . '?' . http_build_query(['order_by' => 'best_sellers','order_type'=>'asc']) }}"  class="side_nav_link_SS dropdown-item">
                         Best-sellers
                     </a>
                 </li>
                 <li>
-                    <a href="{{ request()->fullUrlWithQuery(['order_by' => 'updated_at','order_type'=>'desc']) }}"  class="side_nav_link_SS dropdown-item">
+                    <a href="{{ strpos(Request::url(), 'shop') ? request()->fullUrlWithQuery(['order_by' => 'updated_at','order_type'=>'desc']) : url('/shop') . '?' . http_build_query(['order_by' => 'updated_at','order_type'=>'desc']) }}"  class="side_nav_link_SS dropdown-item">
                         New
                     </a>
                 </li>
                 <li>
-                    <a href="{{ request()->fullUrlWithQuery(['order_by' => 'price','order_type'=>'desc']) }}"  class="side_nav_link_SS dropdown-item">
+                    <a href="{{ strpos(Request::url(), 'shop') ? request()->fullUrlWithQuery(['order_by' => 'price','order_type'=>'desc']) : url('/shop') . '?' . http_build_query(['order_by' => 'price','order_type'=>'desc']) }}"  class="side_nav_link_SS dropdown-item">
                         € High to low
                     </a>
                 </li>
                 <li>
-                <a href="{{ request()->fullUrlWithQuery(['order_by' => 'price','order_type'=>'asc']) }}"  class="side_nav_link_SS dropdown-item">
+                <a href="{{ strpos(Request::url(), 'shop') ? request()->fullUrlWithQuery(['order_by' => 'price','order_type'=>'asc']) : url('/shop') . '?' . http_build_query(['order_by' => 'price','order_type'=>'asc']) }}"  class="side_nav_link_SS dropdown-item">
                         € Low to high
                     </a>
                 </li>
