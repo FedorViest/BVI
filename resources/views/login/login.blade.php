@@ -35,7 +35,7 @@
                 <section class="login_section">
                     <label for="email_login">Email</label>
                     <label class="input_label">
-                        <input type="email" placeholder="Email" id="email_login" name="email">
+                        <input type="email" placeholder="Email" id="email_login" name="email" value="{{ old('email') }}">
                     </label>
                     @error('email')
                     <span class="text-danger">{{ $message }}</span>
@@ -50,14 +50,9 @@
                     <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </section>
-                <section class="login_section">
-                    <section class="checkbox_section my-4">
-                        <label class="checkbox_label">
-                            <input class="checkbox" type="checkbox" id="remember_me">
-                        </label>
-                        <label for="remember_me">Remember me</label>
-                    </section>
-                </section>
+                @if ($errors->has('message'))
+                    <span class="text-danger">{{ $errors->first('message') }}</span>
+                @endif
                 <button class="btn_custom mt-5 align-self-center" type="submit">Login</button>
             </form>
         </section>
@@ -72,7 +67,7 @@
                 <section class="register_section">
                     <label for="name_register">First name</label>
                     <label class="input_label">
-                        <input type="text" placeholder="First name" id="name_register" name="first_name">
+                        <input type="text" placeholder="First name" id="name_register" name="first_name" value="{{ old('first_name') }}">
                     </label>
                     @error('first_name')
                     <span class="text-danger">{{ $message }}</span>
@@ -81,7 +76,7 @@
                 <section class="register_section">
                     <label for="surname_register">Last name</label>
                     <label class="input_label">
-                        <input type="text" placeholder="Last name" id="surname_register" name="last_name">
+                        <input type="text" placeholder="Last name" id="surname_register" name="last_name" value="{{ old('last_name') }}">
                     </label>
                     @error('last_name')
                     <span class="text-danger">{{ $message }}</span>
@@ -90,7 +85,7 @@
                 <section class="register_section">
                     <label for="email_register">Email</label>
                     <label class="input_label">
-                        <input type="text" placeholder="Email" id="email_register" name="email_register">
+                        <input type="text" placeholder="Email" id="email_register" name="email_register" value="{{ old('email_register') }}">
                     </label>
                     @error('email_register')
                     <span class="text-danger">{{ $message }}</span>
