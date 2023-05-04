@@ -108,6 +108,22 @@
     border: 2px solid var(--avocado);
 }
 
+.size_filter {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: flex-end;
+    line-height: normal;
+}
+
+.size_filter label {
+    margin-left: 5px
+}
+
+.form-check-input:checked {
+    background-color: var(--avocado);
+    border-color: var(--avocado);
+}
 
 
 
@@ -153,15 +169,16 @@
 }
 
 .side_nav_filters_SS li {
+    padding-bottom: 15px;
     background-color: var(--honeydew);
 }
 
 .side_nav_filters_SS li:hover {
-    background-color: var(--honeydew);
+    background-color: var(--nyanza);
 }
 
 .side_nav_filters_SS li:hover .filter_label {
-    background-color: var(--honeydew);
+    background-color: var(--nyanza);
     color: var(--avocado);
     font-weight: 700;
 }

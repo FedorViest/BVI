@@ -20,6 +20,16 @@
 
 
     <script>
+        function size_clicked() {
+            var array = <?php echo $size ?>;
+            for(id in array) {
+                elements = document.querySelectorAll('#'+array[id]);
+                console.log(elements);
+                for(el in elements) {
+                    elements[el].checked = true;
+                }
+            }
+        }
 
         function order_by_clicked(num) {
             var num_clicked = Number('<?php echo $orderby_clicked; ?>');
@@ -88,7 +98,7 @@
     </script>
 
 </head>
-<body onload="order_by_clicked(), category_clicked()">
+<body onload="order_by_clicked(), category_clicked(), size_clicked()">
 <!-- Header-->
 @include('includes.header')
 <!-- end Header -->

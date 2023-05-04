@@ -81,7 +81,7 @@
         <div class="main_info row">
             <div id="product_detail_carousel" class="product_images col-xs-12 col-md-6 carousel slide" data-bs-ride="carousel" data-bs-interval="false">
                 <div class="carousel-inner">
-                    @if(count($photos) == 1)
+                    @if(count($photos) > 0)
                     <div class="carousel-item active">
                         <img class="d-block product_img" src="{{ asset('photos/' . $photos[0]->photo_path) }}" alt="{{ $product_detail->name }}"> 
                     </div>

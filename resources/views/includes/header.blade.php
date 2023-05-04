@@ -14,7 +14,7 @@
     <nav class="show_all_nav">
         <ul class="nav_links">
             <li class="home_button"><a href="{{url('index')}}">Home</a></li>
-            <li><a href="{{url('shop')}}">Shop</a></li>
+            <li><a href="{{ route('shop', ['category' => 'all', 'order_by' => 'best_sellers', 'order_type' => 'asc', 'size_s' => 'small', 'size_m' => 'medium', 'size_l' => 'large']) }}">Shop</a></li>
             <li><a href="{{url('contact')}}">Contact</a></li>
             <li><a href="{{ url('cart/') }}"><span class="material-symbols-outlined">shopping_cart</span></a></li>
             <!--<p>{{auth()->user()}}</p>-->
@@ -44,7 +44,7 @@
             </button>
             <ul class="dropdown-menu dropdown-menu-end dropdown_content">
                 <li><a href="{{url('index')}}">Home</a></li>
-                <li><a href="{{url('shop')}}">Shop</a></li>
+                <li><a href="{{ route('shop', ['category' => 'all', 'order_by' => 'best_sellers', 'order_type' => 'asc', 'size_s' => 'small', 'size_m' => 'medium', 'size_l' => 'large']) }}">Shop</a></li>
                 <li><a href="{{url('contact')}}">Contact</a></li>
                 <li><a href="{{url('cart')}}">Cart</a></li>
                 @if(auth()->check() and auth()->user()->role == \App\Enums\ProfileRoleEnum::Admin)
