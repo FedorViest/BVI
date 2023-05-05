@@ -173,7 +173,7 @@ class ProductsSeeder extends Seeder
 
 //         Product::create( [
 //             'name'=>'Sunflower',
-//             'price'=>4.99,
+//             'price'=>7.99,
 //             // Zdroj: https://referaty.aktuality.sk/slnecnica-rocna/referat-29985
 //             'description'=>'
 // sunflower is an annual plant native to North America, belonging to the astraceae family with a large inflorescence
@@ -183,7 +183,7 @@ class ProductsSeeder extends Seeder
 // tubular flowers are in the inner part of the dress',
 //             'short_description'=>'The sunflower is known for its tasty seeds. In terms of world production of oilseeds, it is the most important oilseed after soybeans, cottonseed and groundnuts.',
 //             'category'=>'flowers',
-//             'product_size'=>'medium'
+//             'product_size'=>'large'
 //         ] );
 
 //         Product::create( [
@@ -191,7 +191,7 @@ class ProductsSeeder extends Seeder
 //             'price'=>2.59,
 //             // Zdroj: https://mojerastliny.sk/narcis/
 //             'description'=>'
-// narcissus likes a sunny and warm place
+// narcissus likes sunny and warm places
 // onions are planted on the bed in September to a depth of 10-15 cm
 // they need a little more time and heat to root than other spring bulbs
 // after planting, they need a period of cold and darkness for at least 8 weeks
@@ -203,7 +203,71 @@ class ProductsSeeder extends Seeder
 //             'product_size'=>'small'
 //         ] );
 
-// ---------------------------------------- FRUIT -----------------------------------------------------------------------
+//         Product::create( [
+//             'name'=>'Gerbera',
+//             'price'=>3.59,
+//             // Zdroj: https://mojerastliny.sk/gerbera/
+//             'description'=>'
+// Gerberas have large showy flowers in various shades of white, yellow, orange, red, pink and purple.
+// The flower heads are 5-10 cm in size and bloom on firm, upright, grey-green stems that reach up to 60 cm in length.
+// Through breeding, numerous hybrids with stems half as short have been developed.
+// These are often annual plants or short-lived perennials that can produce 5-6 flowers at the same time.
+// The leaves are approx. 15 cm long, lobed and usually felty on the underside.',
+//             'short_description'=>'Gerberas bloom most abundantly in late spring and early summer, with good care, flowering lasts until the arrival of the winter season. The plant likes plenty of light with occasional direct sun.',
+//             'category'=>'flowers',
+//             'product_size'=>'small'
+//         ] );
+
+//         Product::create( [
+//             'name'=>'Lily',
+//             'price'=>3.59,
+//             // Zdroj: https://mojerastliny.sk/lalia/
+//             'description'=>'
+// The lily is a perennial flowering bulbous plant.
+// Underground, it has a white, egg-shaped bulb covered with several broad scales.
+// It can reproduce with these scales.
+// Annual roots and a flower stalk grow from the bulb.
+// The bush is straight, 30-150 cm tall and densely leafy with opposite lanceolate or elliptic leaves.
+// The flowers are formed at the end of the stem either singly or in inflorescences.
+// The inflorescence is composed of 6 petals.
+// The flowers are striking due to their size and distinctive coloration.',
+//             'short_description'=>'The lily has a long flowering period, from May to September, the main period for most varieties is the end of June and July.',
+//             'category'=>'flowers',
+//             'product_size'=>'medium'
+//         ] );
+
+//         Product::create( [
+//             'name'=>'Orchid',
+//             'price'=>9.99,
+//             // Zdroj: https://mojerastliny.sk/orchidea-phalaenopsis/
+//             'description'=>'
+// The phalaenopsis orchid is easy to care for and blooms with beautiful flowers of varied bright colors that last on the plant for months (mostly during winter and spring).
+// The plant has large oval to oblong thick leaves arranged oppositely.
+// At the bottom of the stem or between the leaves, thick, silvery roots are formed, which are adapted to absorb moisture and nutrients from the air and attach the plant to the substrate.
+// The flowers grow in bunches on an upright stem, up to 80 cm long.',
+//             'short_description'=>'The orchid is popularly grown in residential conditions for long-blooming exotic flowers. It blooms mostly in winter and spring and lasts for many weeks, it happens that it stays in flower even for 6 months.',
+//             'category'=>'flowers',
+//             'product_size'=>'medium'
+//         ] );
+
+//         Product::create( [
+//             'name'=>'Tulip',
+//             'price'=>2.59,
+//             // Zdroj: https://mojerastliny.sk/tulipan/
+//             'description'=>'
+// Tulip is a perennial ornamental spring bulbous plant, growing to a height of 10-70 cm.
+// Tulip bulbs are annual and covered in a thin papery scale.
+// In the spring, it grows oval, close-fitting gray green leaves with a waxy surface and a straight, strong, tall stem bearing a flower, leafy in the lower part with the same alternate leaves.
+// The flower has six petals and is distinctive in its size and color.
+// Various deep reds, yellows and pinks are popular, but tulips are grown in almost every possible color from white to black.
+// The flower ripens into a capsule-like fruit - a capsule that contains disk-shaped seeds.
+// After flowering, the mother bulb disappears in the ground and daughter bulbs are formed, which will bloom the following year when sufficiently matured.',
+//             'short_description'=>'Tulips reproduce vegetatively. They bloom in April and May.',
+//             'category'=>'flowers',
+//             'product_size'=>'small'
+//         ] );
+
+// ---------------------------------------- FRUITS -----------------------------------------------------------------------
 //         Product::create( [
 //             'name'=>'Blueberry',
 //             'price'=>3.89,
@@ -216,7 +280,7 @@ class ProductsSeeder extends Seeder
 // we plant in large pits, concrete rings with a diameter of 0.8 m and a depth of 700 to 800 mm in the prepared substrate
 // fertility ranges from 2 to 12 kg per bush, depending on cultivar and age',
 //             'short_description'=>'Blueberry has a high sugar content, the vitamin C content is lower. The content of vitamins B1 and B2, minerals, iron, phosphorus is important.',
-//             'category'=>'flowers',
+//             'category'=>'fruit',
 //             'product_size'=>'medium'
 //         ] );
 
@@ -232,7 +296,7 @@ class ProductsSeeder extends Seeder
 // the fruits are red, folded, after ripening they fall from the bed
 // raspberry blackberries grow on two-year lignified canes, one-year green canes do not bear fruit',
 //             'short_description'=>'Raspberry leaf contains vitamin C, organic acids and tannins.',
-//             'category'=>'flowers',
+//             'category'=>'fruits',
 //             'product_size'=>'small'
 //         ] );
 
@@ -249,7 +313,184 @@ class ProductsSeeder extends Seeder
 // strawberries ripen in June and July
 // it reproduces by means of rooting creepers',
 //             'short_description'=>'Strawberry produces tasty fruits that contain a lot of vitamin C. Strawberry leaf tea is a strengthening drink for those who suffer from anemia and nervousness.',
-//             'category'=>'flowers',
+//             'category'=>'fruits',
+//             'product_size'=>'small'
+//         ] );
+
+//         Product::create( [
+//             'name'=>'Watermelon',
+//             'price'=>6.89,
+//             // Zdroj: https://www.frutas-hortalizas.com/Fruits/About-Watermelon.html
+//             'description'=>'
+// The watermelon is a crawling and climbing plant with lengthy stems and leaves divided in lobes.
+// Its fruit is a berry that may weigh up to 15kg, with a hard green rind and a sweet pulp of more or less reddish colour.
+// The upper side of the leaves is very smooth, whereas the reverse is very rough, with strongly marked nerves.
+// The leaves are divided in rounded segments, each one with 3 to 5 lobes.
+// The flowers are born in the axils of the leaves.
+// They are yellow and solitary, masculine and feminine.
+// They are pollinated by insects.
+// The feminine flowers give rise to the watermelons, that are great berries of more or less spherical shape and variable size, that weigh between 2 and 15kg.
+// The pulp is of pink or reddish colour, containing multiple squashed seeds of variable colour (brown, black, white, etc.).
+// The rind is smooth or with clearer streaks and its colour ranges from dark green to pale green.',
+//             'short_description'=>'The watermelon is a large fruit of a more or less spherical shape. It is usually eaten raw as table dessert. It has a sweet reddish or yellowish flesh. It is a very refreshing food that supplies very few calories. It also provides some vitamins and minerals.',
+//             'category'=>'fruits',
+//             'product_size'=>'large'
+//         ] );
+
+//         Product::create( [
+//             'name'=>'Grapevine',
+//             'price'=>35.89,
+//             // Zdroj: https://wikifarmer.com/grape-plant-information/
+//             'description'=>'
+// Grapevine is a perennial plant bush, characterized by helices – tendrils and trailing growth.
+// It is a climbing plant and normally climbs on rocks or tree trunks.
+// Tendrils grow on stems and are believed to be degenerated inflorescences.
+// Leaves are big, opposite, heart resembled, and inflorescences grow across them.
+// They may be terraced or lobed with 3-5 lobs and distinct nerves.',
+//             'short_description'=>'Grapes botanically are berries. Shoots produce the flower clusters right after sprouting.',
+//             'category'=>'fruits',
+//             'product_size'=>'large'
+//         ] );
+
+//         Product::create( [
+//             'name'=>'Currant',
+//             'price'=>7.89,
+//             // Zdroj: https://www.britannica.com/plant/currant
+//             'description'=>'
+// Currant plants are erect or spreading shrubs.
+// They generally are composed of short stems and long stems and may be hairy or glandular and lack spines.
+// The leaves range in shape from roundish to nearly triangular and have palmate venation (their veins radiate from a common point near the leafstalk).
+// The flowers generally are clustered and range in colour from greenish to white, yellow, pink, red, or purple.
+// The fruits are true berries.',
+//             'short_description'=>'Currants are extremely high in vitamin C and also supply calcium, phosphorus, and iron.',
+//             'category'=>'fruits',
+//             'product_size'=>'medium'
+//         ] );
+
+//         Product::create( [
+//             'name'=>'Blackberry',
+//             'price'=>7.89,
+//             // Zdroj: https://www.britannica.com/plant/blackberry
+//             'description'=>'
+// Closely related to raspberries, blackberry plants have biennial canes (stems) that are characteristically covered with prickles and are erect, semi-erect, or trailing; the thornless blackberry is a modern development.
+// The compound leaves usually feature three or five oval, coarsely toothed, stalked leaflets, many of which persist through the winter.
+// Borne on terminal clusters, the flowers are white, pink, or red and produce black or red-purple fruits.
+// Though commonly called berries, the fruits of Rubus species are technically aggregates of drupelets.
+// Unlike the hollow fruits of raspberries, the drupelets of blackberries remain attached to a juicy white core, thus distinguishing the two.',
+//             'short_description'=>'Blackberries are a fairly good source of iron, vitamin C, and antioxidants and are generally eaten fresh, in preserves, or in baked goods such as cobblers and pies.',
+//             'category'=>'fruits',
+//             'product_size'=>'medium'
+//         ] );
+
+// ---------------------------------------- VEGETABLES -----------------------------------------------------------------------
+
+//         Product::create( [
+//             'name'=>'Tomato',
+//             'price'=>4.50,
+//             // Zdroj: https://www.britannica.com/plant/tomato
+//             'description'=>'
+// Tomato plants are generally much branched, spreading 60–180 cm (24–72 inches) and somewhat trailing when fruiting, but a few forms are compact and upright.
+// Leaves are more or less hairy, strongly odorous, pinnately compound, and up to 45 cm (18 inches) long.
+// The five-petaled flowers are yellow, 2 cm (0.8 inch) across, pendant, and clustered.
+// Fruits are berries that vary in diameter from 1.5 to 7.5 cm (0.6 to 3 inches) or more.
+// They are usually red, scarlet, or yellow, though green and purple varieties do exist, and they vary in shape from almost spherical to oval and elongate to pear-shaped.
+// Each fruit contains at least two cells of small seeds surrounded by jellylike pulp.',
+//             'short_description'=>'The plant requires relatively warm weather and much sunlight; it is grown chiefly in hothouses in cooler climates. Tomatoes are usually staked, tied, or caged to keep the stems and fruits off the ground, and consistent watering is necessary to avoid blossom-end rot and cracking of the fruits.',
+//             'category'=>'vegetables',
+//             'product_size'=>'medium'
+//         ] );
+
+//         Product::create( [
+//             'name'=>'Potato',
+//             'price'=>2.55,
+//             // Zdroj: https://www.kew.org/plants/potato
+//             'description'=>'
+// Potato plants grow up to 1m tall with hairy stems and leaves divided into around four leaflet pairs.
+// Flowers can be white, pink, purple or blue with yellow centres; grow on stalks around 3cm long; and measure about 2.5cm across.
+// Potatoes are a succulent but inedible spherical, yellow-green berry, up to 4cm across.
+// Underground, the edible root forms a tuber that can be a range of colours, sizes and shapes, depending on the cultivated variety (cultivar).',
+//             'short_description'=>'Boiled, mashed, in stews or roasted, potatoes are a staple food across the world. In fact, potato is the fourth most grown food crop in the world.',
+//             'category'=>'vegetables',
+//             'product_size'=>'medium'
+//         ] );
+
+//         Product::create( [
+//             'name'=>'Pumpkin',
+//             'price'=>6.58,
+//             // Zdroj: https://www.britannica.com/plant/pumpkin
+//             'description'=>'
+// Pumpkins, which produce very long annual vines, are planted individually or in twos or threes on little hills about 2.5 to 3 metres (8 to 10 feet) apart.
+// Botanically, pumpkin fruits are a type of berry known as a pepo.
+// They are generally large, 4–8 kg (9–18 pounds) or more, though some varieties are very small.
+// The largest pumpkins are varieties of C. maxima and may weigh 34 kg (75 pounds) or more; the most massive pumpkins ever grown have exceeded 907 kg (2,000 pounds).
+// Pumpkins are often yellowish to orange in colour, and they vary from oblate to globular to oblong; some feature a white rind.
+// The rind is smooth and usually lightly furrowed or ribbed.
+// The fruit stem is hard and woody, ridged, and angled.
+// The fruits mature in early autumn and can be stored for a few months in a dry place well above freezing temperatures.',
+//             'short_description'=>'Pumpkins are commonly grown for human consumption, for decoration, and also for livestock feed.',
+//             'category'=>'vegetables',
+//             'product_size'=>'large'
+//         ] );
+
+//         Product::create( [
+//             'name'=>'Cucumber',
+//             'price'=>4.50,
+//             // Zdroj: https://www.britannica.com/plant/cucumber
+//             'description'=>'
+// The cucumber plant is a tender annual with a rough, succulent, trailing stem.
+// The hairy leaves have three to five pointed lobes, and the stem bears branched tendrils by which the plant can be trained to supports.
+// The five-petaled yellow flowers are unisexual and produce a type of berry known as a pepo.
+// The heat requirement is one of the highest among the common vegetables, and the fruits can become bitter if exposed to uneven watering conditions.
+// The plants are susceptible to a number of bacterial and fungal diseases, including downy mildew, anthracnose, and Fusarium wilt.',
+//             'short_description'=>'Cucumber is widely cultivated for its edible fruit. The nutritional value of the cucumber is low, but its delicate flavour makes it popular for salads and relishes.',
+//             'category'=>'vegetables',
+//             'product_size'=>'medium'
+//         ] );
+
+//         Product::create( [
+//             'name'=>'Ginger',
+//             'price'=>8.99,
+//             // Zdroj: https://www.britannica.com/plant/ginger
+//             'description'=>'
+// The leafy stems of ginger grow about 1 metre (about 3 feet) high.
+// The leaves are 15 to 30 cm (6 to 12 inches) long, elongate, alternate in two vertical rows, and arise from sheaths enwrapping the stem.
+// The flowers are in dense conelike spikes about 2.5 cm (1 inch) thick and 5 to 8 cm (2 to 3 inches) long that are composed of overlapping green bracts, which may be edged with yellow.
+// Each bract encloses a single small yellow-green and purple flower.',
+//             'short_description'=>'The spice has a slightly biting taste and is used, usually dried and ground, to flavour breads, sauces, curry dishes, confections, pickles, and ginger ale.',
+//             'category'=>'vegetables',
+//             'product_size'=>'small'
+//         ] );
+
+//         Product::create( [
+//             'name'=>'Garlic',
+//             'price'=>2.50,
+//             // Zdroj: https://www.britannica.com/plant/garlic
+//             'description'=>'
+// Garlic plants grow about 60 cm (2 feet) tall.
+// Depending on the variety, the long leaves typically arise from a short hard stem above the bulb or emerge from a softer pseudostem made up of overlapping leaf sheaths.
+// The bulb is covered with membranous skin and encloses up to 20 edible bulblets called cloves.
+// The spherical flower cluster is initially enclosed in a pair of papery tapered bracts; the bracts split open when the green-white or pinkish flowers bloom.
+// Flower stalks sometimes arise bearing tiny bulbils (tiny secondary bulbs that form in place of flowers) and sterile blossoms.
+// Garlic is usually grown as an annual crop and is propagated by planting cloves or top bulbils, though seeds can be also be used.',
+//             'short_description'=>'The bulbs have a powerful onionlike aroma and pungent taste and are not usually eaten raw.',
+//             'category'=>'vegetables',
+//             'product_size'=>'small'
+//         ] );
+
+//         Product::create( [
+//             'name'=>'Onion',
+//             'price'=>1.99,
+//             // Zdroj: https://www.britannica.com/plant/onion-plant
+//             'description'=>'
+// The common onion has one or more leafless flower stalks that reach a height of 75–180 cm (2.5–6 feet), terminating in a spherical cluster of small greenish white flowers.
+// Some flower clusters produce bulbils, tiny secondary bulbs that can be used to asexually propagate new plants.
+// The concentric leaf bases of the developing plant swell to form the underground edible bulb.
+// Most commercially cultivated onions are grown from the plant’s small black seeds, which are sown directly in the field, but onions may also be grown from small bulbs or from transplants.
+// Onions are very hardy and can survive in a wide range of growing conditions.
+// The bulbs vary in size, shape, colour, and pungency, though warmer climates generally produce onions with a milder, sweeter flavour than do other climates.
+// The onion’s characteristic pungency results from the sulfur-rich volatile oil it contains; the release of this oil during peeling or chopping brings tears to the eyes.',
+//             'short_description'=>'Onions are low in nutrients but are valued for their flavour and are used widely in cooking. They add flavour to such dishes as stews, roasts, soups, and salads and are also served as a cooked vegetable.',
+//             'category'=>'vegetables',
 //             'product_size'=>'small'
 //         ] );
 

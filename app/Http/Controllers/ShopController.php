@@ -35,7 +35,7 @@ class ShopController extends Controller
         //     $this->category = 'all';
         //     // echo "<script>console.log('$this->category')</script>";
         // }
-
+        
         switch($cat) {
             case 'flowers':
                 $category_clicked = 1;
@@ -77,7 +77,7 @@ class ShopController extends Controller
         // else if($this->order_type == null && $request->order_type == null) {
         //     $this->order_type = 'asc';
         // }
-
+        
         // session(['order_by' => 'products.id']);
         $order_by = session('order_by');
         $orderby_clicked = 0;
@@ -102,16 +102,40 @@ class ShopController extends Controller
             }
         }
 
-        $min_price = $request->min_price;
-        // echo "<script>console.log('$min_price')</script>";
-        if($min_price == null) {
+        $min_price = session('min_price');
+        // echo "<script>console.log('$order_type')</script>";
+        if($request->min_price != null) {
+            session(['min_price' => $request->min_price]);
+            $min_price = session('min_price');
+            // echo "<script>console.log('$this->category')</script>";
+        }
+        else if(($min_price == null) && ($request->min_price == null)) {
             $min_price = number_format(Product::whereIn('category', $category)->min('price'), 2, decimal_separator: '.', thousands_separator: '');
+            session(['order_type' => $min_price]);
+            $min_price = session('min_price');
         }
+        // $min_price = $request->min_price;
+        // // echo "<script>console.log('$min_price')</script>";
+        // if($min_price == null) {
+        //     $min_price = number_format(Product::whereIn('category', $category)->min('price'), 2, decimal_separator: '.', thousands_separator: '');
+        // }
 
-        $max_price = $request->max_price;
-        if($max_price == null) {
-            $max_price = number_format(Product::whereIn('category', $category)->max('price'), 2, decimal_separator: '.', thousands_separator: '');
+        $max_price = session('max_price');
+        // echo "<script>console.log('$order_type')</script>";
+        if($request->max_price != null) {
+            session(['max_price' => $request->max_price]);
+            $max_price = session('max_price');
+            // echo "<script>console.log('$this->category')</script>";
         }
+        else if(($max_price == null) && ($request->max_price == null)) {
+            $max_price = number_format(Product::whereIn('category', $category)->max('price'), 2, decimal_separator: '.', thousands_separator: '');
+            session(['max_price' => $max_price]);
+            $max_price = session('max_price');
+        }
+        // $max_price = $request->max_price;
+        // if($max_price == null) {
+        //     $max_price = number_format(Product::whereIn('category', $category)->max('price'), 2, decimal_separator: '.', thousands_separator: '');
+        // }
 
         // $size = ['small', 'medium', 'large'];
         // session(['size' => [$request->size_s, $request->size_m, $request->size_l]]);
@@ -166,7 +190,7 @@ class ShopController extends Controller
         //     $this->order_by = 'products.id';
         //     $orderby_clicked = 0;
         // }
-
+        
         // echo "<script>console.log('$this->order_type')</script>";
 
         // $this->order_type = $request->order_type;
@@ -212,9 +236,8 @@ class ShopController extends Controller
                 ->where('price', '<=', $max_price)
                 ->orderBy($order_by, $order_type)
                 ->groupBy('products.id')
-                ->paginate(5);
-
-
+                ->paginate(6);
+        
 
         return view('shop/shop', ['products' => $products, 'orderby_clicked' => $orderby_clicked, 'category_clicked' => $category_clicked, 'min_price' => $min_price, 'max_price' => $max_price, 'search_query'=>$search_query, 'size' => json_encode($size)]);
     }
@@ -230,13 +253,35 @@ class ShopController extends Controller
 
         // echo "<script>console.log('$photos')</script>";
 
-        $min_price = $request->min_price;
-        if($min_price == null) {
-            $min_price = number_format(Product::min('price'), 2);
+        $min_price = session('min_price');
+        // echo "<script>console.log('$order_type')</script>";
+        if($request->min_price != null) {
+            session(['min_price' => $request->min_price]);
+            $min_price = session('min_price');
+            // echo "<script>console.log('$this->category')</script>";
         }
-        $max_price = $request->max_price;
-        if($max_price == null) {
-            $max_price = number_format(Product::max('price'), 2);
+        else if(($min_price == null) && ($request->min_price == null)) {
+            $min_price = number_format(Product::min('price'), 2, decimal_separator: '.', thousands_separator: '');
+            session(['order_type' => $min_price]);
+            $min_price = session('min_price');
+        }
+        // $min_price = $request->min_price;
+        // // echo "<script>console.log('$min_price')</script>";
+        // if($min_price == null) {
+        //     $min_price = number_format(Product::whereIn('category', $category)->min('price'), 2, decimal_separator: '.', thousands_separator: '');
+        // }
+
+        $max_price = session('max_price');
+        // echo "<script>console.log('$order_type')</script>";
+        if($request->max_price != null) {
+            session(['max_price' => $request->max_price]);
+            $max_price = session('max_price');
+            // echo "<script>console.log('$this->category')</script>";
+        }
+        else if(($max_price == null) && ($request->max_price == null)) {
+            $max_price = number_format(Product::max('price'), 2, decimal_separator: '.', thousands_separator: '');
+            session(['max_price' => $max_price]);
+            $max_price = session('max_price');
         }
 
         $best_sellers = Product::select('products.*', DB::raw('MIN(photo_path) AS photo_path, MAX(product_statistics.count) AS best_sellers'))
