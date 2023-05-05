@@ -13,6 +13,8 @@ class ShopController extends Controller
     public function viewShop(Request $request)
     {
         $search_query = $request->input('search_query');
+        session(['search_query' => $search_query]);
+        $search_query = session('search_query');
 
         $cat = session('category');
         if($request->category != null) {
@@ -29,7 +31,7 @@ class ShopController extends Controller
         //     $this->category = 'all';
         //     // echo "<script>console.log('$this->category')</script>";
         // }
-        
+
         switch($cat) {
             case 'flowers':
                 $category_clicked = 1;
@@ -71,7 +73,7 @@ class ShopController extends Controller
         // else if($this->order_type == null && $request->order_type == null) {
         //     $this->order_type = 'asc';
         // }
-        
+
         // session(['order_by' => 'products.id']);
         $order_by = session('order_by');
         $orderby_clicked = 0;
@@ -114,7 +116,7 @@ class ShopController extends Controller
             session(['size' => ['small', 'medium', 'large']]);
         }
         else {
-            if(($request->category == null) && ($request->order_type == null) && ($request->order_by == null) && ($request->min_price == null) && ($request->max_price == null)) {
+            if(($request->category == null) && ($request->order_type == null) && ($request->order_by == null) && ($request->min_price == null) && ($request->max_price == null) && ($search_query == null)) {
                 $size = session('size');
                 // echo "<script>console.log('$size[0]')</script>";
                 if($request->size_s == null) {
@@ -160,7 +162,7 @@ class ShopController extends Controller
         //     $this->order_by = 'products.id';
         //     $orderby_clicked = 0;
         // }
-        
+
         // echo "<script>console.log('$this->order_type')</script>";
 
         // $this->order_type = $request->order_type;
@@ -207,7 +209,7 @@ class ShopController extends Controller
                 ->orderBy($order_by, $order_type)
                 ->groupBy('products.id')
                 ->paginate(5);
-        
+
 
         return view('shop/shop', ['products' => $products, 'orderby_clicked' => $orderby_clicked, 'category_clicked' => $category_clicked, 'min_price' => $min_price, 'max_price' => $max_price, 'search_query'=>$search_query, 'size' => json_encode($size)]);
     }
