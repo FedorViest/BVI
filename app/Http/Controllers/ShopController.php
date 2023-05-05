@@ -12,9 +12,13 @@ class ShopController extends Controller
 {
     public function viewShop(Request $request)
     {
-        $search_query = $request->input('search_query');
-        session(['search_query' => $search_query]);
         $search_query = session('search_query');
+        if ($request->has('search_query')) {
+            $search_query = $request->input('search_query');
+            session(['search_query' => $search_query]);
+        } else {
+            $search_query = session('search_query');
+        }
 
         $cat = session('category');
         if($request->category != null) {
@@ -116,7 +120,7 @@ class ShopController extends Controller
             session(['size' => ['small', 'medium', 'large']]);
         }
         else {
-            if(($request->category == null) && ($request->order_type == null) && ($request->order_by == null) && ($request->min_price == null) && ($request->max_price == null) && ($search_query == null)) {
+            if(($request->category == null) && ($request->order_type == null) && ($request->order_by == null) && ($request->min_price == null) && ($request->max_price == null) && !($request->has('search_query'))) {
                 $size = session('size');
                 // echo "<script>console.log('$size[0]')</script>";
                 if($request->size_s == null) {
@@ -209,6 +213,7 @@ class ShopController extends Controller
                 ->orderBy($order_by, $order_type)
                 ->groupBy('products.id')
                 ->paginate(5);
+
 
 
         return view('shop/shop', ['products' => $products, 'orderby_clicked' => $orderby_clicked, 'category_clicked' => $category_clicked, 'min_price' => $min_price, 'max_price' => $max_price, 'search_query'=>$search_query, 'size' => json_encode($size)]);

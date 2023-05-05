@@ -8,7 +8,7 @@
     <form action="{{url('shop')}}" method="get" class="search-form">
         @csrf <!-- Add CSRF token for security -->
         <label class="search-form" for="query"></label>
-        <input type="text" name="search_query" id="query" placeholder="Search..." value="{{isset($search_query) ? $search_query : ''}}">
+        <input type="text" name="search_query" id="query" placeholder="Search..." value="{{ session('search_query') ? session('search_query') : '' }}"> <!--value="{{isset($search_query) ? $search_query : ''}}">-->
         <button type="submit"><span class="material-symbols-outlined">search</span></button>
     </form>
     <nav class="show_all_nav">
