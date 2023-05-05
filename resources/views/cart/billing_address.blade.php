@@ -152,7 +152,7 @@
                         </div>
                         <div class="col-2">
                             <div class="row d-flex">
-                                <div class="col-4">{{$product->price * $product->quantity}}€</div>
+                                <div class="col-4">{{number_format($product->price * $product->quantity, 2)}}€</div>
                             </div>
                         </div>
                     </div>
@@ -192,7 +192,7 @@
                                value="<?php  $val = 0;
                                         foreach ($cart->products as $product)
                                         {$val += $product->quantity * $product->price;}
-                                        echo($val + $cart->delivery_price + $cart->payment_price);
+                                        echo(number_format($val + $cart->delivery_price + $cart->payment_price, 2));
                                         ?>€">
                     </div>
                 </div>

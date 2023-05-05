@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Title</title>
+    <title>Product</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -83,11 +83,11 @@
                 <div class="carousel-inner">
                     @if(count($photos) > 0)
                     <div class="carousel-item active">
-                        <img class="d-block product_img" src="{{ asset('photos/' . $photos[0]->photo_path) }}" alt="{{ $product_detail->name }}"> 
+                        <img class="d-block product_img" src="{{ asset('photos/' . $photos[0]->photo_path) }}" alt="{{ $product_detail->name }}">
                     </div>
                     @else
                     <div class="carousel-item active">
-                        <img class="d-block product_img" src="" alt="{{ $product_detail->name }}"> 
+                        <img class="d-block product_img" src="" alt="{{ $product_detail->name }}">
                     </div>
                     @endif
 
@@ -97,7 +97,7 @@
                                 @continue
                             @endif
                             <div class="carousel-item">
-                                <img class="d-block product_img" src="{{ asset('photos/' . $photo->photo_path) }}" alt="{{ $product_detail->name }}"> 
+                                <img class="d-block product_img" src="{{ asset('photos/' . $photo->photo_path) }}" alt="{{ $product_detail->name }}">
                             </div>
                         @endforeach
                     @endif

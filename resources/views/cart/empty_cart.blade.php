@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Empty Cart</title>
     <link rel="stylesheet" href="{{asset('css/order_confirm.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('css/header.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('css/footer.css')}}" type="text/css">

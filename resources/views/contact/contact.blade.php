@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Contact</title>
     <link rel="stylesheet" href="{{asset('css/contact.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('css/header.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('css/footer.css')}}" type="text/css">

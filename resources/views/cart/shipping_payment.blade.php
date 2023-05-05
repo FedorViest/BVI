@@ -75,7 +75,7 @@
                     }
                 }
             }
-            document.getElementById('total-price').value = total_price + "€";
+            document.getElementById('total-price').value = total_price.toFixed(2) + "€";
         }
 
         async function send_ajax(formData) {
@@ -195,7 +195,7 @@
                         </div>
                         <div class="col-2">
                             <div class="row d-flex">
-                                <div class="col-4">{{$product->price * $product->quantity}}€</div>
+                                <div class="col-4">{{number_format($product->price * $product->quantity, 2)}}€</div>
                             </div>
                         </div>
                     </div>

@@ -220,7 +220,7 @@ class AdminController extends Controller
                 $numbers[] = $this->getMax($numbers) + 1;
 
                 $image = Image::make($photo);
-                $image->fit(200, 200);
+                $image->fit(500, 500);
 
                 $image->save(public_path('photos') . '/' . $fileName);
 

@@ -46,7 +46,7 @@
                 total_price += products[i].price * document.getElementById('num_counter-' + products[i].id).value;
                 //total_price = total_price.toFixed(2);
             }
-            document.getElementById('total-price').value = total_price + "€";
+            document.getElementById('total-price').value = total_price.toFixed(2) + "€";
         }
 
         /*var products = @json($cart->products);
@@ -120,7 +120,7 @@
                                         class="material-symbols-outlined">remove</span></button>
                             </div>
                             <!--</div>-->
-                            <div class="price-div align-items-center d-flex  m-0 p-0">{{$product->price}}€</div>
+                            <div class="price-div align-items-center d-flex  m-0 p-0">{{number_format($product->price, 2)}}€</div>
                             <div class="delete-div align-items-center d-flex  m-0 p-0">
                                 <form name="deleteForm-{{$product->id}}" class="delete-div align-items-center d-flex  m-0 p-0" action="{{route('cart.destroy', ['cart' => $cart->id, 'id' => $cart->id ,'product_id' => $product->id])}}" method="post">
                                     <span class="material-symbols-outlined" onclick="document.forms['deleteForm-{{$product->id}}'].submit()">delete</span>
