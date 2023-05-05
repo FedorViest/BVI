@@ -5,7 +5,6 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Illuminate\Support\Facades\Session;
 
 class SearchMiddleware
 {
@@ -14,7 +13,6 @@ class SearchMiddleware
         // Clear search_query session parameter when user navigates away from shop page
         if ($request->path() !== 'shop') {
             session()->forget('search_query');
-            session()->save();
         }
 
         return $next($request);
