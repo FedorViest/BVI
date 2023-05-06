@@ -6,34 +6,28 @@
             </button>
             <ul id="sub_side_nav_links" class="sub_side_nav_links">
                 <li class="side_nav_link">
-                <!-- <a href="{{ route('shop', ['category' => 'vegetables', 'price' => 10]) }}" class="side_nav_link"> -->
-                    <!-- <a href="{{ strpos(Request::url(), 'shop') ? request()->fullUrlWithQuery(['category' => 'all']) : url('/shop') }}"> -->
                     <a href="{{ route('shop', ['category' => 'all']) }}">
-                        All<!-- <button class="side_nav_button">All</button> -->
+                        All
                     </a>
                 </li>
                 <li class="side_nav_link">
                     <a href="{{ route('shop', ['category' => 'flowers']) }}">    
-                <!-- <a href="{{ strpos(Request::url(), 'shop') ? request()->fullUrlWithQuery(['category' => 'flowers']) : url('/shop') . '?' . http_build_query(['category' => 'flowers']) }}"> -->
-                        Flowers<!-- <button class="side_nav_button">Flowers</button> -->
+                        Flowers
                     </a>
                 </li>
                 <li class="side_nav_link">
                     <a href="{{ route('shop', ['category' => 'trees']) }}">
-                    <!-- <a href="{{ strpos(Request::url(), 'shop') ? request()->fullUrlWithQuery(['category' => 'trees']) : url('/shop') . '?' . http_build_query(['category' => 'trees']) }}"> -->
-                        Trees<!-- <button class="side_nav_button">Trees</button> -->
+                        Trees
                     </a>
                 </li>
                 <li class="side_nav_link">
                     <a href="{{ route('shop', ['category' => 'fruits']) }}">
-                    <!-- <a href="{{ strpos(Request::url(), 'shop') ? request()->fullUrlWithQuery(['category' => 'fruits']) : url('/shop') . '?' . http_build_query(['category' => 'fruits']) }}"> -->
-                        Fruits<!-- <button class="side_nav_button">Fruits</button> -->
+                        Fruits
                     </a>
                 </li>
                 <li class="side_nav_link">
                     <a href="{{ route('shop', ['category' => 'vegetables']) }}">
-                    <!-- <a href="{{ strpos(Request::url(), 'shop') ? request()->fullUrlWithQuery(['category' => 'vegetables']) : url('/shop') . '?' . http_build_query(['category' => 'vegetables']) }}"> -->
-                        Vegetables<!-- <button class="side_nav_button">Vegetables</button> -->
+                        Vegetables
                     </a>
                 </li>
             </ul>

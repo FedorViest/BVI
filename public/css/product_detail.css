@@ -1,32 +1,20 @@
 @import url('constants.css');
 
 
-/* .product_detail {
-    margin-right: 15px;
-} */
-
-
 .main_info {
     margin-top: 15px;
-    /* margin-left: 0; */
-    /* margin-left: 0;
-    margin-right: 0; */
 }
 
 .product_images {
-    /* display: flex; */
     justify-content: center;
-    /* align-items: center; */
 }
 
 .carousel-inner {
     width: 100%;
-    /* max-width: 360px; */
 }
 
 .product_img {
     width: 100%;
-    /* max-width: 360px; */
 }
 
 .carousel-inner button {
@@ -58,7 +46,6 @@
     align-items: center;
     display: flex;
     text-align: center;
-    /* justify-content: space-evenly; */
 }
 
 

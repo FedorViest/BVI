@@ -132,7 +132,6 @@
                         <button type="button" class="btn_custom" id="cart_button" onclick="product_added()">
                             <img class="shopping_cart_img" src="{{ asset('assets/shoppping_cart.png') }}" alt="shopping_cart">
                             Add to cart
-                            <!-- id produtku, quantity POSLAT NA ENDPOINT -->
                         </button>
                     </div>
                 </div>

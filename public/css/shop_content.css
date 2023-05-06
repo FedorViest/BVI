@@ -3,7 +3,6 @@
 
 main.row {
     min-height: 100vh;
-    /* width: 100%; */
     margin-right: 0;
     margin-left: 0;
 }
@@ -23,8 +22,6 @@ main.row {
 .orderby_buttons ul li {
     padding: 0;
     text-align: center;
-    /* padding-top: 15px;
-    padding-bottom: 15px; */
 }
 
 .order_by_link a {
@@ -38,36 +35,14 @@ main.row {
     align-items: center;
 }
 
-/* .order_by_btn {
-    width: 100%;
-    height: 100%;
-    background-color: var(--honeydew);
-    border: 3px solid var(--nyanza);
-    border-bottom: 3px solid var(--avocado);
-    padding-top: 15px;
-    padding-bottom: 15px;
-    font-weight: 700;
-    flex-grow: 1;
-    color: inherit;
-    text-decoration: none;
-} */
-
 .order_by_btn:hover {
     background-color: var(--nyanza);
 }
-
-/* .order_by_btn:focus {
-    background-color: var(--nyanza);
-    border: 3px solid var(--avocado);
-    border-bottom: 3px solid var(--nyanza);
-} */
-
 
 .items {
     background-color: var(--honeydew);
     margin: 0;
     padding-bottom: 15px;
-    /* border-top: 3px solid var(--avocado); */
 }
 
 .item {
