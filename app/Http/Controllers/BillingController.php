@@ -96,7 +96,6 @@ class BillingController extends Controller
         }
         foreach ($cart_contents as $cart_content){
             $product = new Product_quantity($cart_content);
-            //TODO check product ID
             $photos_query = Photo::query()->select('photo_path')->where('product_id', '=', $product->id)->get();
             foreach ($photos_query as $photo_query){
                 $product->photos[] = $photo_query->photo_path;

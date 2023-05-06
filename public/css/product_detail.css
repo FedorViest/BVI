@@ -29,7 +29,7 @@
 
 .product_detail_price {
     font-size: 1.5rem;
-    font-weight: 700; 
+    font-weight: 700;
 }
 
 .buyer_interaction {
@@ -83,6 +83,11 @@
 
 .btn_custom {
     min-width: 135px;
+}
+
+.long_description pre{
+    overflow: hidden;
+    white-space: pre-wrap;
 }
 
 

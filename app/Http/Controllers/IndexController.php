@@ -46,12 +46,14 @@ class IndexController extends Controller
             ->join('product_statistics', 'products.id', '=', 'product_statistics.product_id')
             ->groupBy('products.id', 'product_statistics.count')
             ->orderByDesc('product_statistics.count')
+            ->limit(12)
             ->get();
 
         $products_new = Product::select('products.*', DB::raw('MIN(photo_path) AS photo_path'))
             ->leftJoin('photos', 'products.id', '=', 'photos.product_id')
             ->groupBy('products.id')
             ->orderByDesc('created_at')
+            ->limit(18)
             ->get();
 
         return view('index.index', ['products_best' => $products_best, 'products_new' => $products_new]);

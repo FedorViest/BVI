@@ -29,7 +29,7 @@ class ShopController extends Controller
             session(['category' => 'all']);
             $cat = session('category');
         }
-        
+
         switch($cat) {
             case 'flowers':
                 $category_clicked = 1;
@@ -148,7 +148,7 @@ class ShopController extends Controller
         $products = Product::select('products.*', DB::raw('MIN(photo_path) AS photo_path, MAX(product_statistics.count) AS best_sellers'))
                 ->leftJoin('photos', 'products.id', '=', 'photos.product_id')
                 ->leftJoin('product_statistics', 'products.id', '=', 'product_statistics.product_id')
-                ->where('name', 'LIKE', '%' . $search_query . '%')
+                ->whereRaw('LOWER(name) LIKE ?', ['%' . strtolower($search_query) . '%'])
                 ->whereIn('category', $category)
                 ->whereIn('product_size', $size)
                 ->where('price', '>=', $min_price)
@@ -156,7 +156,7 @@ class ShopController extends Controller
                 ->orderBy($order_by, $order_type)
                 ->groupBy('products.id')
                 ->paginate(6);
-        
+
 
         return view('shop/shop', ['products' => $products, 'orderby_clicked' => $orderby_clicked, 'category_clicked' => $category_clicked, 'min_price' => $min_price, 'max_price' => $max_price, 'search_query'=>$search_query, 'size' => json_encode($size)]);
     }
