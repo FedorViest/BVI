@@ -44,7 +44,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $products_query = Product::all();
+        $products_query = Product::orderBy('name')->get();
         //$products = Product::query()->select('products.*')->join('photos', 'photos.product_id', '=', 'products.id');
         $products = array();
         foreach ($products_query as $product_query){
@@ -84,7 +84,7 @@ class AdminController extends Controller
             'short_description' => 'required|string|max:4096',
             'category' => 'required|string',
             'product_size' => 'required|string',
-            'photos' => 'required|array|min:1|max:10',
+            'photos' => 'required|array|min:2|max:10',
             //'photos.*' => 'required|image|max:2048',
         ]);
 

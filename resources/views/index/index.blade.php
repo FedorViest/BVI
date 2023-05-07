@@ -61,7 +61,7 @@
                                         <!-- https://pixabay.com/photos/apple-tree-apples-leaves-fall-3735679/ -->
                                         <section class="card-body">
                                             <h3 class="card-title">{{$product->name}}</h3>
-                                            <p class="card-price">{{floor($product->price * 100) / 100 }}€</p>
+                                            <p class="card-price">{{number_format($product->price, 2)}}€</p>
                                         </section>
                                     </a>
                                 </article>

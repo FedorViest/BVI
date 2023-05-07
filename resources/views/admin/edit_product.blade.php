@@ -31,6 +31,7 @@
                     <input type="file" id="imageUpload" name="images[]" multiple accept=".png">
                     Upload files
                 </label>
+                <p>*Insert at least 2 images</p>
                 <!-- your form fields here -->
             </form>
         </div>
