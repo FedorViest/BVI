@@ -25,7 +25,7 @@
         <!-- section for contact map-->
         <section class="content">
             <iframe class="picture_map"
-                    src="https://www.openstreetmap.org/export/embed.html?bbox=17.06408500671387%2C48.150841192448034%2C17.078247070312504%2C48.15715413998257&amp;layer=mapnik">
+                    src="https://www.openstreetmap.org/export/embed.html?bbox=9.853121638298036%2C10.324028499909323%2C9.860202670097353%2C10.32863050546274&amp;layer=mapnik" ">
             </iframe>
         </section>
         <!-- section for contact information including address, phone, email-->
@@ -35,8 +35,8 @@
                     <section class="contact_information_block">
                         <span class="material-symbols-outlined">location_on</span>
                         <article>
-                            <p class="paragraph_title">FIIT STU</p>
-                            <p>Ilkovicova 2, <br>842 16 Karlova Ves, <br>Bratislava</p>
+                            <p class="paragraph_title">PlantHub</p>
+                            <p>Address <br>Postcode Citypart, <br>City</p>
                         </article>
                     </section>
                     <section class="contact_information_block">

@@ -10,6 +10,7 @@ use App\Models\Photo;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Log;
 
 class Product_with_photo {
     public $id;
@@ -42,7 +43,7 @@ class AdminController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         $products_query = Product::orderBy('name')->get();
         //$products = Product::query()->select('products.*')->join('photos', 'photos.product_id', '=', 'products.id');
@@ -55,6 +56,26 @@ class AdminController extends Controller
             }
             $products[] = $product;
         }
+        $currentTime = now()->toIso8601String();
+        $timezone = config('app.timezone');
+        $method = $request->method();
+        $path = $request->fullUrl();
+        $user_email = auth()->user()->email;
+        $user_id = auth()->user()->id;
+        $ip = $request->ip();
+        $userAgent = $request->header('User-Agent');
+        $requestHeaders = $request->header();
+        $requestBody = $request->all();
+        $routeName = $request->route()->getName();
+        $controllerAction = $request->route()->getActionName();
+        $sessionId = session()->getId();
+        $responseStatusCode = http_response_code();
+        $startTime = microtime(true);
+        $endTime = microtime(true);
+        $executionTime = round(($endTime - $startTime) * 1000, 2);
+        $environment = app()->environment();
+        $logMessage = "[$currentTime $timezone] [$method] Request from $ip Request to $path by [$user_id $user_email] User Agent: $userAgent, Route: $routeName, Controller Action: $controllerAction, Session ID: $sessionId, Status Code: $responseStatusCode, Execution Time: {$executionTime}ms, Environment: $environment, Request Headers: " . json_encode($requestHeaders) . ", Request Body: " . json_encode($requestBody);
+        Log::info($logMessage);
         return view('admin.index', ['products' => $products]);
     }
 
