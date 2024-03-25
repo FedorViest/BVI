@@ -1,0 +1,1 @@
+pg_restore -d bvi /init.sql
