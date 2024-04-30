@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Log;
 
 class LogRequests
 {
@@ -34,9 +34,7 @@ class LogRequests
         ];
 
         // Log the data in JSON format
-        $jsonLog = json_encode($logData);
-
-        File::append(storage_path('logs/requests.log'), $jsonLog, PHP_EOL);
+        Log::channel('requests')->info(json_encode($logData));
 
         return $next($request);
     }
