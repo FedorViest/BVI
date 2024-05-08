@@ -7,7 +7,7 @@
 **Due date:** 9.5.2024
 
 This repository contains the website and configuration files for deployment of HTTP honeypot. 
-The project consists of website application written in PHP Laravel framework and HTML, CSS< Bootstrap, Javascript. The
+The project consists of website application written in PHP Laravel framework and HTML, CSS, Bootstrap, Javascript. The
 project is dockerized. For logging it uses elasticsearch and Kibana and it uses filebeat to transfer logs from application
 to elastic.
 
